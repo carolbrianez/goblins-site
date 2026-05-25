@@ -529,89 +529,23 @@ function FinalCTA() {
         <div className="absolute inset-0 grid-bg opacity-50" />
       </div>
 
-      <div className="relative mx-auto max-w-[1500px] px-6 lg:px-10">
-        <div className="grid gap-16 lg:grid-cols-[1.2fr_1fr]">
-          <div>
-            <SectionLabel index="//09">SIGNAL OPEN</SectionLabel>
-            <h2 className="font-display text-5xl leading-[0.9] tracking-wide md:text-8xl">
-              LET'S BUILD <br />
-              SOMETHING <br />
-              <span className="text-plasma glow-text">UNFORGETTABLE.</span>
-            </h2>
-            <p className="mt-8 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
-              Tell us about your project. We respond personally within 48 hours —
-              no sales funnel, no calendar tetris.
-            </p>
-          </div>
-
-          <ContactForm />
+      <div className="relative mx-auto max-w-[1500px] px-6 lg:px-10 text-center">
+        <SectionLabel index="//09">SIGNAL OPEN</SectionLabel>
+        <h2 className="font-display text-5xl leading-[0.9] tracking-wide md:text-8xl">
+          LET'S BUILD <br />
+          SOMETHING <br />
+          <span className="text-plasma glow-text">UNFORGETTABLE.</span>
+        </h2>
+        <p className="mt-8 mx-auto max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
+          Tell us about your project. We respond personally within 48 hours —
+          no sales funnel, no calendar tetris.
+        </p>
+        <div className="mt-10">
+          <Link to="/contact" className="btn-plasma">
+            START A PROJECT <span aria-hidden>→</span>
+          </Link>
         </div>
       </div>
     </section>
-  );
-}
-
-export function ContactForm() {
-  return (
-    <form
-      className="hud-frame relative space-y-5 p-8 clip-cut"
-      onSubmit={(e) => {
-        e.preventDefault();
-        alert("Signal received. We'll be in touch.");
-      }}
-    >
-      <div className="absolute -top-3 left-6 bg-background px-2 font-mono text-[10px] tracking-[0.3em] text-plasma">
-        TRANSMISSION.FORM
-      </div>
-
-      <Field label="NAME" name="name" placeholder="Your name" />
-      <Field label="COMPANY" name="company" placeholder="Studio / company" />
-      <Field label="EMAIL" name="email" placeholder="your@email.com" />
-      <Field
-        label="PROJECT TYPE"
-        name="type"
-        as="select"
-        options={["Full Development", "Co-Development", "Outsourcing", "Just exploring"]}
-      />
-      <Field
-        label="BUDGET RANGE"
-        name="budget"
-        as="select"
-        options={["< $50K", "$50K – $250K", "$250K – $1M", "$1M+"]}
-      />
-      <Field label="MESSAGE" name="message" as="textarea" placeholder="What are you building?" />
-
-      <button type="submit" className="btn-plasma w-full justify-center">
-        TRANSMIT SIGNAL <span>↗</span>
-      </button>
-    </form>
-  );
-}
-
-function Field({
-  label, name, placeholder, as = "input", options,
-}: {
-  label: string;
-  name: string;
-  placeholder?: string;
-  as?: "input" | "textarea" | "select";
-  options?: string[];
-}) {
-  const cls =
-    "w-full border border-border/80 bg-background/60 px-4 py-3 font-mono text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-plasma focus:outline-none focus:ring-1 focus:ring-plasma/40";
-  return (
-    <label className="block">
-      <span className="mb-2 block font-mono text-[10px] tracking-[0.3em] text-plasma">
-        ◢ {label}
-      </span>
-      {as === "input" && <input name={name} placeholder={placeholder} className={cls} />}
-      {as === "textarea" && <textarea name={name} rows={4} placeholder={placeholder} className={cls} />}
-      {as === "select" && (
-        <select name={name} className={cls} defaultValue="">
-          <option value="" disabled>— select —</option>
-          {options?.map((o) => <option key={o} value={o}>{o}</option>)}
-        </select>
-      )}
-    </label>
   );
 }

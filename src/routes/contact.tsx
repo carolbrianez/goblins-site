@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { SectionLabel } from "@/components/site/SectionLabel";
-import { ContactForm } from "./index";
 import studio from "@/assets/studio-atmosphere.jpg";
 
 export const Route = createFileRoute("/contact")({
@@ -80,5 +79,70 @@ function ContactPage() {
         </div>
       </section>
     </PageLayout>
+  );
+}
+
+function ContactForm() {
+  return (
+    <form
+      className="hud-frame relative space-y-5 p-8 clip-cut"
+      onSubmit={(e) => {
+        e.preventDefault();
+        alert("Signal received. We'll be in touch.");
+      }}
+    >
+      <div className="absolute -top-3 left-6 bg-background px-2 font-mono text-[10px] tracking-[0.3em] text-plasma">
+        TRANSMISSION.FORM
+      </div>
+
+      <Field label="NAME" name="name" placeholder="Your name" />
+      <Field label="COMPANY" name="company" placeholder="Studio / company" />
+      <Field label="EMAIL" name="email" placeholder="your@email.com" />
+      <Field
+        label="PROJECT TYPE"
+        name="type"
+        as="select"
+        options={["Full Development", "Co-Development", "Outsourcing", "Just exploring"]}
+      />
+      <Field
+        label="BUDGET RANGE"
+        name="budget"
+        as="select"
+        options={["< $50K", "$50K – $250K", "$250K – $1M", "$1M+"]}
+      />
+      <Field label="MESSAGE" name="message" as="textarea" placeholder="What are you building?" />
+
+      <button type="submit" className="btn-plasma w-full justify-center">
+        TRANSMIT SIGNAL <span>↗</span>
+      </button>
+    </form>
+  );
+}
+
+function Field({
+  label, name, placeholder, as = "input", options,
+}: {
+  label: string;
+  name: string;
+  placeholder?: string;
+  as?: "input" | "textarea" | "select";
+  options?: string[];
+}) {
+  const cls =
+    "w-full border border-border/80 bg-background/60 px-4 py-3 font-mono text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-plasma focus:outline-none focus:ring-1 focus:ring-plasma/40";
+  return (
+    <label className="block">
+      <span className="mb-2 block font-mono text-[10px] tracking-[0.3em] text-plasma">
+        ◢ {label}
+      </span>
+      {as === "input" && <input name={name} placeholder={placeholder} className={cls} />}
+      {as === "textarea" && <textarea name={name} rows={4} placeholder={placeholder} className={cls} />}
+      {as === "select" && (
+        <select name={name} className={cls} defaultValue="">
+          <option value="" disabled>— select —</option>
+          {options?.map((o) => <option key={o} value={o}>{o}</option>)}
+        </select>
+      )}
+    </label>
   );
 }
