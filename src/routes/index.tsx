@@ -1,6 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { SectionLabel } from "@/components/site/SectionLabel";
+import teamTony from "@/assets/team-tony.png";
+import teamChris from "@/assets/team-chris.png";
+import teamSakaguti from "@/assets/team-sakaguti.png";
+import teamTanaka from "@/assets/team-tanaka.png";
+import teamRafa from "@/assets/team-rafa.png";
 import heroImg from "@/assets/hero-cinematic.jpg";
 import everlenImg from "@/assets/everlen-key-art.jpg";
 import chamadoImg from "@/assets/chamado-key-art.jpg";
@@ -30,13 +35,13 @@ function Home() {
   return (
     <PageLayout>
       <Hero />
+      <FeaturedWork />
       <AAAExperience />
       <Clients />
       <Services />
       <OriginalIPs />
       <WhyGoblin />
       <Pipeline />
-      <FeaturedWork />
       <FinalCTA />
     </PageLayout>
   );
@@ -54,17 +59,19 @@ function Hero() {
     <section className="relative h-[100svh] min-h-[760px] w-full overflow-hidden">
       {/* bg */}
       <div className="absolute inset-0">
-        <img
-          src={heroImg}
-          alt="Cinematic warrior in stormy battlefield with plasma sword"
-          width={1920}
-          height={1080}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="h-full w-full scale-110 object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent" />
-        <div className="absolute inset-0 vignette" />
-        <div className="absolute inset-0 grid-bg opacity-30" />
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-transparent" />
+        <div className="absolute inset-0 vignette opacity-5" />
+        <div className="absolute inset-0 grid-bg opacity-5" />
       </div>
 
       {/* HUD top bar */}
@@ -101,7 +108,7 @@ function Hero() {
             <Link to="/contact" className="btn-plasma">
               WORK WITH US <span aria-hidden>→</span>
             </Link>
-            <Link to="/projects" className="btn-ghost">
+            <Link to="/everlen" className="btn-ghost">
               EXPLORE OUR WORLDS
             </Link>
           </div>
@@ -411,15 +418,12 @@ function WhyGoblin() {
   );
 }
 
-/* ============== PIPELINE ============== */
-const PIPELINE = [
-  ["PRE-PRODUCTION", "Vision lock. Pitch decks. Scoping."],
-  ["CONCEPT", "Visual development. Art bible. Tone."],
-  ["PROTOTYPING", "Vertical slice. Core loop. Feel."],
-  ["PRODUCTION", "Full pipeline. Assets, code, content."],
-  ["CINEMATICS", "Trailers. In-game scenes. Reveal."],
-  ["POLISH", "Performance, fidelity, juice."],
-  ["DELIVERY", "Ship. Patches. Post-launch."],
+const FOUNDERS = [
+  { name: "Tony Cruz", role: "CTO & Unreal Programmer", img: teamTony },
+  { name: "Chris Silva", role: "CEO & Art Director", img: teamChris },
+  { name: "Matheus Sakaguti", role: "CMO & Concept Artist", img: teamSakaguti },
+  { name: "Vitor Tanaka", role: "Videomaker & Animator", img: teamTanaka },
+  { name: "Rafael Ongaro", role: "CFO", img: teamRafa },
 ];
 
 function Pipeline() {
@@ -428,37 +432,40 @@ function Pipeline() {
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="mb-16 grid gap-6 lg:grid-cols-[2fr_1fr] lg:items-end">
           <div>
-            <SectionLabel index="//07">PIPELINE</SectionLabel>
+            <SectionLabel index="//07">WE ARE</SectionLabel>
             <h2 className="font-display text-5xl leading-[0.95] tracking-wide md:text-7xl">
               THE <span className="text-plasma">FORGE.</span>
             </h2>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
-            A modular production pipeline calibrated for fidelity, velocity, and the
-            unique chaos of game development. Plug in at any node.
+            The crew behind the craft. Senior leads across every discipline —
+            forged in AAA pipelines, built for indie velocity.
           </p>
         </div>
 
-        <div className="relative">
-          <div className="absolute left-0 right-0 top-1/2 hidden h-px bg-gradient-to-r from-plasma/0 via-plasma to-plasma/0 lg:block" />
-          <ol className="relative grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-7">
-            {PIPELINE.map(([title, body], i) => (
-              <li key={title} className="relative">
-                <div className="hud-frame relative p-5 clip-cut transition-all hover:-translate-y-1 hover:border-plasma">
-                  <div className="absolute -top-3 left-4 bg-background px-2 font-mono text-[10px] tracking-[0.3em] text-plasma">
-                    NODE.{String(i + 1).padStart(2, "0")}
-                  </div>
-                  <div className="mt-2 mb-3 flex h-8 w-8 items-center justify-center border border-plasma/60 bg-plasma/10 font-mono text-xs text-plasma pulse-ring">
-                    {i + 1}
-                  </div>
-                  <h3 className="font-display text-base leading-tight tracking-wider text-foreground">
-                    {title}
-                  </h3>
-                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{body}</p>
+        <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
+          {FOUNDERS.map((f, i) => (
+            <div key={f.name} className="group relative">
+              <div className="hud-frame relative overflow-hidden clip-cut transition-all hover:-translate-y-1 hover:border-plasma">
+                <div className="absolute -top-3 left-4 z-10 bg-background px-2 font-mono text-[10px] tracking-[0.3em] text-plasma">
+                  //{String(i + 1).padStart(2, "0")}
                 </div>
-              </li>
-            ))}
-          </ol>
+                <img
+                  src={f.img}
+                  alt={f.name}
+                  className="h-64 w-full object-cover object-top grayscale transition-all group-hover:grayscale-0"
+                />
+                <div className="p-4">
+                  <h3 className="font-display text-base tracking-wider text-foreground">
+                    {f.name}
+                  </h3>
+                  <p className="mt-1 font-mono text-[10px] tracking-[0.2em] text-plasma">
+                    {f.role}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -506,10 +513,6 @@ function FeaturedWork() {
               <div className="absolute right-3 top-3 h-2 w-2 bg-plasma animate-pulse" />
             </figure>
           ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <Link to="/projects" className="btn-ghost">VIEW ALL PROJECTS →</Link>
         </div>
       </div>
     </section>
@@ -563,6 +566,7 @@ export function ContactForm() {
 
       <Field label="NAME" name="name" placeholder="Your name" />
       <Field label="COMPANY" name="company" placeholder="Studio / company" />
+      <Field label="EMAIL" name="email" placeholder="your@email.com" />
       <Field
         label="PROJECT TYPE"
         name="type"

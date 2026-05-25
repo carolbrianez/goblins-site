@@ -28,9 +28,7 @@ export function Footer() {
           <div>
             <h4 className="font-mono text-[11px] tracking-[0.3em] text-plasma">STUDIO</h4>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/goblin-way" className="hover:text-foreground">The Goblin Way</Link></li>
               <li><Link to="/services" className="hover:text-foreground">Services</Link></li>
-              <li><Link to="/projects" className="hover:text-foreground">Projects</Link></li>
               <li><Link to="/contact" className="hover:text-foreground">Contact</Link></li>
             </ul>
           </div>

@@ -10,8 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServicesRouteImport } from './routes/services'
-import { Route as ProjectsRouteImport } from './routes/projects'
-import { Route as GoblinWayRouteImport } from './routes/goblin-way'
 import { Route as EverlenRouteImport } from './routes/everlen'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ChamadoRouteImport } from './routes/chamado'
@@ -20,16 +18,6 @@ import { Route as IndexRouteImport } from './routes/index'
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProjectsRoute = ProjectsRouteImport.update({
-  id: '/projects',
-  path: '/projects',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GoblinWayRoute = GoblinWayRouteImport.update({
-  id: '/goblin-way',
-  path: '/goblin-way',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EverlenRoute = EverlenRouteImport.update({
@@ -58,8 +46,6 @@ export interface FileRoutesByFullPath {
   '/chamado': typeof ChamadoRoute
   '/contact': typeof ContactRoute
   '/everlen': typeof EverlenRoute
-  '/goblin-way': typeof GoblinWayRoute
-  '/projects': typeof ProjectsRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRoutesByTo {
@@ -67,8 +53,6 @@ export interface FileRoutesByTo {
   '/chamado': typeof ChamadoRoute
   '/contact': typeof ContactRoute
   '/everlen': typeof EverlenRoute
-  '/goblin-way': typeof GoblinWayRoute
-  '/projects': typeof ProjectsRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRoutesById {
@@ -77,38 +61,14 @@ export interface FileRoutesById {
   '/chamado': typeof ChamadoRoute
   '/contact': typeof ContactRoute
   '/everlen': typeof EverlenRoute
-  '/goblin-way': typeof GoblinWayRoute
-  '/projects': typeof ProjectsRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/chamado'
-    | '/contact'
-    | '/everlen'
-    | '/goblin-way'
-    | '/projects'
-    | '/services'
+  fullPaths: '/' | '/chamado' | '/contact' | '/everlen' | '/services'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/chamado'
-    | '/contact'
-    | '/everlen'
-    | '/goblin-way'
-    | '/projects'
-    | '/services'
-  id:
-    | '__root__'
-    | '/'
-    | '/chamado'
-    | '/contact'
-    | '/everlen'
-    | '/goblin-way'
-    | '/projects'
-    | '/services'
+  to: '/' | '/chamado' | '/contact' | '/everlen' | '/services'
+  id: '__root__' | '/' | '/chamado' | '/contact' | '/everlen' | '/services'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -116,8 +76,6 @@ export interface RootRouteChildren {
   ChamadoRoute: typeof ChamadoRoute
   ContactRoute: typeof ContactRoute
   EverlenRoute: typeof EverlenRoute
-  GoblinWayRoute: typeof GoblinWayRoute
-  ProjectsRoute: typeof ProjectsRoute
   ServicesRoute: typeof ServicesRoute
 }
 
@@ -128,20 +86,6 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/projects': {
-      id: '/projects'
-      path: '/projects'
-      fullPath: '/projects'
-      preLoaderRoute: typeof ProjectsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/goblin-way': {
-      id: '/goblin-way'
-      path: '/goblin-way'
-      fullPath: '/goblin-way'
-      preLoaderRoute: typeof GoblinWayRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/everlen': {
@@ -180,8 +124,6 @@ const rootRouteChildren: RootRouteChildren = {
   ChamadoRoute: ChamadoRoute,
   ContactRoute: ContactRoute,
   EverlenRoute: EverlenRoute,
-  GoblinWayRoute: GoblinWayRoute,
-  ProjectsRoute: ProjectsRoute,
   ServicesRoute: ServicesRoute,
 }
 export const routeTree = rootRouteImport

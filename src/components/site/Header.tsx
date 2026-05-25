@@ -5,10 +5,8 @@ import { useEffect, useState } from "react";
 const NAV = [
   { to: "/", label: "HOME" },
   { to: "/services", label: "SERVICES" },
-  { to: "/projects", label: "PROJECTS" },
   { to: "/everlen", label: "EVERLEN" },
   { to: "/chamado", label: "O CHAMADO" },
-  { to: "/goblin-way", label: "THE GOBLIN WAY" },
   { to: "/contact", label: "CONTACT" },
 ] as const;
 

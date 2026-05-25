@@ -261,9 +261,9 @@
 
   .vignette {
     background: radial-gradient(ellipse at center,
-      transparent 30%,
-      color-mix(in oklab, var(--background) 70%, transparent) 70%,
-      var(--background) 100%);
+      transparent 40%,
+      color-mix(in oklab, var(--background) 40%, transparent) 75%,
+      color-mix(in oklab, var(--background) 60%, transparent) 100%);
   }
 
   /* glitch text animation */
