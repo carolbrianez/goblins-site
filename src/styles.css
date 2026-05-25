@@ -5,11 +5,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* === GOBLIN STUDIOS DESIGN SYSTEM ===
- * Cinematic AAA × cyberpunk HUD × dungeonpunk rebellion
- * Palette: graphite black, gunmetal, plasma green, holo cyan, amber, blood red
- */
-
 @font-face {
   font-family: "Goblin Display";
   src: local("Bebas Neue"), local("Impact");
@@ -371,3 +366,7 @@
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%);
   }
 }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }

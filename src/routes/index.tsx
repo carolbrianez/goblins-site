@@ -137,20 +137,36 @@ function AAAExperience() {
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-2 gap-px overflow-hidden border border-border/60 bg-border/60 sm:grid-cols-3 lg:grid-cols-6">
-          {AAA_LOGOS.map((l, i) => (
-            <div
-              key={l}
-              className="group relative flex h-28 items-center justify-center bg-background transition-colors hover:bg-surface"
-            >
-              <span className="font-display text-2xl tracking-[0.18em] text-muted-foreground transition-colors group-hover:text-plasma">
-                {l}
-              </span>
-              <span className="absolute left-2 top-2 font-mono text-[9px] tracking-widest text-muted-foreground/40">
-                //{String(i + 1).padStart(2, "0")}
-              </span>
-            </div>
-          ))}
+        <div className="relative mt-16 overflow-hidden">
+          {/* Linha 1 — esquerda */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full"
+            style={{ maxHeight: "80px", objectFit: "cover" }}
+          >
+            <source
+              src="/videos/logos-left.mp4"
+              type="video/mp4"
+            />
+          </video>
+
+          {/* Linha 2 — direita (reverso) */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="mt-4 w-full"
+            style={{ maxHeight: "80px", objectFit: "cover" }}
+          >
+            <source
+              src="/videos/logos-right.mp4"
+              type="video/mp4"
+            />
+          </video>
         </div>
 
         <p className="mt-6 max-w-2xl font-mono text-[11px] leading-relaxed tracking-wider text-muted-foreground/70">
