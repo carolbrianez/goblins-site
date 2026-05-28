@@ -35,7 +35,7 @@ function VideoModal({ onClose }: { onClose: () => void }) {
         </button>
         <div className="relative aspect-video w-full overflow-hidden border border-border/60">
           <iframe
-            src="https://www.youtube.com/watch?v=cQLeyeWRbig"
+            src="https://www.youtube.com/embed/w49B3_-jVoc?autoplay=1&rel=0"
             title="Everlen Teaser"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

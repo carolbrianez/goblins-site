@@ -157,6 +157,12 @@ function ServicesPage() {
         </section>
       ))}
 
+      <section className="border-y border-border/60 bg-surface/40 py-24 text-center">
+        <p className="font-display text-4xl leading-tight tracking-wide md:text-6xl lg:text-7xl">
+          YOUR VISION. <span className="text-plasma glow-text">OUR PIPELINE.</span> ZERO EXCUSES.
+        </p>
+      </section>
+
       {/* Pillars */}
       <section className="relative">
         {PILLARS.map((p, i) => (

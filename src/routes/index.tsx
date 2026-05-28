@@ -26,10 +26,6 @@ export const Route = createFileRoute("/")({
 });
 
 const AAA_LOGOS = ["EA", "UBISOFT", "WARNER", "2K", "ACTIVISION", "BANDAI"];
-const CLIENTS = [
-  "FIRST PHOENIX", "TRIALFORGE", "VOID GAMES", "PSYQUEDELIC",
-  "RED GAMES", "HOSPITAL DO AMOR", "CREDICITRUS",
-];
 
 function Home() {
   return (
@@ -40,7 +36,6 @@ function Home() {
       <FeaturedServices />
       <Services />
       <OriginalIPs />
-      <Clients />
       <WhyGoblin />
       <Pipeline />
       <FinalCTA />
@@ -181,33 +176,6 @@ function AAAExperience() {
           * Team members' prior contributions on third-party projects. All trademarks
           property of their respective owners. We don't fake credits — we earn them.
         </p>
-      </div>
-    </section>
-  );
-}
-
-/* ============== CLIENTS ============== */
-function Clients() {
-  const row = [...CLIENTS, ...CLIENTS];
-  return (
-    <section className="relative overflow-hidden py-24">
-      <div className="mx-auto mb-12 max-w-[1500px] px-6 lg:px-10">
-        <SectionLabel index="//03">TRUSTED ALLIANCES</SectionLabel>
-        <h2 className="font-display text-4xl tracking-wide md:text-5xl">
-          PROUD TO HAVE <span className="text-plasma">WORKED WITH</span>
-        </h2>
-      </div>
-
-      <div className="relative overflow-hidden border-y border-border/60 bg-surface/30 py-8">
-        <div className="ticker flex gap-16 whitespace-nowrap">
-          {row.map((c, i) => (
-            <span key={i} className="shrink-0 font-display text-3xl tracking-[0.2em] text-muted-foreground hover:text-plasma">
-              ◆ {c}
-            </span>
-          ))}
-        </div>
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent" />
       </div>
     </section>
   );

@@ -1,7 +1,3 @@
-/**
- * Global cinematic atmosphere: grain + scanlines + HUD ticker + corner overlays.
- * Fixed-position, pointer-events: none. Mounted once in __root.
- */
 export function Atmosphere() {
   return (
     <>
