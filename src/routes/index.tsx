@@ -35,11 +35,12 @@ function Home() {
   return (
     <PageLayout>
       <Hero />
-      <FeaturedWork />
       <AAAExperience />
-      <Clients />
+      <FeaturedWork />
+      <FeaturedServices />
       <Services />
       <OriginalIPs />
+      <Clients />
       <WhyGoblin />
       <Pipeline />
       <FinalCTA />
@@ -152,7 +153,7 @@ function AAAExperience() {
             muted
             playsInline
             className="w-full"
-            style={{ maxHeight: "80px", objectFit: "cover" }}
+            style={{ maxHeight: "90px", objectFit: "cover" }}
           >
             <source
               src="/videos/logos-left.mp4"
@@ -167,7 +168,7 @@ function AAAExperience() {
             muted
             playsInline
             className="mt-4 w-full"
-            style={{ maxHeight: "80px", objectFit: "cover" }}
+            style={{ maxHeight: "90px", objectFit: "cover" }}
           >
             <source
               src="/videos/logos-right.mp4"
@@ -245,7 +246,7 @@ function Services() {
     <section className="relative py-32">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="flex flex-col gap-4">
-          <SectionLabel index="//04">WHAT WE DO</SectionLabel>
+          <SectionLabel index="//05">WHAT WE DO</SectionLabel>
           <h2 className="max-w-4xl font-display text-5xl leading-[0.95] tracking-wide md:text-7xl">
             THREE WEAPONS. <br />
             <span className="text-plasma glow-text">ONE OBSESSION.</span>
@@ -306,7 +307,7 @@ function OriginalIPs() {
     <section className="relative py-32">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="flex flex-col gap-4">
-          <SectionLabel index="//05">ORIGINAL IPs</SectionLabel>
+          <SectionLabel index="//06">ORIGINAL IPs</SectionLabel>
           <h2 className="max-w-5xl font-display text-5xl leading-[0.95] tracking-wide md:text-7xl">
             WE DON'T JUST SUPPORT GAMES. <br />
             <span className="text-plasma glow-text">WE CREATE THEM.</span>
@@ -391,7 +392,7 @@ function WhyGoblin() {
       <div className="absolute inset-0 grid-bg opacity-30" />
       <div className="relative mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="mb-16 flex flex-col gap-4">
-          <SectionLabel index="//06">WHY GOBLIN</SectionLabel>
+          <SectionLabel index="//07">OUR SERVICES DETAILED</SectionLabel>
           <h2 className="font-display text-6xl leading-[0.9] tracking-wide md:text-8xl">
             BUILT <span className="text-plasma glow-text">DIFFERENT.</span>
           </h2>
@@ -419,11 +420,11 @@ function WhyGoblin() {
 }
 
 const FOUNDERS = [
-  { name: "Tony Cruz", role: "CTO & Unreal Programmer", img: teamTony },
-  { name: "Chris Silva", role: "CEO & Art Director", img: teamChris },
-  { name: "Matheus Sakaguti", role: "CMO & Concept Artist", img: teamSakaguti },
-  { name: "Vitor Tanaka", role: "Videomaker & Animator", img: teamTanaka },
-  { name: "Rafael Ongaro", role: "CFO", img: teamRafa },
+  { name: "Tony Cruz", role: "10 years of professional experience developing and directing game projects using Unreal Engine", img: teamTony },
+  { name: "Chris Silva", role: "10 years of experience as an artist and 4 years in art direction", img: teamChris },
+  { name: "Matheus Sakaguti", role: "Marketing director, concept artist and graphic designer with 8 years of experience", img: teamSakaguti },
+  { name: "Vitor Tanaka", role: "8 years of experience in audiovisual and film production", img: teamTanaka },
+  { name: "Rafael Ongaro", role: "Responsible for Goblin's financial and legal operations for the last 4 years", img: teamRafa },
 ];
 
 function Pipeline() {
@@ -432,9 +433,9 @@ function Pipeline() {
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="mb-16 grid gap-6 lg:grid-cols-[2fr_1fr] lg:items-end">
           <div>
-            <SectionLabel index="//07">WE ARE</SectionLabel>
+            <SectionLabel index="//08">WE ARE</SectionLabel>
             <h2 className="font-display text-5xl leading-[0.95] tracking-wide md:text-7xl">
-              THE <span className="text-plasma">FORGE.</span>
+              THE <span className="text-plasma">FOUNDERS.</span>
             </h2>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
@@ -487,7 +488,7 @@ function FeaturedWork() {
     <section className="relative py-32">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="mb-16 flex flex-col gap-4">
-          <SectionLabel index="//08">SHOWREEL</SectionLabel>
+          <SectionLabel index="//03">SHOWREEL</SectionLabel>
           <h2 className="font-display text-5xl leading-[0.95] tracking-wide md:text-7xl">
             FEATURED <span className="text-plasma glow-text">WORK.</span>
           </h2>
@@ -513,6 +514,59 @@ function FeaturedWork() {
               <div className="absolute right-3 top-3 h-2 w-2 bg-plasma animate-pulse" />
             </figure>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============== FEATURED SERVICES ============== */
+function FeaturedServices() {
+  const tiles = [
+    { img: everlenImg, label: "3D ART & CHARACTERS", tag: "CONCEPT ART" },
+    { img: studioImg, label: "UNREAL DEVELOPMENT", tag: "GAMEPLAY PROGRAMMING" },
+    { img: chamadoImg, label: "ANIMATION & VFX", tag: "TECHNICAL ART" },
+    { img: heroImg, label: "CINEMATICS & TRAILERS", tag: "IN-ENGINE" },
+    { img: everlenImg, label: "ENVIRONMENTS", tag: "HARD SURFACE" },
+    { img: chamadoImg, label: "MARKETING ART", tag: "KEY VISUALS" },
+    { img: studioImg, label: "CHARACTER DESIGN", tag: "DIGITAL HUMANS" },
+    { img: heroImg, label: "VFX & SHADERS", tag: "NIAGARA" },
+  ];
+
+  return (
+    <section className="relative py-32">
+      <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
+        <div className="mb-16 flex flex-col gap-4">
+          <SectionLabel index="//05">CAPABILITIES</SectionLabel>
+          <h2 className="font-display text-5xl leading-[0.95] tracking-wide md:text-7xl">
+            FEATURED <span className="text-plasma glow-text">SERVICES.</span>
+          </h2>
+        </div>
+
+        <div className="grid auto-rows-[220px] grid-cols-2 gap-3 md:grid-cols-4">
+          {tiles.map((t, i) => (
+            <figure
+              key={i}
+              className={`group relative overflow-hidden border border-border/60 clip-cut ${t.h ?? ""}`}
+            >
+              <img
+                src={t.img}
+                alt={t.label}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent" />
+              <figcaption className="absolute inset-x-0 bottom-0 p-4">
+                <div className="font-mono text-[10px] tracking-[0.3em] text-plasma">{t.tag}</div>
+                <div className="font-display text-lg tracking-wide text-foreground">{t.label}</div>
+              </figcaption>
+              <div className="absolute right-3 top-3 h-2 w-2 bg-plasma animate-pulse" />
+            </figure>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link to="/services" className="btn-ghost">SEE ALL SERVICES →</Link>
         </div>
       </div>
     </section>

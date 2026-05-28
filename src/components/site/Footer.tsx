@@ -30,6 +30,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li><Link to="/services" className="hover:text-foreground">Services</Link></li>
               <li><Link to="/contact" className="hover:text-foreground">Contact</Link></li>
+              <li><Link to="/goblin-way" className="hover:text-foreground">The Goblin Way</Link></li>
             </ul>
           </div>
 
@@ -44,9 +45,7 @@ export function Footer() {
           <div>
             <h4 className="font-mono text-[11px] tracking-[0.3em] text-plasma">SIGNAL</h4>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li>hello@goblinstudios.gg</li>
-              <li>press@goblinstudios.gg</li>
-              <li>biz@goblinstudios.gg</li>
+              <li>contact@goblinstudios.com</li>
             </ul>
           </div>
         </div>

@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { SectionLabel } from "@/components/site/SectionLabel";
 import chamado from "@/assets/chamado-key-art.jpg";
+import { useState } from "react";
 
 export const Route = createFileRoute("/chamado")({
   head: () => ({
@@ -16,19 +17,61 @@ export const Route = createFileRoute("/chamado")({
   component: ChamadoPage,
 });
 
+function VideoModal({ onClose }: { onClose: () => void }) {
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-background/90 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-5xl px-4"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute -top-10 right-4 font-mono text-[11px] tracking-[0.3em] text-plasma hover:text-foreground"
+        >
+          ✕ CLOSE
+        </button>
+        <div className="relative aspect-video w-full overflow-hidden border border-border/60">
+          <iframe
+            src="https://www.youtube.com/embed/fROwLhENyGE?autoplay=1&rel=0"
+            title="O Chamado do Herói"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="h-full w-full"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ChamadoPage() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <PageLayout>
       <section className="relative h-[100svh] min-h-[700px] w-full overflow-hidden">
         <img src={chamado} alt="O Chamado do Herói key art" className="h-full w-full object-cover" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/30 to-background" />
 
+        {/* Play button */}
+        <button
+          onClick={() => setModalOpen(true)}
+          className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 group flex flex-col items-center gap-4"
+        >
+          <div className="flex h-20 w-20 items-center justify-center border-2 border-holo bg-background/40 backdrop-blur-sm transition-all group-hover:bg-holo/20 group-hover:scale-110">
+            <span className="ml-1 text-3xl text-holo">▶</span>
+          </div>
+        </button>
+
         <div className="absolute inset-x-0 bottom-24 z-10 mx-auto max-w-[1500px] px-6 lg:px-10">
           <SectionLabel index="//IP_002">VR · HUMANITARIAN · UNREAL ENGINE</SectionLabel>
-          <h1 className="font-display text-[clamp(3rem,9vw,8rem)] leading-[0.85] tracking-wide text-foreground glow-holo">
+          <h1 className="font-display text-[clamp(3rem,9vw,8rem)] leading-[0.85] tracking-wide text-foreground glow-holo select-none">
             O CHAMADO <br />DO HERÓI.
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-muted-foreground">
+          <p className="mt-6 max-w-xl text-lg text-muted-foreground select-none">
             A VR adventure built to walk beside children fighting cancer — turning
             treatment days into hero's journeys.
           </p>
@@ -103,6 +146,8 @@ function ChamadoPage() {
           <Link to="/contact" className="btn-ghost">PARTNER WITH US →</Link>
         </div>
       </section>
+
+      {modalOpen && <VideoModal onClose={() => setModalOpen(false)} />}
     </PageLayout>
   );
 }
