@@ -15,9 +15,9 @@ import { useEffect, useState } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Goblin Studios — AAA Craft. Indie Soul." },
+      { title: "Goblin Studios - AAA Power. Indie Soul." },
       { name: "description", content: "Premium game development studio. Full dev, co-dev and outsourcing for ambitious indie and AA games. Unreal Engine specialists." },
-      { property: "og:title", content: "Goblin Studios — AAA Craft. Indie Soul." },
+      { property: "og:title", content: "Goblin Studios - AAA Power. Indie Soul." },
       { property: "og:description", content: "Full development, co-development and outsourcing for ambitious indie and AA games." },
       { property: "og:image", content: "/assets/hero-cinematic.jpg" },
     ],
@@ -88,16 +88,14 @@ function Hero() {
           <SectionLabel index="//01">EST. SÃO PAULO · GLOBAL OPS</SectionLabel>
 
           <h1 className="font-display text-[clamp(3.5rem,11vw,11rem)] leading-[0.85] tracking-[0.01em] text-foreground">
-            <span className="block glow-text">AAA CRAFT.</span>
+            <span className="block glow-text">AAA Power.</span>
             <span className="glitch block text-stroke" data-text="INDIE SOUL.">
-              INDIE SOUL.
+              Indie Soul.
             </span>
           </h1>
 
           <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Full development, co-development and outsourcing for ambitious indie and AA
-            games — built by a crew that shipped on Unreal Engine for the biggest names
-            in the industry, then went rogue.
+            Full development, co-development, and outsource for ambitious indie and AA games. We are a multidisciplinary studio of industry veterans, blending artistic excellence and cutting-edge technical engineering to accelerate and bring your project to life.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -134,9 +132,7 @@ function AAAExperience() {
             </h2>
           </div>
           <p className="max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            Our team members contributed to projects connected to the world's most
-            recognized publishers. We took that pipeline discipline, then stripped it
-            down for studios that actually want to ship something <em>worth playing</em>.
+            Our team members contributed to projects connected to the world's most recognized publishers. We absorbed the discipline of those massive pipelines and refined it, shaping our own methodology for studios that actually want to ship something <em>worth playing</em>.
           </p>
         </div>
 
@@ -173,8 +169,7 @@ function AAAExperience() {
         </div>
 
         <p className="mt-6 max-w-2xl font-mono text-[11px] leading-relaxed tracking-wider text-muted-foreground/70">
-          * Team members' prior contributions on third-party projects. All trademarks
-          property of their respective owners. We don't fake credits — we earn them.
+          * Team members' prior contributions on third-party projects. All trademarks property of their respective owners. We don't fake credits, we earn them.
         </p>
       </div>
     </section>
@@ -199,13 +194,13 @@ const SERVICES = [
     id: "02",
     title: "CO-DEVELOPMENT",
     tagline: "Your team. Reinforced.",
-    body: "We plug into your studio like a strike force — embedded, accountable, and obsessive about the same thing you are: the game.",
+    body: "We plug into your studio like a technical and strategic strike force. We have the synergy, communication, and technical expertise required to run in perfect alignment with your internal team toward the same goal, the game.",
   },
   {
     id: "03",
     title: "OUTSOURCE",
     tagline: "AAA execution. Indie-aware production.",
-    body: "Per-task or per-vertical. Concept, art, animation, VFX, gameplay, tech art. Delivered at AAA fidelity without the AAA bureaucracy.",
+    body: "On-demand by specific tasks or major milestones. 3D modeling, concept art, animation, VFX, gameplay, and tech art delivered at pinnacle fidelity without the corporate bureaucracy.",
   },
 ] as const;
 
@@ -293,8 +288,8 @@ function OriginalIPs() {
           />
           <IPCard
             tag="VR · HUMANITARIAN"
-            title="O CHAMADO DO HERÓI"
-            body="An emotionally crafted VR experience for children undergoing pediatric oncology treatment — in partnership with Hospital do Amor."
+            title="BOOKATOON"
+            body="An emotionally crafted VR experience for children undergoing pediatric oncology treatment - in partnership with Hospital do Amor."
             img={chamadoImg}
             href="/chamado"
             accent="text-holo"
@@ -344,14 +339,14 @@ function IPCard({
 
 /* ============== WHY GOBLIN ============== */
 const WHY = [
-  ["AAA EXPERIENCE", "Veterans who shipped at the top of the industry — without the AAA bureaucracy."],
-  ["INDIE-AWARE PRODUCTION", "We know what a runway looks like. Every dollar is treated like the last."],
+  ["AAA EXPERIENCE", "Veteran professionals with a track record of delivering on the industry's biggest projects, operating with agility and zero bureaucratic drag."],
+  ["INDIE-AWARE PRODUCTION", "We utilize agile production frameworks to guarantee steady delivery, optimizing development time so every single cent of your budget converts into real progress."],
   ["UNREAL ENGINE EXPERTISE", "Specialists from gameplay to cinematics, tech art to render pipelines."],
-  ["ARTISTIC OBSESSION", "Frame-by-frame critique. Concept art that doesn't get watered down."],
+  ["ARTISTIC OBSESSION", "Frame-by-frame quality control. Concept art and assets that maintain maximum visual fidelity from start to finish."],
   ["FOUNDER-LED PRODUCTION", "You talk to the people doing the work. No account-manager telephone games."],
   ["FLEXIBLE PIPELINES", "Hybrid, embedded, or full delivery. We mold the team around your project."],
   ["GLOBAL AMBITION", "Time zones don't scare us. The game is the only deadline that matters."],
-  ["NO BS", "Honest scopes, honest art tests, honest budgets. We'd rather lose a deal than overpromise."],
+  ["TRANSPARENCY & ALIGNED SCOPE", "We work with clear and precise processes. Honest scopes, realistic art tests, and transparent budgets, because we’d rather lose a deal than promise something that isn't viable."],
 ];
 
 function WhyGoblin() {
@@ -446,7 +441,7 @@ function FeaturedWork() {
   const tiles = [
     { img: everlenImg, label: "EVERLEN / KEY ART", tag: "ORIGINAL IP", h: "row-span-2" },
     { img: studioImg, label: "STUDIO / BTS", tag: "INTERNAL" },
-    { img: chamadoImg, label: "O CHAMADO / VR", tag: "ORIGINAL IP" },
+    { img: chamadoImg, label: "BOOKATOON / VR", tag: "ORIGINAL IP" },
     { img: heroImg, label: "TRIALFORGE / COMBAT", tag: "CO-DEV", h: "row-span-2" },
     { img: everlenImg, label: "VOID GAMES / FX", tag: "OUTSOURCE" },
     { img: chamadoImg, label: "RED GAMES / CINEMATIC", tag: "OUTSOURCE" },
@@ -559,8 +554,7 @@ function FinalCTA() {
           <span className="text-plasma glow-text">UNFORGETTABLE.</span>
         </h2>
         <p className="mt-8 mx-auto max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
-          Tell us about your project. We respond personally within 48 hours —
-          no sales funnel, no calendar tetris.
+          Talk directly to the people who solve problems. We analyze your project and get back to you within 48 hours, focusing immediately on your scope with no unnecessary meetings.
         </p>
         <div className="mt-10">
           <Link to="/contact" className="btn-plasma">

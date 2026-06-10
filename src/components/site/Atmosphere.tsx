@@ -35,10 +35,10 @@ export function Atmosphere() {
           <div className="ticker flex whitespace-nowrap font-mono text-[10px] tracking-[0.35em] text-plasma/70">
             {Array.from({ length: 2 }).map((_, i) => (
               <span key={i} className="flex shrink-0 gap-8 px-8">
-                <span>◢ AAA CRAFT · INDIE SOUL</span>
+                <span>◢ AAA Power · Indie Soul</span>
                 <span>◢ UNREAL ENGINE 5 SPECIALISTS</span>
                 <span>◢ FULL DEV · CO-DEV · OUTSOURCE</span>
-                <span>◢ NOW BUILDING: EVERLEN // O CHAMADO DO HERÓI</span>
+                <span>◢ NOW BUILDING: EVERLEN // BOOKATOON</span>
                 <span>◢ WE ARE ALL ARTISTS</span>
                 <span>◢ ACCEPTING Q1 2026 PROJECTS</span>
               </span>

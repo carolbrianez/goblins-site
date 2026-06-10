@@ -3,13 +3,24 @@ import { Logo } from "./Logo";
 import { useEffect, useState } from "react";
 
 const NAV = [
-  { to: "/", label: "HOME" },
-  { to: "/services", label: "SERVICES" },
-  { to: "/everlen", label: "EVERLEN" },
-  { to: "/chamado", label: "O CHAMADO" },
-  { to: "/goblin-way", label: "THE GOBLIN WAY" },
-  { to: "/contact", label: "CONTACT" },
-] as const;
+  { to: "/", label: "HOME", external: false },
+  { to: "/services", label: "SERVICES", external: false },
+  { to: "https://www.artstation.com/goblin-studios", label: "PORTFOLIO", external: true },
+  { to: "/everlen", label: "EVERLEN", external: false },
+  { to: "/chamado", label: "O CHAMADO", external: false },
+  { to: "/goblin-way", label: "THE GOBLIN WAY", external: false },
+  { to: "/contact", label: "CONTACT", external: false },
+];
+
+const navLinkClass = (active: boolean) =>
+  `group relative px-3 py-2 font-mono text-[11px] tracking-[0.28em] transition-colors ${
+    active ? "text-plasma" : "text-muted-foreground hover:text-foreground"
+  }`;
+
+const navUnderline = (active: boolean) =>
+  `absolute -bottom-1 left-0 h-px bg-plasma transition-all duration-300 ${
+    active ? "w-full" : "w-0 group-hover:w-full"
+  }`;
 
 export function Header() {
   const { location } = useRouterState();
@@ -37,21 +48,31 @@ export function Header() {
         <nav className="hidden items-center gap-1 lg:flex">
           {NAV.map((item) => {
             const active = location.pathname === item.to;
+            if (item.external) {
+              return (
+                <a
+                  key={item.to}
+                  href={item.to}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={navLinkClass(false)}
+                >
+                  <span className="relative">
+                    {item.label}
+                    <span className={navUnderline(false)} />
+                  </span>
+                </a>
+              );
+            }
             return (
               <Link
                 key={item.to}
-                to={item.to}
-                className={`group relative px-3 py-2 font-mono text-[11px] tracking-[0.28em] transition-colors ${
-                  active ? "text-plasma" : "text-muted-foreground hover:text-foreground"
-                }`}
+                to={item.to as any}
+                className={navLinkClass(active)}
               >
                 <span className="relative">
                   {item.label}
-                  <span
-                    className={`absolute -bottom-1 left-0 h-px bg-plasma transition-all duration-300 ${
-                      active ? "w-full" : "w-0 group-hover:w-full"
-                    }`}
-                  />
+                  <span className={navUnderline(active)} />
                 </span>
               </Link>
             );
@@ -80,16 +101,29 @@ export function Header() {
       {open && (
         <div className="border-t border-border/60 bg-background/95 backdrop-blur-xl lg:hidden">
           <nav className="flex flex-col px-6 py-4">
-            {NAV.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                onClick={() => setOpen(false)}
-                className="border-b border-border/40 py-3 font-mono text-xs tracking-[0.28em] text-muted-foreground hover:text-plasma"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV.map((item) =>
+              item.external ? (
+                <a
+                  key={item.to}
+                  href={item.to}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  className="border-b border-border/40 py-3 font-mono text-xs tracking-[0.28em] text-muted-foreground hover:text-plasma"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.to}
+                  to={item.to as any}
+                  onClick={() => setOpen(false)}
+                  className="border-b border-border/40 py-3 font-mono text-xs tracking-[0.28em] text-muted-foreground hover:text-plasma"
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
           </nav>
         </div>
       )}

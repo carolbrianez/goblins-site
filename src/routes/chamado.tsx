@@ -9,8 +9,8 @@ export const Route = createFileRoute("/chamado")({
     meta: [
       { title: "O Chamado do Herói — Goblin Studios" },
       { name: "description", content: "An emotionally crafted VR game for children undergoing pediatric oncology treatment. Built in partnership with Hospital do Amor." },
-      { property: "og:title", content: "O Chamado do Herói — Goblin Studios" },
-      { property: "og:description", content: "VR game for pediatric oncology — in partnership with Hospital do Amor." },
+      { property: "og:title", content: "O Chamado do Herói - Goblin Studios" },
+      { property: "og:description", content: "VR game for pediatric oncology - in partnership with Hospital do Amor." },
       { property: "og:image", content: "/assets/chamado-key-art.jpg" },
     ],
   }),

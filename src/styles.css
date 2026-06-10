@@ -75,10 +75,6 @@
   --radius: 3px;
 }
 
-.dark {
-  /* same — site is dark-only */
-}
-
 @layer base {
   * {
     border-color: var(--color-border);

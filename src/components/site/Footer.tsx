@@ -11,8 +11,8 @@ export function Footer() {
           <div>
             <Logo />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              AAA craft. Indie soul. We build, co-develop and outsource ambitious games
-              with Unreal Engine — for studios that refuse to play it safe.
+              AAA Power. Indie soul. We build, co-develop and outsource ambitious games
+              with Unreal Engine - for studios that refuse to play it safe.
             </p>
             <div className="mt-6 flex items-center gap-2">
               <span className="relative flex h-2 w-2">
@@ -29,6 +29,7 @@ export function Footer() {
             <h4 className="font-mono text-[11px] tracking-[0.3em] text-plasma">STUDIO</h4>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li><Link to="/services" className="hover:text-foreground">Services</Link></li>
+              <li><a href="https://www.artstation.com/goblin-studios" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">Portfolio</a></li>
               <li><Link to="/contact" className="hover:text-foreground">Contact</Link></li>
               <li><Link to="/goblin-way" className="hover:text-foreground">The Goblin Way</Link></li>
             </ul>
