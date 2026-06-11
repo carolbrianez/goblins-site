@@ -23,41 +23,41 @@ const SERVICES = [
     id: "01",
     title: "CONCEPT",
     sub: "Where worlds begin.",
-    body: "Worldbuilding, character turnarounds, environmental design and key visuals. We define the visual language before a single polygon is created.",
+    body: "Worldbuilding, character creation, turnarounds, environmental design and key visuals. We define the visual language before a single polygon is created.",
     media: { type: "image", src: everlenImg },
   },
   {
     id: "02",
-    title: "3D MODELLING",
-    sub: "AAA assets. Real-time ready.",
-    body: "AAA characters, complex props, likeness work and optimized assets built for high-performance real-time experiences.",
+    title: "3D ART",
+    sub: "AAA assets. Game-ready.",
+    body: "Human characters, likeness, creatures, props, optimized assets.",
     media: { type: "video", src: "https://cdn.prod.website-files.com/66859b13105707a6b4417a25%2F6a0ee8821526e1694d523151_Modelos%203D%20%281%29compree_mp4.mp4", flip: true },
   },
   {
     id: "03",
-    title: "RIG & ANIMATION",
+    title: "RIGGING & ANIMATION",
     sub: "Motion that feels alive.",
-    body: "Rigging, VFX, asset integration, in-engine cinematics and technical solutions for artistic challenges. Combat, locomotion, cinematic — all disciplines covered.",
+    body: "Rigging, VFX, asset integration, in-engine cinematics and technical solutions for artistic challenges. Combat, locomotion, cinematic, all disciplines covered.",
     media: { type: "video", src: "https://cdn.prod.website-files.com/66859b13105707a6b4417a25%2F6a0ee89cb084f8e1144828ee_ANIMA%C3%87%C3%83OFINAL%20%281%29compress_mp4.mp4" },
   },
   {
     id: "04",
     title: "UNREAL DEVELOPMENT",
     sub: "Engine-level. No shortcuts.",
-    body: "Technical programming, Blueprint systems, performance optimization and gameplay mechanics development. From plugins to full production pipelines.",
+    body: "Technical programming, Blueprint systems, performance optimization and gameplay mechanics development, multiplayer development.",
     media: { type: "image", src: heroImg },
   },
   {
     id: "05",
     title: "CINEMATIC",
-    sub: "Trailers that sell the dream.",
+    sub: "Trailers that sell your game.",
     body: "In-engine cinematics, trailers, reveal sequences and cutscenes. We make people feel the game before they play it.",
     media: { type: "video", src: "https://cdn.prod.website-files.com/66859b13105707a6b4417a25%2F6a0ee73f3ab8b3ab12cbada5_EVERLEN%20OK2%20compress_mp4.mp4" },
   },
   {
     id: "06",
     title: "UX & UI",
-    sub: "Interfaces that disappear.",
+    sub: "Next level interface.",
     body: "Interface design focused on usability and immersion. HUDs, menus, UX flows and interactive elements that serve the experience without breaking it.",
     media: { type: "image", src: chamadoImg },
   },
@@ -70,7 +70,7 @@ const SERVICES = [
   },
 ];
 
-const PILLARS = [
+const WAYS = [
   {
     id: "01",
     title: "FULL DEVELOPMENT",
@@ -78,7 +78,7 @@ const PILLARS = [
     body: "We assemble the team, run production, ship the game. From original IP to publisher-funded titles, you get a single accountable studio with senior leads at every discipline.",
     bullets: [
       "Vision lock & creative direction",
-      "Vertical slice in 12–16 weeks",
+      "Agile vertical slice",
       "Full production team (art, code, design, audio)",
       "Console & PC ship support",
     ],
@@ -87,7 +87,7 @@ const PILLARS = [
     id: "02",
     title: "CO-DEVELOPMENT",
     sub: "Strike force. Embedded.",
-    body: "Plug a senior crew directly into your studio. We respect your culture, ship inside your pipelines, and behave like full-time team members — because for the duration of the project, that's exactly what we are.",
+    body: "Plug a senior crew directly into your studio. We respect your culture, ship inside your pipelines, and behave like full-time team members, because for the duration of the project, that's exactly what we are.",
     bullets: [
       "Embedded leads & specialists",
       "Pipeline integration (Perforce, Jira, etc.)",
@@ -99,7 +99,7 @@ const PILLARS = [
     id: "03",
     title: "OUTSOURCE",
     sub: "Per-task. AAA fidelity.",
-    body: "Discrete deliverables — concept art, characters, environments, animation, VFX, cinematics, gameplay systems. Senior reviews, clear milestones, no surprises.",
+    body: "Isolated deliverables: concept art, characters, environments, animation, VFX, cinematics, gameplay systems. Senior reviews, clear milestones, no surprises.",
     bullets: [
       "Per-asset or per-vertical scoping",
       "Art tests on the house (within reason)",
@@ -121,12 +121,11 @@ function ServicesPage() {
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
           <SectionLabel index="//SERVICES">CAPABILITIES MATRIX</SectionLabel>
           <h1 className="max-w-5xl font-display text-6xl leading-[0.9] tracking-wide md:text-[9rem]">
-            WEAPONS <br />
-            <span className="text-plasma glow-text">OF CHOICE.</span>
+            CHOOSE <br />
+            <span className="text-plasma glow-text">YOUR DESTINY.</span>
           </h1>
           <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground">
-            Three engagement models. Ten disciplines. One standard: AAA fidelity delivered
-            with the speed and care only an indie-scale crew can pull off.
+            Three work models. One objective: AAA quality delivered in indie scope.
           </p>
         </div>
       </section>
@@ -163,13 +162,13 @@ function ServicesPage() {
         </p>
       </section>
 
-      {/* Pillars */}
+      {/* Ways */}
       <section className="relative">
-        {PILLARS.map((p, i) => (
+        {WAYS.map((p, i) => (
           <div key={p.id} className={`relative border-t border-border/60 py-24 ${i % 2 ? "bg-surface/40" : ""}`}>
             <div className="mx-auto grid max-w-[1500px] gap-12 px-6 lg:grid-cols-[1fr_2fr] lg:px-10">
               <div>
-                <span className="font-mono text-[11px] tracking-[0.3em] text-plasma">PILLAR //{p.id}</span>
+                <span className="font-mono text-[11px] tracking-[0.3em] text-plasma">WAY //{p.id}</span>
                 <h2 className="mt-4 font-display text-5xl leading-[0.95] tracking-wide md:text-7xl">{p.title}</h2>
                 <p className="mt-4 font-mono text-xs tracking-[0.18em] text-plasma">{p.sub}</p>
               </div>
@@ -192,7 +191,7 @@ function ServicesPage() {
       {/* CTA */}
       <section className="border-t border-border/60 py-24 text-center">
         <h3 className="font-display text-4xl tracking-wide md:text-6xl">
-          PICK YOUR <span className="text-plasma glow-text">WEAPON.</span>
+          CHOOSE YOUR <span className="text-plasma glow-text">DESTINY.</span>
         </h3>
         <div className="mt-8">
           <Link to="/contact" className="btn-plasma">START A PROJECT →</Link>

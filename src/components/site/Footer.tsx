@@ -11,8 +11,7 @@ export function Footer() {
           <div>
             <Logo />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              AAA Power. Indie soul. We build, co-develop and outsource ambitious games
-              with Unreal Engine - for studios that refuse to play it safe.
+              AAA quality, indie budget. Full development, co-development, and outsourcing for ambitious Unreal Engine projects and studios shaping the new era of indie games.
             </p>
             <div className="mt-6 flex items-center gap-2">
               <span className="relative flex h-2 w-2">
@@ -20,7 +19,7 @@ export function Footer() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-plasma" />
               </span>
               <span className="font-mono text-[11px] tracking-[0.3em] text-plasma">
-                AVAILABLE FOR NEW PROJECTS · Q1 2026
+                AVAILABLE FOR NEW PROJECTS
               </span>
             </div>
           </div>
@@ -39,7 +38,7 @@ export function Footer() {
             <h4 className="font-mono text-[11px] tracking-[0.3em] text-plasma">WORLDS</h4>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li><Link to="/everlen" className="hover:text-foreground">Everlen</Link></li>
-              <li><Link to="/chamado" className="hover:text-foreground">O Chamado do Herói</Link></li>
+              <li><Link to="/chamado" className="hover:text-foreground">BOOKATOON</Link></li>
             </ul>
           </div>
 
@@ -52,7 +51,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col gap-4 border-t border-border/40 pt-6 text-[11px] font-mono tracking-[0.2em] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} GOBLIN STUDIOS // ALL WORLDS RESERVED</span>
+          <span>©GOBLIN STUDIOS - since 2021 // ALL RIGTHS RESERVED</span>
           <span className="text-plasma/80">// BUILT WITH UNREAL ENGINE 5 + OBSESSION</span>
         </div>
       </div>

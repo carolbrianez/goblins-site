@@ -85,22 +85,34 @@ function Hero() {
       {/* content */}
       <div className="relative z-10 mx-auto flex h-full max-w-[1500px] flex-col justify-end px-6 pb-32 lg:px-10 lg:pb-40">
         <div className="max-w-5xl reveal">
-          <SectionLabel index="//01">EST. SÃO PAULO · GLOBAL OPS</SectionLabel>
+          <SectionLabel index="//01">BRAZILIAN GOBLINS · GLOBAL QUESTS</SectionLabel>
 
           <h1 className="font-display text-[clamp(3.5rem,11vw,11rem)] leading-[0.85] tracking-[0.01em] text-foreground">
-            <span className="block glow-text">AAA Power.</span>
-            <span className="glitch block text-stroke" data-text="INDIE SOUL.">
-              Indie Soul.
+            <span
+              className="block text-muted-foreground mb-4"
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontWeight: 700,
+                fontSize: "clamp(0.9rem,2.8vw,2.8rem)",
+                letterSpacing: "0.30em",
+                textTransform: "uppercase",
+              }}
+            >
+              The new reality
+            </span>
+            <span className="block glow-text">INDIE BUDGET</span>
+            <span className="glitch block text-stroke" data-text="AAA QUALITY">
+              AAA QUALITY
             </span>
           </h1>
 
           <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Full development, co-development, and outsource for ambitious indie and AA games. We are a multidisciplinary studio of industry veterans, blending artistic excellence and cutting-edge technical engineering to accelerate and bring your project to life.
+            Make your game be next level with us.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link to="/contact" className="btn-plasma">
-              WORK WITH US <span aria-hidden>→</span>
+              CONTACT US <span aria-hidden>→</span>
             </Link>
             <Link to="/everlen" className="btn-ghost">
               EXPLORE OUR WORLDS
@@ -132,9 +144,19 @@ function AAAExperience() {
             </h2>
           </div>
           <p className="max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            Our team members contributed to projects connected to the world's most recognized publishers. We absorbed the discipline of those massive pipelines and refined it, shaping our own methodology for studios that actually want to ship something <em>worth playing</em>.
+            Our team members have contributed to projects connected to the world's most renowned studios, such as <b>Ubisoft</b>, <b>Electronic Arts</b> and <b>Roblox</b>. We absorbed the experience from these large workflows and refined it, shaping our own methodology by adapting AAA quality to AA and indie scopes.
           </p>
         </div>
+
+        <div className="mt-16 mb-2 flex items-center gap-4">
+          <span className="h-px flex-1 bg-border/60" />
+          <span className="font-mono text-[30px] tracking-[0.32em] text-muted-foreground">
+            OUR CLIENTS
+          </span>
+          <span className="h-px flex-1 bg-border/60" />
+        </div>
+
+        <div className="relative mt-0 overflow-hidden"></div>
 
         <div className="relative mt-16 overflow-hidden">
           {/* Linha 1 — esquerda */}
@@ -280,7 +302,7 @@ function OriginalIPs() {
         <div className="mt-20 grid gap-10 lg:grid-cols-2">
           <IPCard
             tag="DARK FANTASY · AAA-LIKE"
-            title="EVERLEN"
+            title="REALISTIC ART STYLE"
             body="A blood-soaked dark fantasy world where forgotten gods bleed into the cracks of the empire. Built in Unreal Engine 5."
             img={everlenImg}
             href="/everlen"
@@ -288,7 +310,7 @@ function OriginalIPs() {
           />
           <IPCard
             tag="VR · HUMANITARIAN"
-            title="BOOKATOON"
+            title="STYLIZED ART SLIDE"
             body="An emotionally crafted VR experience for children undergoing pediatric oncology treatment - in partnership with Hospital do Amor."
             img={chamadoImg}
             href="/chamado"
@@ -339,14 +361,14 @@ function IPCard({
 
 /* ============== WHY GOBLIN ============== */
 const WHY = [
-  ["AAA EXPERIENCE", "Veteran professionals with a track record of delivering on the industry's biggest projects, operating with agility and zero bureaucratic drag."],
-  ["INDIE-AWARE PRODUCTION", "We utilize agile production frameworks to guarantee steady delivery, optimizing development time so every single cent of your budget converts into real progress."],
+  ["AAA EXPERIENCE", "Experienced professionals who have worked on AAA projects, having previously worked at studios such as Ubisoft, Electronic Arts, and Roblox."],
+  ["INDIE-AWARE PRODUCTION", "We use agile production methodologies to guarantee consistent deliveries, optimizing development time so that every penny of your budget translates into real progress, using tools adapted to the new reality of game development."],
   ["UNREAL ENGINE EXPERTISE", "Specialists from gameplay to cinematics, tech art to render pipelines."],
   ["ARTISTIC OBSESSION", "Frame-by-frame quality control. Concept art and assets that maintain maximum visual fidelity from start to finish."],
   ["FOUNDER-LED PRODUCTION", "You talk to the people doing the work. No account-manager telephone games."],
   ["FLEXIBLE PIPELINES", "Hybrid, embedded, or full delivery. We mold the team around your project."],
   ["GLOBAL AMBITION", "Time zones don't scare us. The game is the only deadline that matters."],
-  ["TRANSPARENCY & ALIGNED SCOPE", "We work with clear and precise processes. Honest scopes, realistic art tests, and transparent budgets, because we’d rather lose a deal than promise something that isn't viable."],
+  ["TRANSPARENCY & ALIGNED SCOPE", "We work with clear and precise processes. Honest scopes, realistic art tests, and transparent budgets, because we'd rather lose a deal than promise something that isn't viable."],
 ];
 
 function WhyGoblin() {
@@ -402,8 +424,7 @@ function Pipeline() {
             </h2>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
-            The crew behind the craft. Senior leads across every discipline —
-            forged in AAA pipelines, built for indie velocity.
+            The crew behind the craft. Senior leads across every discipline, forged in AAA pipelines, built for indie velocity.
           </p>
         </div>
 
@@ -438,14 +459,16 @@ function Pipeline() {
 
 /* ============== FEATURED WORK ============== */
 function FeaturedWork() {
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+
   const tiles = [
-    { img: everlenImg, label: "EVERLEN / KEY ART", tag: "ORIGINAL IP", h: "row-span-2" },
-    { img: studioImg, label: "STUDIO / BTS", tag: "INTERNAL" },
-    { img: chamadoImg, label: "BOOKATOON / VR", tag: "ORIGINAL IP" },
-    { img: heroImg, label: "TRIALFORGE / COMBAT", tag: "CO-DEV", h: "row-span-2" },
-    { img: everlenImg, label: "VOID GAMES / FX", tag: "OUTSOURCE" },
-    { img: chamadoImg, label: "RED GAMES / CINEMATIC", tag: "OUTSOURCE" },
-  ];
+    { img: everlenImg,  label: "EVERLEN",          tag: "ORIGINAL IP",  h: "row-span-2", youtubeId: "w49B3_-jVoc" },
+    { img: studioImg,   label: "DEATHBOUND",        tag: "CO-DEV",                        youtubeId: "SbW3exPtr7k" },
+    { img: chamadoImg,  label: "GOLDEN TIDES",      tag: "CO-DEV",                        youtubeId: "OQzA8hFS0FI" },
+    { img: heroImg,     label: "RIO RAISED IN OBLIVION", tag: "CO-DEV", h: "row-span-2", youtubeId: "l8ypmhlLtUE" },
+    { img: everlenImg,  label: "CASSIODORA",        tag: "CO-DEV",                        youtubeId: "flLl1N0bLKM" },
+    { img: chamadoImg,  label: "BEDROOM BRAWL",     tag: "CO-DEV",                        youtubeId: "-mJPxat0MVM" },
+];
 
   return (
     <section className="relative py-32">
@@ -458,27 +481,70 @@ function FeaturedWork() {
         </div>
 
         <div className="grid auto-rows-[180px] grid-cols-2 gap-3 md:grid-cols-4 md:auto-rows-[220px]">
-          {tiles.map((t, i) => (
-            <figure
-              key={i}
-              className={`group relative overflow-hidden border border-border/60 clip-cut ${t.h ?? ""}`}
-            >
-              <img
-                src={t.img}
-                alt={t.label}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent" />
-              <figcaption className="absolute inset-x-0 bottom-0 p-4">
-                <div className="font-mono text-[10px] tracking-[0.3em] text-plasma">{t.tag}</div>
-                <div className="font-display text-lg tracking-wide text-foreground">{t.label}</div>
-              </figcaption>
-              <div className="absolute right-3 top-3 h-2 w-2 bg-plasma animate-pulse" />
-            </figure>
-          ))}
+          {tiles.map((t, i) => {
+            const isClickable = !!t.youtubeId;
+            const Tag = isClickable ? "button" : "figure";
+
+            return (
+              <Tag
+                key={i}
+                {...(isClickable
+                  ? { onClick: () => setActiveVideo(t.youtubeId!), type: "button" }
+                  : {})}
+                className={`group relative overflow-hidden border border-border/60 clip-cut ${t.h ?? ""} ${
+                  isClickable ? "cursor-pointer w-full text-left" : ""
+                }`}
+              >
+                <img
+                  src={t.img}
+                  alt={t.label}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent" />
+                {/* overlay sutil no hover apenas para tiles clicáveis */}
+                {isClickable && (
+                  <div className="absolute inset-0 bg-plasma/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                )}
+                <figcaption className="absolute inset-x-0 bottom-0 p-4">
+                  <div className="font-mono text-[10px] tracking-[0.3em] text-plasma">{t.tag}</div>
+                  <div className="font-display text-lg tracking-wide text-foreground">{t.label}</div>
+                </figcaption>
+                <div className="absolute right-3 top-3 h-2 w-2 bg-plasma animate-pulse" />
+              </Tag>
+            );
+          })}
         </div>
       </div>
+
+      {/* Modal */}
+      {activeVideo && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-background/90 backdrop-blur-sm"
+          onClick={() => setActiveVideo(null)}
+        >
+          <div
+            className="relative w-full max-w-5xl px-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setActiveVideo(null)}
+              className="absolute -top-10 right-4 font-mono text-xs tracking-[0.3em] text-muted-foreground transition-colors hover:text-plasma"
+              type="button"
+            >
+              [ ESC / CLOSE ]
+            </button>
+            <div className="relative aspect-video w-full border border-border/60">
+              <iframe
+                src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&rel=0`}
+                allow="autoplay; fullscreen"
+                allowFullScreen
+                className="h-full w-full"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
@@ -486,21 +552,21 @@ function FeaturedWork() {
 /* ============== FEATURED SERVICES ============== */
 function FeaturedServices() {
   const tiles = [
-    { img: everlenImg, label: "3D ART & CHARACTERS", tag: "CONCEPT ART" },
-    { img: studioImg, label: "UNREAL DEVELOPMENT", tag: "GAMEPLAY PROGRAMMING" },
-    { img: chamadoImg, label: "ANIMATION & VFX", tag: "TECHNICAL ART" },
-    { img: heroImg, label: "CINEMATICS & TRAILERS", tag: "IN-ENGINE" },
-    { img: everlenImg, label: "ENVIRONMENTS", tag: "HARD SURFACE" },
-    { img: chamadoImg, label: "MARKETING ART", tag: "KEY VISUALS" },
-    { img: studioImg, label: "CHARACTER DESIGN", tag: "DIGITAL HUMANS" },
-    { img: heroImg, label: "VFX & SHADERS", tag: "NIAGARA" },
+    { img: everlenImg, label: ["CONCEPT ART, CHARACTERS,", "ASSETS, ENVIRONMENTS, UI/UX"], tag: "2D ART" },
+    { img: studioImg,  label: ["UNREAL DEVELOPMENT"],                                       tag: "GAME PROGRAMMING" },
+    { img: chamadoImg, label: ["REALTIME AND CINEMATIC,", "RIGGING AND ANIMATION"],         tag: "ANIMATION" },
+    { img: heroImg,    label: ["RENDERS AND COMPOSITION"],                                   tag: "AUDIOVISUAL" },
+    { img: everlenImg, label: ["CHARACTERS, PROPS,", "ENVIRONMENTS"],                       tag: "3D ART" },
+    { img: chamadoImg, label: ["KEY VISUAL"],                                                tag: "MARKETING ART" },
+    { img: studioImg,  label: ["SFX, AMBIENT DESIGN,", "MUSIC DIRECTION, AUDIO IMPL."],    tag: "SOUND DESIGN" },
+    { img: heroImg,    label: ["NIAGARA"],                                                   tag: "IN GAME VFX" },
   ];
 
   return (
     <section className="relative py-32">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="mb-16 flex flex-col gap-4">
-          <SectionLabel index="//05">CAPABILITIES</SectionLabel>
+          <SectionLabel index="//04">CAPABILITIES</SectionLabel>
           <h2 className="font-display text-5xl leading-[0.95] tracking-wide md:text-7xl">
             FEATURED <span className="text-plasma glow-text">SERVICES.</span>
           </h2>
@@ -510,18 +576,22 @@ function FeaturedServices() {
           {tiles.map((t, i) => (
             <figure
               key={i}
-              className={`group relative overflow-hidden border border-border/60 clip-cut ${t.h ?? ""}`}
+              className={`group relative overflow-hidden border border-border/60 clip-cut`}
             >
               <img
                 src={t.img}
-                alt={t.label}
+                alt={Array.isArray(t.label) ? t.label.join(" ") : t.label}
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent" />
               <figcaption className="absolute inset-x-0 bottom-0 p-4">
                 <div className="font-mono text-[10px] tracking-[0.3em] text-plasma">{t.tag}</div>
-                <div className="font-display text-lg tracking-wide text-foreground">{t.label}</div>
+                <div className="font-display text-lg tracking-wide text-foreground">
+                {Array.isArray(t.label)
+                  ? t.label.map((line, i) => <span key={i} className="block">{line}</span>)
+                  : t.label}
+              </div>
               </figcaption>
               <div className="absolute right-3 top-3 h-2 w-2 bg-plasma animate-pulse" />
             </figure>
@@ -554,7 +624,7 @@ function FinalCTA() {
           <span className="text-plasma glow-text">UNFORGETTABLE.</span>
         </h2>
         <p className="mt-8 mx-auto max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
-          Talk directly to the people who solve problems. We analyze your project and get back to you within 48 hours, focusing immediately on your scope with no unnecessary meetings.
+          Talk directly to the people who solve problems. We analyze your project and get back to you within 48 hours.
         </p>
         <div className="mt-10">
           <Link to="/contact" className="btn-plasma">

@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { SectionLabel } from "@/components/site/SectionLabel";
+import { Shield, Globe, Bot, Radio, Crosshair, HardHat, RefreshCw, Sprout } from "lucide-react";
 import everlen from "@/assets/everlen-key-art.jpg";
 import { useState } from "react";
 
@@ -87,17 +88,10 @@ function EverlenPage() {
             <SectionLabel index="//LORE">THE WORLD</SectionLabel>
             <div className="space-y-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
               <p>
-                Two hundred years after the Sundering, the empire of <span className="text-plasma">Vehrn</span> is held
-                together by lies, iron, and a clergy that drinks blood instead of wine.
+                Build, adapt, fail, rise again - where survival meets roguelike.
               </p>
               <p>
-                You play as one of the <em>Unbound</em> — heretics carrying fragments of dead
-                gods inside their chests. Each fragment is power. Each fragment is rot.
-              </p>
-              <p>
-                Everlen is a single-player, story-driven action RPG built around brutal
-                melee combat, choice-driven faction warfare, and a world that does not
-                forgive curiosity.
+                In <em>Everlen</em> players are thrown into an apocalyptic space-opera universe where morality lives in the grey areas. Gameplay is focused on intense encounters with hostile creatures in the bullet hell combat style, inspired by Returnal, Dune and Helldivers 2.
               </p>
             </div>
           </div>
@@ -107,18 +101,50 @@ function EverlenPage() {
       {/* pillars */}
       <section className="border-t border-border/60 bg-surface/40 py-24">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
-          <SectionLabel index="//PILLARS">DESIGN PILLARS</SectionLabel>
-          <div className="mt-10 grid gap-px border border-border/60 bg-border/60 md:grid-cols-3">
-            {[
-              ["WEIGHTED COMBAT", "Every swing matters. Stagger, parry, posture, punishment."],
-              ["LIVING FACTIONS", "Three rival powers track every choice you make."],
-              ["UNFORGIVING LORE", "Books, whispers, ruins. The story rewards readers."],
-            ].map(([t, b]) => (
-              <div key={t} className="bg-background p-8">
-                <h3 className="font-display text-2xl tracking-wide text-plasma">{t}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{b}</p>
+          <SectionLabel index="//PILLARS">KEY FEATURES</SectionLabel>
+
+          <div className="mt-12 grid gap-16 lg:grid-cols-2">
+
+            {/* Key Gameplay Pillars */}
+            <div>
+              <h3 className="font-display text-2xl tracking-[0.12em] text-plasma mb-8">
+                KEY GAMEPLAY PILLARS
+              </h3>
+              <div className="flex flex-col gap-6">
+                {[
+                  [Shield, "Stand with your friends in intense third person shooter battles against a ruthless hive-mind planet."],
+                  [Globe, "Survive and manage your resources on a apocalyptic alien planet, procedurally generated for each run."],
+                  [Bot, "Craft and upgrade suit modifiers, consumables, and ammo each new run."],
+                  [Radio, "Decipher a complex dark space opera narrative."],
+                ].map(([Icon, text]) => (
+                  <div key={text} className="flex min-h-[72px] items-center gap-5 border border-border/60 bg-background p-5 transition-colors hover:border-plasma/40">
+                    <Icon className="shrink-0 text-plasma" size={28} />
+                    <p className="text-sm leading-relaxed text-muted-foreground">{text}</p>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Core Pillars */}
+            <div>
+              <h3 className="font-display text-2xl tracking-[0.12em] text-plasma mb-8">
+                CORE PILLARS
+              </h3>
+              <div className="flex flex-col gap-6">
+                {[
+                  [Crosshair, "Cooperative shooter combat."],
+                  [HardHat, "Immersive world."],
+                  [RefreshCw, "High replayability potential."],
+                  [Sprout, "Robust build customization."],
+                ].map(([Icon, text]) => (
+                  <div key={text} className="flex min-h-[72px] items-center gap-5 border border-border/60 bg-background p-5 transition-colors hover:border-plasma/40">
+                    <Icon className="shrink-0 text-plasma" size={28} />
+                    <p className="text-sm leading-relaxed text-muted-foreground">{text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -146,11 +172,14 @@ function EverlenPage() {
 
         <div className="mt-8">
           <a
-            href="https://store.steampowered.com/app/3943600/Everlen_The_Volgran_Torment/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-plasma"
+          href="https://store.steampowered.com/app/3943600/Everlen_The_Volgran_Torment/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-plasma inline-flex items-center gap-3 px-10 py-4 text-base"
           >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 shrink-0">
+              <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.606 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.252 0-2.265-1.014-2.265-2.265z"/>
+            </svg>
             ADD TO WISHLIST ON STEAM
           </a>
         </div>

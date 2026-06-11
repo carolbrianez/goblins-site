@@ -38,9 +38,9 @@ export function Atmosphere() {
                 <span>◢ AAA Power · Indie Soul</span>
                 <span>◢ UNREAL ENGINE 5 SPECIALISTS</span>
                 <span>◢ FULL DEV · CO-DEV · OUTSOURCE</span>
-                <span>◢ NOW BUILDING: EVERLEN // BOOKATOON</span>
+                <span>◢ AAA quality and Indie budget is the new reality </span>
                 <span>◢ WE ARE ALL ARTISTS</span>
-                <span>◢ ACCEPTING Q1 2026 PROJECTS</span>
+                <span>◢ MAKE YOUR GAME EPIC!</span>
               </span>
             ))}
           </div>
