@@ -2,17 +2,21 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { SectionLabel } from "@/components/site/SectionLabel";
 import { Shield, Globe, Bot, Radio, Crosshair, HardHat, RefreshCw, Sprout } from "lucide-react";
-import everlen from "@/assets/everlen-key-art.jpg";
+import everlen from "@/assets/everlenIP.jpg";
+import icon1 from "@/assets/icon1.png";
+import icon2 from "@/assets/icon2.png";
+import icon3 from "@/assets/icon3.png";
+import steamIcon from "@/assets/steam.svg";
 import { useState } from "react";
 
 export const Route = createFileRoute("/everlen")({
   head: () => ({
     meta: [
-      { title: "Everlen — Goblin Studios Original IP" },
-      { name: "description", content: "Everlen — a dark fantasy AAA-style world by Goblin Studios. Built in Unreal Engine 5." },
-      { property: "og:title", content: "Everlen — Goblin Studios" },
+      { title: "Everlen - Goblin Studios Original IP" },
+      { name: "description", content: "Everlen - a dark sci-fi AAA-style world by Goblin Studios. Built in Unreal Engine 5." },
+      { property: "og:title", content: "Everlen - Goblin Studios" },
       { property: "og:description", content: "A blood-soaked dark fantasy world. Built in Unreal Engine 5." },
-      { property: "og:image", content: "/assets/everlen-key-art.jpg" },
+      { property: "og:image", content: "/assets/everlenIP.jpg" },
     ],
   }),
   component: EverlenPage,
@@ -70,13 +74,12 @@ function EverlenPage() {
         </button>
 
         <div className="absolute inset-x-0 bottom-24 z-10 mx-auto max-w-[1500px] px-6 lg:px-10">
-          <SectionLabel index="//IP_001">DARK FANTASY · UNREAL ENGINE 5</SectionLabel>
+          <SectionLabel index="//IP_001">DARK SCI-FI · UNREAL ENGINE 5</SectionLabel>
           <h1 className="font-display text-[clamp(5rem,18vw,18rem)] leading-[0.78] tracking-wider text-foreground glow-text select-none">
             EVERLEN
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            Where forgotten gods bleed into the cracks of the empire and the only
-            currency left is faith.
+            Hunt a sentient world and save the last seed of humanity.
           </p>
         </div>
       </section>
@@ -101,50 +104,21 @@ function EverlenPage() {
       {/* pillars */}
       <section className="border-t border-border/60 bg-surface/40 py-24">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
-          <SectionLabel index="//PILLARS">KEY FEATURES</SectionLabel>
-
-          <div className="mt-12 grid gap-16 lg:grid-cols-2">
-
-            {/* Key Gameplay Pillars */}
-            <div>
-              <h3 className="font-display text-2xl tracking-[0.12em] text-plasma mb-8">
-                KEY GAMEPLAY PILLARS
-              </h3>
-              <div className="flex flex-col gap-6">
-                {[
-                  [Shield, "Stand with your friends in intense third person shooter battles against a ruthless hive-mind planet."],
-                  [Globe, "Survive and manage your resources on a apocalyptic alien planet, procedurally generated for each run."],
-                  [Bot, "Craft and upgrade suit modifiers, consumables, and ammo each new run."],
-                  [Radio, "Decipher a complex dark space opera narrative."],
-                ].map(([Icon, text]) => (
-                  <div key={text} className="flex min-h-[72px] items-center gap-5 border border-border/60 bg-background p-5 transition-colors hover:border-plasma/40">
-                    <Icon className="shrink-0 text-plasma" size={28} />
-                    <p className="text-sm leading-relaxed text-muted-foreground">{text}</p>
-                  </div>
-                ))}
+          <SectionLabel index="//PILLARS">DESIGN</SectionLabel>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {[
+              { icon: icon1, title: "BUILD YOUR STRATEGY", text: "Mastering a hostile world through system, strategy and precise combat." },
+              { icon: icon2, title: "SURVIVE A LIVING PLANET", text: "A roguelite survival TPS" },
+              { icon: icon3, title: "CHOOSE EVERY DECISION CAREFULLY", text: "Where survival is driven by a greater mission" },
+            ].map(({ icon, title, text }) => (
+              <div key={title} className="flex items-center gap-6 border border-border/60 bg-background p-6 transition-colors hover:border-plasma/40">
+                <img src={icon} alt={title} className="h-16 w-16 shrink-0" />
+                <div>
+                  <h3 className="font-mono text-xs tracking-[0.2em] text-plasma mb-2">{title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{text}</p>
+                </div>
               </div>
-            </div>
-
-            {/* Core Pillars */}
-            <div>
-              <h3 className="font-display text-2xl tracking-[0.12em] text-plasma mb-8">
-                CORE PILLARS
-              </h3>
-              <div className="flex flex-col gap-6">
-                {[
-                  [Crosshair, "Cooperative shooter combat."],
-                  [HardHat, "Immersive world."],
-                  [RefreshCw, "High replayability potential."],
-                  [Sprout, "Robust build customization."],
-                ].map(([Icon, text]) => (
-                  <div key={text} className="flex min-h-[72px] items-center gap-5 border border-border/60 bg-background p-5 transition-colors hover:border-plasma/40">
-                    <Icon className="shrink-0 text-plasma" size={28} />
-                    <p className="text-sm leading-relaxed text-muted-foreground">{text}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
+            ))}
           </div>
         </div>
       </section>
@@ -167,7 +141,7 @@ function EverlenPage() {
 
       <section className="border-t border-border/60 py-24 text-center">
         <h3 className="font-display text-4xl tracking-wide md:text-6xl">
-          BLEED WITH US. <Link to="/contact" className="text-plasma underline-offset-4 hover:underline">JOIN THE COVEN.</Link>
+          SURVIVE THE HUNT. <span className="text-plasma">BECOME THE THREAT.</span>
         </h3>
 
         <div className="mt-8">
@@ -177,9 +151,7 @@ function EverlenPage() {
           rel="noopener noreferrer"
           className="btn-plasma inline-flex items-center gap-3 px-10 py-4 text-base"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 shrink-0">
-              <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.606 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.252 0-2.265-1.014-2.265-2.265z"/>
-            </svg>
+            <img src={steamIcon} alt="Steam" className="h-5 w-5 shrink-0" />
             ADD TO WISHLIST ON STEAM
           </a>
         </div>

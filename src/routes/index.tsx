@@ -1,15 +1,23 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { SectionLabel } from "@/components/site/SectionLabel";
-import teamTony from "@/assets/team-tony.png";
-import teamChris from "@/assets/team-chris.png";
-import teamSakaguti from "@/assets/team-sakaguti.png";
-import teamTanaka from "@/assets/team-tanaka.png";
-import teamRafa from "@/assets/team-rafa.png";
+import teamTony from "@/assets/team-tony.gif";
+import teamChris from "@/assets/team-chris.gif";
+import teamSakaguti from "@/assets/team-sakaguti.gif";
+import teamTanaka from "@/assets/team-tanaka.gif";
+import teamRafa from "@/assets/team-rafa.gif";
 import heroImg from "@/assets/hero-cinematic.jpg";
 import everlenImg from "@/assets/everlen-key-art.jpg";
 import chamadoImg from "@/assets/chamado-key-art.jpg";
 import studioImg from "@/assets/studio-atmosphere.jpg";
+import everlenIP from "@/assets/everlenIP.jpg";
+import bookatoonIP from "@/assets/bookatoonIP.jpg";
+import everlenHome from "@/assets/everlenHome.jpg";
+import bedroomHome from "@/assets/bedroomHome.jpg";
+import goldenHome from "@/assets/goldenHome.jpg";
+import deathboundHome from "@/assets/deathboundHome.jpg";
+import rioHome from "@/assets/rioHome.jpg";
+import cassiodoraHome from "@/assets/cassiodoraHome.jpg";
 import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/")({
@@ -24,8 +32,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Home,
 });
-
-const AAA_LOGOS = ["EA", "UBISOFT", "WARNER", "2K", "ACTIVISION", "BANDAI"];
 
 function Home() {
   return (
@@ -159,6 +165,10 @@ function AAAExperience() {
         <div className="relative mt-0 overflow-hidden"></div>
 
         <div className="relative mt-16 overflow-hidden">
+          <div className="absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 top-0 z-10 h-16 bg-gradient-to-b from-surface to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 z-10 h-16 bg-gradient-to-t from-surface to-transparent pointer-events-none" />
           {/* Linha 1 — esquerda */}
           <video
             autoPlay
@@ -166,7 +176,7 @@ function AAAExperience() {
             muted
             playsInline
             className="w-full"
-            style={{ maxHeight: "90px", objectFit: "cover" }}
+            style={{ maxHeight: "160px", objectFit: "cover" }}
           >
             <source
               src="/videos/logos-left.mp4"
@@ -180,8 +190,8 @@ function AAAExperience() {
             loop
             muted
             playsInline
-            className="mt-4 w-full"
-            style={{ maxHeight: "90px", objectFit: "cover" }}
+            className="mt-0 w-full"
+            style={{ maxHeight: "160px", objectFit: "cover" }}
           >
             <source
               src="/videos/logos-right.mp4"
@@ -302,17 +312,17 @@ function OriginalIPs() {
         <div className="mt-20 grid gap-10 lg:grid-cols-2">
           <IPCard
             tag="DARK FANTASY · AAA-LIKE"
-            title="REALISTIC ART STYLE"
-            body="A blood-soaked dark fantasy world where forgotten gods bleed into the cracks of the empire. Built in Unreal Engine 5."
-            img={everlenImg}
+            title="EVERLEN"
+            body="Our realistic dark sci-fi art style game where hunt a sentient world and save the last seed of humanity it's your goal."
+            img={everlenIP}
             href="/everlen"
             accent="text-plasma"
           />
           <IPCard
             tag="VR · HUMANITARIAN"
-            title="STYLIZED ART SLIDE"
-            body="An emotionally crafted VR experience for children undergoing pediatric oncology treatment - in partnership with Hospital do Amor."
-            img={chamadoImg}
+            title="BOOKATOON"
+            body="An emotionally crafted VR experience for children undergoing pediatric oncology treatment, in partnership with Hospital do Amor."
+            img={bookatoonIP}
             href="/chamado"
             accent="text-holo"
           />
@@ -344,7 +354,7 @@ function IPCard({
         </div>
       </div>
 
-      <div className="relative bg-surface/60 p-8">
+      <div className="relative p-8">
         <h3 className={`font-display text-5xl tracking-wide md:text-6xl ${accent} transition-all duration-500 group-hover:tracking-[0.05em]`}>
           {title}
         </h3>
@@ -363,7 +373,7 @@ function IPCard({
 const WHY = [
   ["AAA EXPERIENCE", "Experienced professionals who have worked on AAA projects, having previously worked at studios such as Ubisoft, Electronic Arts, and Roblox."],
   ["INDIE-AWARE PRODUCTION", "We use agile production methodologies to guarantee consistent deliveries, optimizing development time so that every penny of your budget translates into real progress, using tools adapted to the new reality of game development."],
-  ["UNREAL ENGINE EXPERTISE", "Specialists from gameplay to cinematics, tech art to render pipelines."],
+  ["UNREAL ENGINE EXPERTISE", "Unreal Engine is at the core of everything we do. From low-level C++ development, custom gameplay frameworks, GAS, networking, and tools creation to cinematics, VFX, technical art, and real-time experiences."],
   ["ARTISTIC OBSESSION", "Frame-by-frame quality control. Concept art and assets that maintain maximum visual fidelity from start to finish."],
   ["FOUNDER-LED PRODUCTION", "You talk to the people doing the work. No account-manager telephone games."],
   ["FLEXIBLE PIPELINES", "Hybrid, embedded, or full delivery. We mold the team around your project."],
@@ -431,16 +441,16 @@ function Pipeline() {
         <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
           {FOUNDERS.map((f, i) => (
             <div key={f.name} className="group relative">
-              <div className="hud-frame relative overflow-hidden clip-cut transition-all hover:-translate-y-1 hover:border-plasma">
+              <div className="hud-frame relative overflow-hidden clip-cut transition-all hover:-translate-y-1 hover:border-plasma flex flex-col h-full">
                 <div className="absolute -top-3 left-4 z-10 bg-background px-2 font-mono text-[10px] tracking-[0.3em] text-plasma">
                   //{String(i + 1).padStart(2, "0")}
                 </div>
                 <img
                   src={f.img}
                   alt={f.name}
-                  className="h-64 w-full object-cover object-top grayscale transition-all group-hover:grayscale-0"
+                  className="h-64 w-full object-contain object-top grayscale transition-all group-hover:grayscale-0"
                 />
-                <div className="p-4">
+                <div className="p-4 flex-1">
                   <h3 className="font-display text-base tracking-wider text-foreground">
                     {f.name}
                   </h3>
@@ -462,13 +472,13 @@ function FeaturedWork() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   const tiles = [
-    { img: everlenImg,  label: "EVERLEN",          tag: "ORIGINAL IP",  h: "row-span-2", youtubeId: "w49B3_-jVoc" },
-    { img: studioImg,   label: "DEATHBOUND",        tag: "CO-DEV",                        youtubeId: "SbW3exPtr7k" },
-    { img: chamadoImg,  label: "GOLDEN TIDES",      tag: "CO-DEV",                        youtubeId: "OQzA8hFS0FI" },
-    { img: heroImg,     label: "RIO RAISED IN OBLIVION", tag: "CO-DEV", h: "row-span-2", youtubeId: "l8ypmhlLtUE" },
-    { img: everlenImg,  label: "CASSIODORA",        tag: "CO-DEV",                        youtubeId: "flLl1N0bLKM" },
-    { img: chamadoImg,  label: "BEDROOM BRAWL",     tag: "CO-DEV",                        youtubeId: "-mJPxat0MVM" },
-];
+    { img: everlenHome,    label: "EVERLEN",               tag: "FULL DEV",   h: "row-span-2", youtubeId: "w49B3_-jVoc" },
+    { img: bedroomHome,    label: "BEDROOM BRAWL",         tag: "CO-DEV",                      youtubeId: "-mJPxat0MVM" },
+    { img: goldenHome,     label: "GOLDEN TIDES",          tag: "CO-DEV",                      youtubeId: "OQzA8hFS0FI" },
+    { img: deathboundHome, label: "DEATHBOUND",            tag: "CO-DEV",     h: "row-span-2", youtubeId: "SbW3exPtr7k" },
+    { img: rioHome,        label: "RIO RAISED IN OBLIVION",tag: "OUTSOURCE",                   youtubeId: "l8ypmhlLtUE" },
+    { img: cassiodoraHome, label: "CASSIODORA",            tag: "CO-DEV",                      youtubeId: "flLl1N0bLKM" },
+  ];
 
   return (
     <section className="relative py-32">
@@ -558,7 +568,7 @@ function FeaturedServices() {
     { img: heroImg,    label: ["RENDERS AND COMPOSITION"],                                   tag: "AUDIOVISUAL" },
     { img: everlenImg, label: ["CHARACTERS, PROPS,", "ENVIRONMENTS"],                       tag: "3D ART" },
     { img: chamadoImg, label: ["KEY VISUAL"],                                                tag: "MARKETING ART" },
-    { img: studioImg,  label: ["SFX, AMBIENT DESIGN,", "MUSIC DIRECTION, AUDIO IMPL."],    tag: "SOUND DESIGN" },
+    { img: studioImg,  label: ["SFX, AMBIENT DESIGN,", "MUSIC DIRECTION, AUDIO IMPLEMENTATION"],    tag: "SOUND DESIGN" },
     { img: heroImg,    label: ["NIAGARA"],                                                   tag: "IN GAME VFX" },
   ];
 

@@ -30,7 +30,7 @@ const SERVICES = [
     id: "02",
     title: "3D ART",
     sub: "AAA assets. Game-ready.",
-    body: "Human characters, likeness, creatures, props, optimized assets.",
+    body: "Human characters, likeness, creatures, props, optimized assets built for high-performance real-time experiences.",
     media: { type: "video", src: "https://cdn.prod.website-files.com/66859b13105707a6b4417a25%2F6a0ee8821526e1694d523151_Modelos%203D%20%281%29compree_mp4.mp4", flip: true },
   },
   {
@@ -56,7 +56,7 @@ const SERVICES = [
   },
   {
     id: "06",
-    title: "UX & UI",
+    title: "UI & UX",
     sub: "Next level interface.",
     body: "Interface design focused on usability and immersion. HUDs, menus, UX flows and interactive elements that serve the experience without breaking it.",
     media: { type: "image", src: chamadoImg },
@@ -99,7 +99,7 @@ const WAYS = [
     id: "03",
     title: "OUTSOURCE",
     sub: "Per-task. AAA fidelity.",
-    body: "Isolated deliverables: concept art, characters, environments, animation, VFX, cinematics, gameplay systems. Senior reviews, clear milestones, no surprises.",
+    body: "Isolated deliverables: Concept art, characters, environments, animation, VFX, cinematics, gameplay systems. Senior reviews, clear milestones, no surprises.",
     bullets: [
       "Per-asset or per-vertical scoping",
       "Art tests on the house (within reason)",
@@ -158,7 +158,7 @@ function ServicesPage() {
 
       <section className="border-y border-border/60 bg-surface/40 py-24 text-center">
         <p className="font-display text-4xl leading-tight tracking-wide md:text-6xl lg:text-7xl">
-          YOUR VISION. <span className="text-plasma glow-text">OUR PIPELINE.</span> ZERO EXCUSES.
+          YOUR VISION. <span className="text-plasma glow-text">OUR EXPERTISE.</span> YOUR SUCCESS.
         </p>
       </section>
 
