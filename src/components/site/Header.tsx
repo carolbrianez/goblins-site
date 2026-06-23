@@ -7,7 +7,7 @@ const NAV = [
   { to: "/services", label: "SERVICES", external: false },
   { to: "https://www.artstation.com/goblin-studios", label: "PORTFOLIO", external: true },
   { to: "/everlen", label: "EVERLEN", external: false },
-  { to: "/chamado", label: "O CHAMADO", external: false },
+  { to: "/bookatoon", label: "BOOKATOON", external: false },
   { to: "/goblin-way", label: "THE GOBLIN WAY", external: false },
   { to: "/contact", label: "CONTACT", external: false },
 ];

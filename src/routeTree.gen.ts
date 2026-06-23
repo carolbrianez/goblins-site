@@ -13,7 +13,7 @@ import { Route as ServicesRouteImport } from './routes/services'
 import { Route as GoblinWayRouteImport } from './routes/goblin-way'
 import { Route as EverlenRouteImport } from './routes/everlen'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as ChamadoRouteImport } from './routes/chamado'
+import { Route as BookatoonRouteImport } from './routes/bookatoon'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ServicesRoute = ServicesRouteImport.update({
@@ -36,9 +36,9 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ChamadoRoute = ChamadoRouteImport.update({
-  id: '/chamado',
-  path: '/chamado',
+const BookatoonRoute = BookatoonRouteImport.update({
+  id: '/bookatoon',
+  path: '/bookatoon',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -49,7 +49,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/chamado': typeof ChamadoRoute
+  '/bookatoon': typeof BookatoonRoute
   '/contact': typeof ContactRoute
   '/everlen': typeof EverlenRoute
   '/goblin-way': typeof GoblinWayRoute
@@ -57,7 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/chamado': typeof ChamadoRoute
+  '/bookatoon': typeof BookatoonRoute
   '/contact': typeof ContactRoute
   '/everlen': typeof EverlenRoute
   '/goblin-way': typeof GoblinWayRoute
@@ -66,7 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/chamado': typeof ChamadoRoute
+  '/bookatoon': typeof BookatoonRoute
   '/contact': typeof ContactRoute
   '/everlen': typeof EverlenRoute
   '/goblin-way': typeof GoblinWayRoute
@@ -76,17 +76,17 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/chamado'
+    | '/bookatoon'
     | '/contact'
     | '/everlen'
     | '/goblin-way'
     | '/services'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/chamado' | '/contact' | '/everlen' | '/goblin-way' | '/services'
+  to: '/' | '/bookatoon' | '/contact' | '/everlen' | '/goblin-way' | '/services'
   id:
     | '__root__'
     | '/'
-    | '/chamado'
+    | '/bookatoon'
     | '/contact'
     | '/everlen'
     | '/goblin-way'
@@ -95,7 +95,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ChamadoRoute: typeof ChamadoRoute
+  BookatoonRoute: typeof BookatoonRoute
   ContactRoute: typeof ContactRoute
   EverlenRoute: typeof EverlenRoute
   GoblinWayRoute: typeof GoblinWayRoute
@@ -132,11 +132,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/chamado': {
-      id: '/chamado'
-      path: '/chamado'
-      fullPath: '/chamado'
-      preLoaderRoute: typeof ChamadoRouteImport
+    '/bookatoon': {
+      id: '/bookatoon'
+      path: '/bookatoon'
+      fullPath: '/bookatoon'
+      preLoaderRoute: typeof BookatoonRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -151,7 +151,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ChamadoRoute: ChamadoRoute,
+  BookatoonRoute: BookatoonRoute,
   ContactRoute: ContactRoute,
   EverlenRoute: EverlenRoute,
   GoblinWayRoute: GoblinWayRoute,

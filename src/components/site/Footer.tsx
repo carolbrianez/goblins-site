@@ -38,7 +38,7 @@ export function Footer() {
             <h4 className="font-mono text-[11px] tracking-[0.3em] text-plasma">WORLDS</h4>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li><Link to="/everlen" className="hover:text-foreground">Everlen</Link></li>
-              <li><Link to="/chamado" className="hover:text-foreground">BOOKATOON</Link></li>
+              <li><Link to="/bookatoon" className="hover:text-foreground">Bookatoon</Link></li>
             </ul>
           </div>
 

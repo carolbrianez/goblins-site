@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { SectionLabel } from "@/components/site/SectionLabel";
-import everlenImg from "@/assets/everlen-key-art.jpg";
 import chamadoImg from "@/assets/chamado-key-art.jpg";
 import studioImg from "@/assets/studio-atmosphere.jpg";
 import heroImg from "@/assets/hero-cinematic.jpg";
@@ -9,7 +8,7 @@ import heroImg from "@/assets/hero-cinematic.jpg";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Goblin Studios" },
+      { title: "Services • Goblin Studios" },
       { name: "description", content: "Full Development, Co-Development and Outsourcing for Unreal Engine games. AAA fidelity, indie velocity." },
       { property: "og:title", content: "Services — Goblin Studios" },
       { property: "og:description", content: "Full Dev, Co-Dev and Outsourcing for ambitious games." },
@@ -24,7 +23,7 @@ const SERVICES = [
     title: "CONCEPT",
     sub: "Where worlds begin.",
     body: "Worldbuilding, character creation, turnarounds, environmental design and key visuals. We define the visual language before a single polygon is created.",
-    media: { type: "image", src: everlenImg },
+    media: { type: "video", src: "/videos/concept-video.mp4" },
   },
   {
     id: "02",
@@ -145,7 +144,7 @@ function ServicesPage() {
           <div className={`relative flex h-full items-center ${i % 2 === 0 ? "justify-start" : "justify-end"}`}>
             <div className={`mx-auto max-w-[1500px] w-full px-6 lg:px-10 ${i % 2 === 0 ? "" : "flex justify-end"}`}>
               <div className="max-w-xl">
-                <span className="font-mono text-[11px] tracking-[0.3em] text-plasma">//{s.id} — {s.sub}</span>
+                <span className="font-mono text-[11px] tracking-[0.3em] text-plasma">//{s.id} • {s.sub}</span>
                 <h2 className="mt-4 font-display text-5xl leading-[0.95] tracking-wide text-foreground md:text-7xl">
                   {s.title}
                 </h2>

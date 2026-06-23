@@ -323,7 +323,7 @@ function OriginalIPs() {
             title="BOOKATOON"
             body="An emotionally crafted VR experience for children undergoing pediatric oncology treatment, in partnership with Hospital do Amor."
             img={bookatoonIP}
-            href="/chamado"
+            href="/bookatoon"
             accent="text-holo"
           />
         </div>
