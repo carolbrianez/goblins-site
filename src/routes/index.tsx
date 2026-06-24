@@ -344,10 +344,10 @@ function IPCard({
           width={1920}
           height={1080}
           loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-103"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-        <div className="absolute inset-0 opacity-20 mix-blend-overlay scan-sweep" />
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background to-transparent" />
+        <div className="absolute inset-0 opacity-30 mix-blend-overlay scan-sweep" />
 
         <div className="absolute left-4 top-4 hud-corners p-2 font-mono text-[10px] tracking-[0.3em] text-plasma">
           REC ● {tag}

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { SectionLabel } from "@/components/site/SectionLabel";
 import { Shield, Globe, Bot, Radio, Crosshair, HardHat, RefreshCw, Sprout } from "lucide-react";
-import everlen from "@/assets/everlenIP.jpg";
+import everlen from "@/assets/everlenSLogo.png";
 import icon1 from "@/assets/icon1.png";
 import icon2 from "@/assets/icon2.png";
 import icon3 from "@/assets/icon3.png";
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/everlen")({
       { name: "description", content: "Everlen - a dark sci-fi AAA-style world by Goblin Studios. Built in Unreal Engine 5." },
       { property: "og:title", content: "Everlen - Goblin Studios" },
       { property: "og:description", content: "A blood-soaked dark fantasy world. Built in Unreal Engine 5." },
-      { property: "og:image", content: "/assets/everlenIP.jpg" },
+      { property: "og:image", content: "/assets/everlenSLogo.jpg" },
     ],
   }),
   component: EverlenPage,
