@@ -7,9 +7,6 @@ import teamSakaguti from "@/assets/team-sakaguti.gif";
 import teamTanaka from "@/assets/team-tanaka.gif";
 import teamRafa from "@/assets/team-rafa.gif";
 import heroImg from "@/assets/hero-cinematic.jpg";
-import everlenImg from "@/assets/everlen-key-art.jpg";
-import chamadoImg from "@/assets/chamado-key-art.jpg";
-import studioImg from "@/assets/studio-atmosphere.jpg";
 import everlenIP from "@/assets/everlenIP.jpg";
 import bookatoonIP from "@/assets/bookatoonIP.jpg";
 import everlenHome from "@/assets/everlenHome.jpg";
@@ -562,14 +559,14 @@ function FeaturedWork() {
 /* ============== FEATURED SERVICES ============== */
 function FeaturedServices() {
   const tiles = [
-    { img: everlenImg, label: ["CONCEPT ART, CHARACTERS,", "ASSETS, ENVIRONMENTS, UI/UX"], tag: "2D ART" },
-    { img: studioImg,  label: ["UNREAL DEVELOPMENT"],                                       tag: "GAME PROGRAMMING" },
-    { img: chamadoImg, label: ["REALTIME AND CINEMATIC,", "RIGGING AND ANIMATION"],         tag: "ANIMATION" },
-    { img: heroImg,    label: ["RENDERS AND COMPOSITION"],                                   tag: "AUDIOVISUAL" },
-    { img: everlenImg, label: ["CHARACTERS, PROPS,", "ENVIRONMENTS"],                       tag: "3D ART" },
-    { img: chamadoImg, label: ["KEY VISUAL"],                                                tag: "MARKETING ART" },
-    { img: studioImg,  label: ["SFX, AMBIENT DESIGN,", "MUSIC DIRECTION, AUDIO IMPLEMENTATION"],    tag: "SOUND DESIGN" },
-    { img: heroImg,    label: ["NIAGARA"],                                                   tag: "IN GAME VFX" },
+    { icon: "/icons/icon1.png", label: ["CONCEPT ART, CHARACTERS,", "ASSETS, ENVIRONMENTS, UI/UX"], tag: "2D ART" },
+    { icon: "/icons/icon3.png", label: ["UNREAL DEVELOPMENT"],                                       tag: "GAME PROGRAMMING" },
+    { icon: "/icons/icon4.png", label: ["REALTIME AND CINEMATIC,", "RIGGING AND ANIMATION"],         tag: "ANIMATION" },
+    { icon: "/icons/icon5.png", label: ["RENDERS AND COMPOSITION"],                                   tag: "AUDIOVISUAL" },
+    { icon: "/icons/icon2.png", label: ["CHARACTERS, PROPS,", "ENVIRONMENTS"],                       tag: "3D ART" },
+    { icon: "/icons/icon6.png", label: ["KEY VISUAL"],                                                tag: "MARKETING ART" },
+    { icon: "/icons/icon7.png", label: ["SFX, AMBIENT DESIGN,", "MUSIC DIRECTION, AUDIO IMPLEMENTATION"], tag: "SOUND DESIGN" },
+    { icon: "/icons/icon8.png", label: ["NIAGARA"],                                                   tag: "IN GAME VFX" },
   ];
 
   return (
@@ -586,22 +583,20 @@ function FeaturedServices() {
           {tiles.map((t, i) => (
             <figure
               key={i}
-              className={`group relative overflow-hidden border border-border/60 clip-cut`}
+              className="group relative overflow-hidden border border-border/60 clip-cut bg-background flex flex-col items-center justify-center gap-4 p-6"
             >
               <img
-                src={t.img}
-                alt={Array.isArray(t.label) ? t.label.join(" ") : t.label}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                src={t.icon}
+                alt={t.tag}
+                className="h-20 w-20 object-contain transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_#39ff14]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent" />
-              <figcaption className="absolute inset-x-0 bottom-0 p-4">
-                <div className="font-mono text-[10px] tracking-[0.3em] text-plasma">{t.tag}</div>
+              <figcaption className="text-center">
+                <div className="font-mono text-[13px] tracking-[0.3em] text-plasma mb-1">{t.tag}</div>
                 <div className="font-display text-lg tracking-wide text-foreground">
-                {Array.isArray(t.label)
-                  ? t.label.map((line, i) => <span key={i} className="block">{line}</span>)
-                  : t.label}
-              </div>
+                  {Array.isArray(t.label)
+                    ? t.label.map((line, i) => <span key={i} className="block">{line}</span>)
+                    : t.label}
+                </div>
               </figcaption>
               <div className="absolute right-3 top-3 h-2 w-2 bg-plasma animate-pulse" />
             </figure>
