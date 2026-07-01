@@ -5,9 +5,9 @@ import { SectionLabel } from "@/components/site/SectionLabel";
 export const Route = createFileRoute("/goblin-way")({
   head: () => ({
     meta: [
-      { title: "The Goblin Way — Goblin Studios" },
+      { title: "The Goblin Way • Goblin Studios" },
       { name: "description", content: "How we think, how we work, and why we exist." },
-      { property: "og:title", content: "The Goblin Way — Goblin Studios" },
+      { property: "og:title", content: "The Goblin Way • Goblin Studios" },
       { property: "og:description", content: "How we think, how we work, and why we exist." },
     ],
   }),
@@ -18,7 +18,7 @@ const TENETS = [
   {
     id: "01",
     title: "CRAFT OVER COMFORT",
-    body: "We don't take the easy road. We take the right one — even when it means redoing something three times, sleeping less, or telling a client their idea needs to change.",
+    body: "We don't take the easy road. We take the right one, even when it means redoing something three times, sleeping less, or telling a client their idea needs to change.",
   },
   {
     id: "02",
@@ -59,7 +59,7 @@ function GoblinWayPage() {
             THE <span className="text-plasma glow-text">GOBLIN</span> WAY.
           </h1>
           <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            We're not a agency. We're not a vendor. We're a crew — with a code.
+            We're not a agency. We're not a vendor. We're a crew, with a code.
           </p>
         </div>
       </section>
@@ -99,7 +99,7 @@ function GoblinWayPage() {
             YOU KNOW IF YOU'RE <span className="text-plasma glow-text">ONE OF US.</span>
           </h2>
           <p className="mt-6 text-sm leading-relaxed text-muted-foreground md:text-base">
-            If you read this far and felt something — come find us. We're always looking
+            If you read this far and felt something, come find us. We're always looking
             for people who care too much about the craft.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">

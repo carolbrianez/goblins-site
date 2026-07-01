@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { SectionLabel } from "@/components/site/SectionLabel";
 import chamadoImg from "@/assets/chamado-key-art.jpg";
-import studioImg from "@/assets/studio-atmosphere.jpg";
 import heroImg from "@/assets/hero-cinematic.jpg";
 
 export const Route = createFileRoute("/services")({
@@ -10,7 +9,7 @@ export const Route = createFileRoute("/services")({
     meta: [
       { title: "Services • Goblin Studios" },
       { name: "description", content: "Full Development, Co-Development and Outsourcing for Unreal Engine games. AAA fidelity, indie velocity." },
-      { property: "og:title", content: "Services — Goblin Studios" },
+      { property: "og:title", content: "Services • Goblin Studios" },
       { property: "og:description", content: "Full Dev, Co-Dev and Outsourcing for ambitious games." },
     ],
   }),
@@ -65,7 +64,7 @@ const SERVICES = [
     title: "SOUND DESIGN",
     sub: "The layer players feel.",
     body: "SFX, ambient design, music direction and audio implementation. Sound that makes every action land harder and every world feel real.",
-    media: { type: "image", src: studioImg },
+    media: { type: "video", src: "/videos/sfx-video.mp4", position: "right" },
   },
 ];
 
@@ -114,7 +113,6 @@ function ServicesPage() {
       {/* Hero */}
       <section className="relative pt-40 pb-24">
         <div className="absolute inset-0 -z-10 opacity-30">
-          <img src={heroImg} alt="" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background" />
         </div>
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
@@ -133,7 +131,11 @@ function ServicesPage() {
       {SERVICES.map((s, i) => (
         <section key={s.id} className="relative h-[70vh] min-h-[500px] overflow-hidden">
           {s.media.type === "video" ? (
-            <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover" style={s.media.flip ? { transform: "scaleX(-1)" } : undefined}>
+            <video
+              autoPlay loop muted playsInline
+              className={`absolute inset-0 h-full w-full object-cover ${s.media.position === "right" ? "object-right" : "object-center"}`}
+              style={s.media.flip ? { transform: "scaleX(-1)" } : undefined}
+            >
               <source src={s.media.src} type="video/mp4" />
             </video>
           ) : (

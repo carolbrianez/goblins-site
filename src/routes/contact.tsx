@@ -6,9 +6,9 @@ import studio from "@/assets/studio-atmosphere.jpg";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Goblin Studios" },
+      { title: "Contact • Goblin Studios" },
       { name: "description", content: "Tell us what you're building. Goblin Studios responds personally within 48 hours." },
-      { property: "og:title", content: "Contact — Goblin Studios" },
+      { property: "og:title", content: "Contact • Goblin Studios" },
       { property: "og:description", content: "Tell us what you're building." },
     ],
   }),

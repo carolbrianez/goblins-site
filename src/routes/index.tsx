@@ -166,14 +166,14 @@ function AAAExperience() {
           <div className="absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-background to-transparent pointer-events-none" />
           <div className="absolute inset-x-0 top-0 z-10 h-16 bg-gradient-to-b from-surface to-transparent pointer-events-none" />
           <div className="absolute inset-x-0 bottom-0 z-10 h-16 bg-gradient-to-t from-surface to-transparent pointer-events-none" />
-          {/* Linha 1 — esquerda */}
+          {/* Linha 1 esquerda */}
           <video
             autoPlay
             loop
             muted
             playsInline
             className="w-full"
-            style={{ maxHeight: "160px", objectFit: "cover" }}
+            style={{ maxHeight: "180px", objectFit: "cover" }}
           >
             <source
               src="/videos/logos-left.mp4"
@@ -181,14 +181,14 @@ function AAAExperience() {
             />
           </video>
 
-          {/* Linha 2 — direita (reverso) */}
+          {/* Linha 2 direita (reverso) */}
           <video
             autoPlay
             loop
             muted
             playsInline
             className="mt-0 w-full"
-            style={{ maxHeight: "160px", objectFit: "cover" }}
+            style={{ maxHeight: "180px", objectFit: "cover" }}
           >
             <source
               src="/videos/logos-right.mp4"
@@ -579,11 +579,11 @@ function FeaturedServices() {
           </h2>
         </div>
 
-        <div className="grid auto-rows-[220px] grid-cols-2 gap-3 md:grid-cols-4">
+        <div className="grid auto-rows-fr grid-cols-2 gap-3 md:grid-cols-4">
           {tiles.map((t, i) => (
             <figure
               key={i}
-              className="group relative overflow-hidden border border-border/60 clip-cut bg-background flex flex-col items-center justify-center gap-4 p-6"
+              className="group relative overflow-hidden border border-border/60 clip-cut bg-background flex flex-col items-center justify-center gap-4 p-6 min-h-[220px]"
             >
               <img
                 src={t.icon}

@@ -112,7 +112,7 @@ function ChamadoPage() {
             {[
               ["EMOTIONAL SAFETY", "Every beat reviewed by oncologists, psychologists, and child specialists."],
               ["AGENCY & POWER", "The player is never the patient. They're the hero."],
-              ["CLINICAL DURATION", "Sessions calibrated to chemo cycles — short, episodic, and welcoming."],
+              ["CLINICAL DURATION", "Sessions calibrated to chemo cycles • short, episodic, and welcoming."],
             ].map(([t, b]) => (
               <div key={t} className="bg-background p-8">
                 <h3 className="font-display text-2xl tracking-wide text-holo">{t}</h3>
