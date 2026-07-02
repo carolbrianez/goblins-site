@@ -45,7 +45,7 @@ export function Footer() {
           <div>
             <h4 className="font-mono text-[11px] tracking-[0.3em] text-plasma">SIGNAL</h4>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li>contact@goblinstudios.com</li>
+              <li>contact@goblinstudios.com.br</li>
             </ul>
           </div>
         </div>

@@ -38,7 +38,7 @@ function ContactPage() {
             <div>
               <h3 className="mb-3 font-mono text-[11px] tracking-[0.3em] text-plasma">◢ DIRECT CHANNELS</h3>
               <ul className="space-y-2 font-display text-2xl tracking-wide">
-                <li>contact@goblinstudios.com</li>
+                <li>contact@goblinstudios.com.br</li>
               </ul>
             </div>
 
