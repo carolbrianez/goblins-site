@@ -9,7 +9,7 @@ function NotFoundComponent() {
         <h1 className="mt-4 font-display text-7xl tracking-wider text-foreground glow-text">404</h1>
         <h2 className="mt-4 font-display text-xl tracking-[0.2em] text-foreground">PORTAL NOT FOUND</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          The world you are looking for hasn't been built yet — or it never was.
+          The world you are looking for hasn't been built yet - or it never was.
         </p>
         <div className="mt-8">
           <Link to="/" className="btn-plasma text-xs">RETURN TO BASE</Link>

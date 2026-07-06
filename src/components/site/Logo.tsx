@@ -8,18 +8,18 @@ export function Logo({ compact = false }: { compact?: boolean }) {
         <img
           src={rune}
           alt="Goblin Studios sigil"
-          width={36}
-          height={36}
+          width={48}
+          height={48}
           className="h-9 w-9 object-contain drop-shadow-[0_0_8px_color-mix(in_oklab,var(--plasma)_70%,transparent)] transition-transform duration-500 group-hover:rotate-[8deg]"
         />
         <span className="pointer-events-none absolute inset-0 animate-pulse rounded-full bg-plasma/10 blur-md" />
       </div>
       {!compact && (
         <div className="flex flex-col leading-none">
-          <span className="font-display text-lg tracking-[0.22em] text-foreground">
+          <span className="font-display text-xl tracking-[0.22em] text-foreground">
             GOBLIN
           </span>
-          <span className="font-mono text-[10px] tracking-[0.4em] text-plasma">
+          <span className="font-mono text-[11px] tracking-[0.4em] text-plasma">
             STUDIOS
           </span>
         </div>
