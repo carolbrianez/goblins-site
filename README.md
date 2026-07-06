@@ -1,4 +1,4 @@
-# Goblin Studios — New Site
+# Goblin Studios • New Site
 
 Official website for Goblin Studios, a premium game development studio specialized in Unreal Engine. Built as a full rebuild from the original Webflow site, now running on a modern, self-hosted React stack.
 
@@ -28,16 +28,16 @@ src/
 │   └── ui/          # Generic shadcn/ui components
 ├── hooks/           # Custom React hooks
 ├── lib/             # Utilities and helpers
-├── routes/          # One file per page (TanStack Router convention)
-│   ├── __root.tsx   # Root layout (navbar, footer, global providers)
-│   ├── index.tsx    # Home page
-│   ├── contact.tsx  # Contact page (with form)
-│   ├── services.tsx # Services page
-│   ├── everlen.tsx  # Everlen IP page
-│   └── chamado.tsx  # O Chamado do Herói IP page
-├── main.tsx         # App entry point
-├── router.tsx       # Router configuration
-└── styles.css       # Global styles and design tokens
+├── routes/           # One file per page (TanStack Router convention)
+│   ├── __root.tsx    # Root layout (navbar, footer, global providers)
+│   ├── index.tsx     # Home page
+│   ├── contact.tsx   # Contact page (with form)
+│   ├── services.tsx  # Services page
+│   ├── everlen.tsx   # Everlen IP page
+│   ├── bookatoon.tsx # Bookatoon IP page
+│   └── goblin-way.tsx # Studio manifesto/culture page
+├── main.tsx          # App entry point (router instance created here)
+└── styles.css        # Global styles and design tokens
 public/
 └── videos/          # Looping background videos (hero, logo marquees)
 ```
@@ -48,10 +48,11 @@ public/
 
 | Route | Description |
 |---|---|
-| `/` | Home — hero, featured work, services overview, team, CTA |
+| `/` | Home, hero, featured work, services overview, team, CTA |
 | `/services` | Full services breakdown (Full Dev, Co-Dev, Outsource) |
 | `/everlen` | Everlen original IP page |
-| `/chamado` | O Chamado do Herói VR experience page |
+| `/bookatoon` | Bookatoon VR experience page (pediatric oncology partnership with Hospital do Amor) |
+| `/goblin-way` | Studio manifesto and culture ("The Goblin Way") |
 | `/contact` | Contact page with inquiry form |
 
 ---
@@ -61,7 +62,7 @@ public/
 ### Requirements
 
 - [Bun](https://bun.sh/) v1.0 or higher
-- Node.js is **not** required — Bun handles everything
+- Node.js is **not** required, Bun handles everything
 
 ### Install dependencies
 
@@ -96,7 +97,7 @@ bun run preview
 ## Editing Guide
 
 ### Changing page content
-Each page is a self-contained file inside `src/routes/`. Open the relevant file and edit the text, arrays, or components directly — no CMS needed.
+Each page is a self-contained file inside `src/routes/`. Open the relevant file and edit the text, arrays, or components directly, no CMS needed.
 
 ### Adding/removing nav links
 Edit the `NAV` array in `src/components/site/Header.tsx`.
@@ -117,20 +118,33 @@ All CSS variables (colors, fonts, spacing) are defined in `src/styles.css`.
 
 ## Contact Form
 
-> ⚠️ The contact form currently shows a placeholder alert on submit. Email integration (via Resend or similar) is pending and will be added soon.
+> ⚠️ **Email delivery is not yet functional.** The form currently shows a placeholder alert on submit.
+>
+> **Current status of the integration:**
+> - Architecture: static frontend → `fetch()` → Vercel serverless function (`/api/contact.ts`) → [Resend](https://resend.com/) API → `contact@goblinstudios.com`
+> - DNS records for `goblinstudios.com.br` (DKIM, MX, SPF) are verified on Resend ✅
+> - Vercel project has been created; production branch tracking is being configured against `main`
+> - The `/api/contact.ts` serverless function itself has not been implemented yet
+> - [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) captcha is planned for the form but not yet added
 
 ---
 
 ## Deployment
 
-The site builds to a static `dist/` folder and can be deployed to any static hosting provider (Vercel, Netlify, Cloudflare Pages, etc.).
+The site builds to a static `dist/` folder. Current deployment flow:
 
-The domain `goblinstudios.com.br` will be pointed to the final deployment once the site is ready for launch.
+1. `bun run build` generates `dist/`
+2. The contents of `dist/` are zipped, uploaded to Hostgator's cPanel File Manager, and extracted into `public_html`
+3. A `.htaccess` file (already configured on the server) handles SPA routing (rewrites all non-file requests to `index.html`)
+
+**Live at:** `https://www.goblinstudios.com.br`
+
+The Vercel project connected to this repository is used **only** to host the contact form's serverless function (`/api/contact.ts`), it does not serve the public site.
 
 ---
 
 ## Notes
 
-- This project was originally scaffolded by [Lovable](https://lovable.dev/) and has since been fully decoupled — no Lovable dependencies remain.
+- This project was originally scaffolded by [Lovable](https://lovable.dev/) and has since been fully decoupled, no Lovable dependencies remain.
 - `src/routeTree.gen.ts` is auto-generated by TanStack Router. Do not edit it manually.
-- Videos in `public/videos/` are excluded from the Vite asset pipeline intentionally — they are served as static files.
+- Videos in `public/videos/` are excluded from the Vite asset pipeline intentionally, they are served as static files.
