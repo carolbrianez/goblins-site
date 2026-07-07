@@ -1,17 +1,146 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { Resend } from "resend";
 import { render } from "@react-email/render";
-import ContactFormEmail from "./emails/ContactFormEmail.js";
+import { createElement } from "react";
+import {
+  Body,
+  Container,
+  Head,
+  Hr,
+  Html,
+  Img,
+  Preview,
+  Section,
+  Text,
+} from "@react-email/components";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const styles = {
+  main: {
+    backgroundColor: "#0a0a0a",
+    fontFamily: "'Segoe UI', Arial, sans-serif",
+  },
+  container: {
+    margin: "0 auto",
+    padding: "40px 32px",
+    maxWidth: "560px",
+  },
+  logo: {
+    marginBottom: "24px",
+    borderRadius: "999px",
+  },
+  eyebrow: {
+    color: "#3DF62D",
+    fontFamily: "'Courier New', monospace",
+    fontSize: "11px",
+    letterSpacing: "3px",
+    fontWeight: "700" as const,
+    margin: "0 0 12px",
+  },
+  heading: {
+    color: "#ffffff",
+    fontSize: "28px",
+    fontWeight: "800" as const,
+    letterSpacing: "0.5px",
+    margin: "0 0 8px",
+  },
+  subtext: {
+    color: "#9a9a9a",
+    fontSize: "14px",
+    lineHeight: "22px",
+    margin: "0",
+  },
+  hr: {
+    borderColor: "#262626",
+    margin: "28px 0",
+  },
+  label: {
+    color: "#3DF62D",
+    fontFamily: "'Courier New', monospace",
+    fontSize: "10px",
+    letterSpacing: "2px",
+    fontWeight: "700" as const,
+    margin: "0 0 4px",
+  },
+  value: {
+    color: "#ffffff",
+    fontSize: "15px",
+    lineHeight: "22px",
+    margin: "0",
+  },
+  footer: {
+    color: "#5a5a5a",
+    fontFamily: "'Courier New', monospace",
+    fontSize: "10px",
+    letterSpacing: "2px",
+    textAlign: "center" as const,
+  },
+};
+
+interface ContactFormEmailProps {
+  name: string;
+  company: string;
+  email: string;
+  type: string;
+  budget: string;
+  message: string;
+}
+
+function row(label: string, value: string) {
+  return createElement(
+    Section,
+    { style: { marginBottom: "18px" } },
+    createElement(Text, { style: styles.label }, `◢ ${label}`),
+    createElement(Text, { style: styles.value }, value)
+  );
+}
+
+function ContactFormEmail({ name, company, email, type, budget, message }: ContactFormEmailProps) {
+  return createElement(
+    Html,
+    null,
+    createElement(Head, null),
+    createElement(Preview, null, `New signal from ${name}`),
+    createElement(
+      Body,
+      { style: styles.main },
+      createElement(
+        Container,
+        { style: styles.container },
+        createElement(Img, {
+          src: "https://www.goblinstudios.com.br/goblin-logo.png",
+          width: "56",
+          height: "56",
+          alt: "Goblin Studios",
+          style: styles.logo,
+        }),
+        createElement(Text, { style: styles.eyebrow }, "◢ TRANSMISSION.RECEIVED"),
+        createElement(Text, { style: styles.heading }, "New Project Inquiry"),
+        createElement(
+          Text,
+          { style: styles.subtext },
+          "A new signal came through the Goblin Studios contact form."
+        ),
+        createElement(Hr, { style: styles.hr }),
+        row("NAME", name),
+        row("COMPANY", company || "—"),
+        row("EMAIL", email),
+        row("PROJECT TYPE", type),
+        row("BUDGET RANGE", budget),
+        row("MESSAGE", message),
+        createElement(Hr, { style: styles.hr }),
+        createElement(Text, { style: styles.footer }, "GOBLIN STUDIOS · SÃO PAULO, BR")
+      )
+    )
+  );
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // 1. Permite chamadas do domínio do site (CORS)
   res.setHeader("Access-Control-Allow-Origin", "https://www.goblinstudios.com.br");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  // Navegadores mandam um "OPTIONS" antes do POST de verdade, pra checar CORS
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
@@ -22,7 +151,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const { name, company, email, type, budget, message } = req.body;
 
-  // 2. Validação básica
   if (!name || !email || !message) {
     return res.status(400).json({ error: "Missing required fields" });
   }
