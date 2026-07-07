@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { Resend } from "resend";
 import { render } from "@react-email/render";
-import ContactFormEmail from "../emails/ContactFormEmail";
+import ContactFormEmail from "../emails/ContactFormEmail.js";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
