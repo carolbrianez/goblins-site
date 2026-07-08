@@ -32,7 +32,7 @@ const styles = {
   },
   eyebrow: {
     color: "#3DF62D",
-    fontFamily: "'Courier New', monospace",
+    fontFamily: "'Segoe UI', Arial, sans-serif",
     fontSize: "11px",
     letterSpacing: "3px",
     fontWeight: "700" as const,
@@ -57,7 +57,7 @@ const styles = {
   },
   label: {
     color: "#3DF62D",
-    fontFamily: "'Courier New', monospace",
+    fontFamily: "'Segoe UI', Arial, sans-serif",
     fontSize: "10px",
     letterSpacing: "2px",
     fontWeight: "700" as const,
@@ -71,7 +71,7 @@ const styles = {
   },
   footer: {
     color: "#5a5a5a",
-    fontFamily: "'Courier New', monospace",
+    fontFamily: "'Segoe UI', Arial, sans-serif",
     fontSize: "10px",
     letterSpacing: "2px",
     textAlign: "center" as const,
