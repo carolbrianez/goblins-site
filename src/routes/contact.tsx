@@ -1,7 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { Turnstile } from "@marsidev/react-turnstile";
 import { PageLayout } from "@/components/site/PageLayout";
 import { SectionLabel } from "@/components/site/SectionLabel";
 import studio from "@/assets/studio-atmosphere.jpg";
+
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -81,14 +84,44 @@ function ContactPage() {
 }
 
 function ContactForm() {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+
+  async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("loading");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      name: formData.get("name"),
+      company: formData.get("company"),
+      email: formData.get("email"),
+      type: formData.get("type"),
+      budget: formData.get("budget"),
+      message: formData.get("message"),
+      turnstileToken,
+    };
+
+    try {
+      const response = await fetch("https://goblins-site.vercel.app/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) throw new Error("Request failed");
+
+      setStatus("success");
+      form.reset();
+    } catch (error) {
+      console.error("Failed to send contact form:", error);
+      setStatus("error");
+    }
+  }
+
   return (
-    <form
-      className="hud-frame relative space-y-5 p-8 clip-cut"
-      onSubmit={(e) => {
-        e.preventDefault();
-        alert("Signal received. We'll be in touch.");
-      }}
-    >
+    <form className="hud-frame relative space-y-5 p-8 clip-cut" onSubmit={handleSubmit}>
       <div className="absolute -top-3 left-6 bg-background px-2 font-mono text-[10px] tracking-[0.3em] text-plasma">
         TRANSMISSION.FORM
       </div>
@@ -110,9 +143,26 @@ function ContactForm() {
       />
       <Field label="MESSAGE" name="message" as="textarea" placeholder="What are you building?" />
 
-      <button type="submit" className="btn-plasma w-full justify-center">
-        TRANSMIT SIGNAL <span>↗</span>
+      <Turnstile
+        siteKey="0x4AAAAAADyGxsChS1fPW0dk"
+        onSuccess={(token) => setTurnstileToken(token)}
+        onExpire={() => setTurnstileToken(null)}
+      />
+
+      <button type="submit" disabled={status === "loading" || !turnstileToken} className="btn-plasma w-full justify-center disabled:opacity-50">
+        {status === "loading" ? "TRANSMITTING…" : "TRANSMIT SIGNAL"} <span>↗</span>
       </button>
+
+      {status === "success" && (
+        <p className="text-center font-mono text-xs tracking-widest text-plasma">
+          ◢ SIGNAL RECEIVED. WE'LL BE IN TOUCH.
+        </p>
+      )}
+      {status === "error" && (
+        <p className="text-center font-mono text-xs tracking-widest text-red-400">
+          ◢ TRANSMISSION FAILED. TRY AGAIN OR EMAIL US DIRECTLY.
+        </p>
+      )}
     </form>
   );
 }
