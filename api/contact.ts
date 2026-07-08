@@ -137,7 +137,14 @@ function ContactFormEmail({ name, company, email, type, budget, message }: Conta
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  res.setHeader("Access-Control-Allow-Origin", "https://www.goblinstudios.com.br");
+  const allowedOrigins = [
+    "https://www.goblinstudios.com.br",
+    "http://localhost:8080",
+  ];
+  const origin = req.headers.origin;
+  if (origin && allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
