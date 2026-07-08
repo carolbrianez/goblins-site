@@ -156,10 +156,30 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { name, company, email, type, budget, message } = req.body;
+  const { name, company, email, type, budget, message, turnstileToken } = req.body;
 
   if (!name || !email || !message) {
     return res.status(400).json({ error: "Missing required fields" });
+  }
+
+  if (!turnstileToken) {
+    return res.status(400).json({ error: "Missing captcha token" });
+  }
+
+  const turnstileVerify = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      secret: process.env.TURNSTILE_SECRET_KEY,
+      response: turnstileToken,
+    }),
+  });
+
+  const turnstileResult = await turnstileVerify.json();
+
+  if (!turnstileResult.success) {
+    console.error("Turnstile verification failed:", turnstileResult);
+    return res.status(403).json({ error: "Captcha verification failed" });
   }
 
   try {
