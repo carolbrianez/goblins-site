@@ -84,20 +84,13 @@ function ChamadoPage() {
             <SectionLabel index="//MISSION">WHY THIS GAME EXISTS</SectionLabel>
             <div className="space-y-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
               <p>
-                Pediatric oncology treatment is long, painful, and isolating. A child can
-                spend years going back and forth from the hospital, surrounded by
-                machines that beep and adults who whisper.
+                <span className="text-holo">Bookatoon</span> was born from the belief that no child should lose the ability to dream, imagine, and find hope while facing a health challenge, more than a game, Bookatoon is an original transmedia universe designed to inspire courage, resilience, and perseverance through memorable characters, music, stories, games, and immersive experience.
               </p>
               <p>
-                <span className="text-holo">Bookatoon</span> is what happens when you
-                hand that child a VR headset and a sword, and tell them the kingdom is
-                waiting.
+                Its first chapter began with the humanization of pediatric oncology care, but its vision extends far beyond cancer-creating meaningful experiences that support children and families throughout their healthcare journey. The first Bookatoon experience is a therapeutic gamification platform developed by <span className="text-plasma">Goblin Studios</span>, with scientific and institucional support from <span className="text-holo">Hospital de Amor</span>, one of Latin America's leading cancer treatment and research centers.
               </p>
               <p>
-                Built in partnership with <span className="text-plasma">Hospital do Amor</span>,
-                one of Latin America's leading cancer treatment centers, the game is
-                clinically integrated into pediatric care, distraction therapy with the
-                soul of an actual game.
+                Together, they combine creativity, technology, and clinical expertise to build a global entertainment franchise that transforms storytelling into a source of hope, empowering children to discover that the light to overcome life's greatest challenges has always existed within themselves.
               </p>
             </div>
           </div>
@@ -110,9 +103,9 @@ function ChamadoPage() {
           <SectionLabel index="//PILLARS">DESIGN PILLARS</SectionLabel>
           <div className="mt-10 grid gap-px border border-border/60 bg-border/60 md:grid-cols-3">
             {[
-              ["EMOTIONAL SAFETY", "Every beat reviewed by oncologists, psychologists, and child specialists."],
-              ["AGENCY & POWER", "The player is never the patient. They're the hero."],
-              ["CLINICAL DURATION", "Sessions calibrated to chemo cycles • short, episodic, and welcoming."],
+              ["IMAGINE", "Where fear gives way to music."],
+              ["BELIEVE", "Because courage grows from within."],
+              ["OVERCOME", "One story, one song and one step at a time."],
             ].map(([t, b]) => (
               <div key={t} className="bg-background p-8">
                 <h3 className="font-display text-2xl tracking-wide text-holo">{t}</h3>

@@ -1,11 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { SectionLabel } from "@/components/site/SectionLabel";
-import teamTony from "@/assets/team-tony.gif";
-import teamChris from "@/assets/team-chris.gif";
-import teamSakaguti from "@/assets/team-sakaguti.gif";
-import teamTanaka from "@/assets/team-tanaka.gif";
-import teamRafa from "@/assets/team-rafa.gif";
 import heroImg from "@/assets/hero-cinematic.jpg";
 import everlenIP from "@/assets/everlenIP.jpg";
 import bookatoonIP from "@/assets/bookatoonIP.jpg";
@@ -412,11 +407,11 @@ function WhyGoblin() {
 }
 
 const FOUNDERS = [
-  { name: "Tony Cruz", role: "10 years of professional experience developing and directing game projects using Unreal Engine", img: teamTony },
-  { name: "Chris Silva", role: "10 years of experience as an artist and 4 years in art direction", img: teamChris },
-  { name: "Matheus Sakaguti", role: "Marketing director, concept artist and graphic designer with 8 years of experience", img: teamSakaguti },
-  { name: "Vitor Tanaka", role: "8 years of experience in audiovisual and film production", img: teamTanaka },
-  { name: "Rafael Ongaro", role: "Responsible for Goblin's financial and legal operations for the last 4 years", img: teamRafa },
+  { name: "Tony Cruz", role: "10 years of professional experience developing and directing game projects using Unreal Engine", video: "/videos/team-tony.mp4" },
+  { name: "Chris Silva", role: "10 years of experience as an artist and 4 years in art direction", video: "/videos/team-chris.mp4" },
+  { name: "Matheus Sakaguti", role: "Marketing director, concept artist and graphic designer with 8 years of experience", video: "/videos/team-sakaguti.mp4" },
+  { name: "Vitor Tanaka", role: "8 years of experience in audiovisual and film production", video: "/videos/team-tanaka.mp4" },
+  { name: "Rafael Ongaro", role: "Responsible for Goblin's financial and legal operations for the last 4 years", video: "/videos/team-rafa.mp4" },
 ];
 
 function Pipeline() {
@@ -442,10 +437,13 @@ function Pipeline() {
                 <div className="absolute -top-3 left-4 z-10 bg-background px-2 font-mono text-[10px] tracking-[0.3em] text-plasma">
                   //{String(i + 1).padStart(2, "0")}
                 </div>
-                <img
-                  src={f.img}
-                  alt={f.name}
-                  className="h-64 w-full object-contain object-top grayscale transition-all group-hover:grayscale-0"
+                <video
+                  src={f.video}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="aspect-[4/5] w-full object-cover object-top grayscale transition-all group-hover:grayscale-0"
                 />
                 <div className="p-4 flex-1">
                   <h3 className="font-display text-base tracking-wider text-foreground">

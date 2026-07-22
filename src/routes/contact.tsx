@@ -86,10 +86,78 @@ function ContactPage() {
 function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  function validateField(name: string, value: string): string | undefined {
+    const trimmed = value.trim();
+
+    switch (name) {
+      case "name":
+        if (!trimmed) return "Tell us your name.";
+        if (trimmed.length < 2) return "That name looks too short.";
+        return undefined;
+
+      case "email": {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!trimmed) return "Email is required.";
+        if (!emailRegex.test(trimmed)) return "That email doesn't look valid.";
+        return undefined;
+      }
+
+      case "type":
+        if (!trimmed) return "Pick a project type.";
+        return undefined;
+
+      case "budget":
+        if (!trimmed) return "Pick a budget range.";
+        return undefined;
+
+      case "message":
+        if (!trimmed) return "Tell us a bit about the project.";
+        if (trimmed.length < 10) return "A little more detail helps us respond well.";
+        return undefined;
+
+      default:
+        return undefined;
+    }
+  }
+
+  function validateAll(payload: Record<string, FormDataEntryValue | null>) {
+    const newErrors: Record<string, string> = {};
+    for (const key of ["name", "email", "type", "budget", "message"]) {
+      const message = validateField(key, String(payload[key] ?? ""));
+      if (message) newErrors[key] = message;
+    }
+    return newErrors;
+  }
+
+  function handleBlur(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+    const { name, value } = e.target;
+    const message = validateField(name, value);
+    setErrors((prev) => {
+      if (!message) {
+        // valid now — drop any existing error for this field
+        const { [name]: _dropped, ...rest } = prev;
+        return rest;
+      }
+      return { ...prev, [name]: message };
+    });
+  }
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+    const { name, value } = e.target;
+    if (!errors[name]) return;
+    const message = validateField(name, value);
+    if (!message) {
+      setErrors((prev) => {
+        const { [name]: _dropped, ...rest } = prev;
+        return rest;
+      });
+    }
+  }
 
   async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("loading");
 
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -100,14 +168,21 @@ function ContactForm() {
       type: formData.get("type"),
       budget: formData.get("budget"),
       message: formData.get("message"),
-      turnstileToken,
     };
+
+    const validationErrors = validateAll(payload);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    setErrors({});
+    setStatus("loading");
 
     try {
       const response = await fetch("https://goblins-site.vercel.app/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ ...payload, turnstileToken }),
       });
 
       if (!response.ok) throw new Error("Request failed");
@@ -126,22 +201,28 @@ function ContactForm() {
         TRANSMISSION.FORM
       </div>
 
-      <Field label="NAME" name="name" placeholder="Your name" />
+      <Field label="NAME" name="name" placeholder="Your name" error={errors.name} onBlur={handleBlur} onChange={handleChange} />
       <Field label="COMPANY" name="company" placeholder="Studio / company" />
-      <Field label="EMAIL" name="email" placeholder="your@email.com" />
+      <Field label="EMAIL" name="email" placeholder="your@email.com" error={errors.email} onBlur={handleBlur} onChange={handleChange} />
       <Field
         label="PROJECT TYPE"
         name="type"
         as="select"
         options={["Full Development", "Co-Development", "Outsourcing", "Just exploring"]}
+        error={errors.type}
+        onBlur={handleBlur}
+        onChange={handleChange}
       />
       <Field
         label="BUDGET RANGE"
         name="budget"
         as="select"
         options={["< $50K", "$50K – $250K", "$250K – $1M", "$1M+"]}
+        error={errors.budget}
+        onBlur={handleBlur}
+        onChange={handleChange}
       />
-      <Field label="MESSAGE" name="message" as="textarea" placeholder="What are you building?" />
+      <Field label="MESSAGE" name="message" as="textarea" placeholder="What are you building?" error={errors.message} onBlur={handleBlur} onChange={handleChange} />
 
       <Turnstile
         siteKey="0x4AAAAAADyGxsChS1fPW0dk"
@@ -168,28 +249,43 @@ function ContactForm() {
 }
 
 function Field({
-  label, name, placeholder, as = "input", options,
+  label, name, placeholder, as = "input", options, error, onBlur, onChange,
 }: {
   label: string;
   name: string;
   placeholder?: string;
   as?: "input" | "textarea" | "select";
   options?: string[];
+  error?: string;
+  onBlur?: React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>;
+  onChange?: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>;
 }) {
-  const cls =
-    "w-full border border-border/80 bg-background/60 px-4 py-3 font-mono text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-plasma focus:outline-none focus:ring-1 focus:ring-plasma/40";
+  const cls = `w-full border bg-background/60 px-4 py-3 font-mono text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 ${
+    error
+      ? "border-red-400 focus:border-red-400 focus:ring-red-400/40"
+      : "border-border/80 focus:border-plasma focus:ring-plasma/40"
+  }`;
   return (
     <label className="block">
       <span className="mb-2 block font-mono text-[10px] tracking-[0.3em] text-plasma">
         ◢ {label}
       </span>
-      {as === "input" && <input name={name} placeholder={placeholder} className={cls} />}
-      {as === "textarea" && <textarea name={name} rows={4} placeholder={placeholder} className={cls} />}
+      {as === "input" && (
+        <input name={name} placeholder={placeholder} className={cls} onBlur={onBlur} onChange={onChange} />
+      )}
+      {as === "textarea" && (
+        <textarea name={name} rows={4} placeholder={placeholder} className={cls} onBlur={onBlur} onChange={onChange} />
+      )}
       {as === "select" && (
-        <select name={name} className={cls} defaultValue="">
+        <select name={name} className={cls} defaultValue="" onBlur={onBlur} onChange={onChange}>
           <option value="" disabled>— select —</option>
           {options?.map((o) => <option key={o} value={o}>{o}</option>)}
         </select>
+      )}
+      {error && (
+        <span className="mt-1.5 block font-mono text-[10px] tracking-wider text-red-400">
+          ◢ {error}
+        </span>
       )}
     </label>
   );

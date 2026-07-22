@@ -1,8 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { SectionLabel } from "@/components/site/SectionLabel";
-import chamadoImg from "@/assets/chamado-key-art.jpg";
-import heroImg from "@/assets/hero-cinematic.jpg";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -29,44 +27,87 @@ const SERVICES = [
     title: "3D ART",
     sub: "AAA assets. Game-ready.",
     body: "Human characters, likeness, creatures, props, optimized assets built for high-performance real-time experiences.",
-    media: { type: "video", src: "https://cdn.prod.website-files.com/66859b13105707a6b4417a25%2F6a0ee8821526e1694d523151_Modelos%203D%20%281%29compree_mp4.mp4", flip: true },
+    media: {
+      type: "video",
+      src: "https://cdn.prod.website-files.com/66859b13105707a6b4417a25%2F6a0ee8821526e1694d523151_Modelos%203D%20%281%29compree_mp4.mp4",
+      flip: true,
+      mobileAnchor: "right",
+    },
   },
   {
     id: "03",
     title: "RIGGING & ANIMATION",
     sub: "Motion that feels alive.",
     body: "Rigging, VFX, asset integration, in-engine cinematics and technical solutions for artistic challenges. Combat, locomotion, cinematic, all disciplines covered.",
-    media: { type: "video", src: "https://cdn.prod.website-files.com/66859b13105707a6b4417a25%2F6a0ee89cb084f8e1144828ee_ANIMA%C3%87%C3%83OFINAL%20%281%29compress_mp4.mp4" },
+    media: { 
+      type: "video",
+      src: "https://cdn.prod.website-files.com/66859b13105707a6b4417a25%2F6a0ee89cb084f8e1144828ee_ANIMA%C3%87%C3%83OFINAL%20%281%29compress_mp4.mp4",
+      mobileAnchor: "right",
+    },
   },
   {
     id: "04",
     title: "UNREAL DEVELOPMENT",
     sub: "Engine-level. No shortcuts.",
     body: "Technical programming, Blueprint systems, performance optimization and gameplay mechanics development, multiplayer development.",
-    media: { type: "image", src: heroImg },
+    media: {
+       type: "video", 
+       src: "/videos/unreal-video.mp4",
+       position: "right",
+       mobileAnchor: "left",
+      },
   },
   {
     id: "05",
     title: "CINEMATIC",
     sub: "Trailers that sell your game.",
     body: "In-engine cinematics, trailers, reveal sequences and cutscenes. We make people feel the game before they play it.",
-    media: { type: "video", src: "https://cdn.prod.website-files.com/66859b13105707a6b4417a25%2F6a0ee73f3ab8b3ab12cbada5_EVERLEN%20OK2%20compress_mp4.mp4" },
+    media: { 
+      type: "video", 
+      src: "https://cdn.prod.website-files.com/66859b13105707a6b4417a25%2F6a0ee73f3ab8b3ab12cbada5_EVERLEN%20OK2%20compress_mp4.mp4",
+      mobileAnchor: "right",
+     },
   },
   {
     id: "06",
     title: "UI & UX",
     sub: "Next level interface.",
     body: "Interface design focused on usability and immersion. HUDs, menus, UX flows and interactive elements that serve the experience without breaking it.",
-    media: { type: "image", src: chamadoImg },
+    media: { 
+      type: "video", 
+      src: "/videos/ui-ux-video.mp4",
+      position: "right",
+      mobileAnchor: "left",
+     },
   },
   {
     id: "07",
     title: "SOUND DESIGN",
     sub: "The layer players feel.",
     body: "SFX, ambient design, music direction and audio implementation. Sound that makes every action land harder and every world feel real.",
-    media: { type: "video", src: "/videos/sfx-video.mp4", position: "right" },
+    media: { 
+      type: "video", 
+      src: "/videos/sfx-video.mp4", 
+      position: "right",
+      mobileAnchor: "right",
+     },
   },
 ];
+
+const ANCHOR_CLASS: Record<string, string> = {
+  top: "object-top",
+  bottom: "object-bottom",
+  left: "object-left",
+  right: "object-right",
+  center: "object-center",
+};
+
+function getMediaPositionClasses(media: { position?: string; mobileAnchor?: string }) {
+  const desktop = ANCHOR_CLASS[media.position ?? "center"] ?? "object-center";
+  if (!media.mobileAnchor) return desktop;
+  const mobile = ANCHOR_CLASS[media.mobileAnchor] ?? "object-center";
+  return `${mobile} md:${desktop}`;
+}
 
 const WAYS = [
   {
@@ -133,17 +174,21 @@ function ServicesPage() {
           {s.media.type === "video" ? (
             <video
               autoPlay loop muted playsInline
-              className={`absolute inset-0 h-full w-full object-cover ${s.media.position === "right" ? "object-right" : "object-center"}`}
+              className={`absolute inset-0 h-full w-full object-cover ${getMediaPositionClasses(s.media)}`}
               style={s.media.flip ? { transform: "scaleX(-1)" } : undefined}
             >
               <source src={s.media.src} type="video/mp4" />
             </video>
           ) : (
-            <img src={s.media.src} alt={s.title} className="absolute inset-0 h-full w-full object-cover" />
+            <img
+              src={s.media.src}
+              alt={s.title}
+              className={`absolute inset-0 h-full w-full object-cover ${getMediaPositionClasses(s.media)}`}
+            />
           )}
           <div className={`absolute inset-0 bg-gradient-to-r ${i % 2 === 0 ? "from-background via-background/40 to-transparent" : "from-transparent via-background/40 to-background"}`} />
           <div className="absolute inset-0 bg-background/10" />
-          <div className={`relative flex h-full items-center ${i % 2 === 0 ? "justify-start" : "justify-end"}`}>
+          <div className={`relative flex h-full items-end pb-12 md:items-center md:pb-0 ${i % 2 === 0 ? "justify-start" : "justify-end"}`}>
             <div className={`mx-auto max-w-[1500px] w-full px-6 lg:px-10 ${i % 2 === 0 ? "" : "flex justify-end"}`}>
               <div className="max-w-xl">
                 <span className="font-mono text-[11px] tracking-[0.3em] text-plasma">//{s.id} • {s.sub}</span>

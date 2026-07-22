@@ -14,36 +14,154 @@ export const Route = createFileRoute("/goblin-way")({
   component: GoblinWayPage,
 });
 
-const TENETS = [
+type CreedSection = {
+  titles: string[];
+  body: string[];
+  quote?: { text: string; author: string };
+};
+
+const CREED_SECTIONS: CreedSection[] = [
   {
-    id: "01",
-    title: "CRAFT OVER COMFORT",
-    body: "We don't take the easy road. We take the right one, even when it means redoing something three times, sleeping less, or telling a client their idea needs to change.",
+    titles: ["THE GOBLIN WAY"],
+    body: [
+      "OUR CREED.",
+      "There is a belief that great games can only be built by giant studios.",
+      "We don't believe that.",
+      "Not because ambition became smaller.",
+      "Because the people behind it became stronger.",
+      "For decades, the industry's greatest talent gathered inside massive organizations.",
+      "They built unforgettable worlds.",
+      "Defined genres.",
+      "Inspired generations.",
+      "Today, something remarkable is happening.",
+      "Those same developers are founding their own studios.",
+      "Smaller.",
+      "More agile.",
+      "More specialized.",
+      "The experience never disappeared.",
+      "It simply found new homes.",
+      "The future of game development isn't about replacing AAA.",
+      "It's about redistributing it.",
+      "Knowledge.",
+      "Craftsmanship.",
+      "Leadership.",
+      "Production expertise.",
+      "The walls became smaller.",
+      "The standards never did.",
+    ],
   },
   {
-    id: "02",
-    title: "SMALL TEAM. FULL OWNERSHIP.",
-    body: "Every person at Goblin can point at something shipped and say 'I built that.' We don't dilute responsibility across layers of management.",
+    titles: ["CRAFT ABOVE EVERYTHING."],
+    body: [
+      "Technology changes.",
+      "Pipelines evolve.",
+      "Tools improve.",
+      "But one thing never changes:",
+      "Great games are made by people.",
+      "By artists who obsess over every silhouette.",
+      "By designers who understand emotion.",
+      "By programmers who care about every interaction.",
+      "By producers who know that creativity only flourishes when execution is disciplined.",
+      "Technology should amplify craftsmanship.",
+      "Never replace it.",
+      "We believe in better workflows.",
+      "Not shortcuts.",
+    ],
   },
   {
-    id: "03",
-    title: "INDIE SOUL",
-    body: "We came from the indie scene. We know what it costs to build something with no safety net. That empathy lives in every project we touch.",
+    titles: ["THE NEW REALITY."],
+    body: [
+      "Players no longer ask how many people built a game.",
+      "They ask one question.",
+      '"Is it good?"',
+      "Studios face a different challenge than they did ten years ago.",
+      "Budgets are tighter.",
+      "Schedules are shorter.",
+      "Expectations are higher.",
+      "Yet the opportunity has never been greater.",
+      "Modern production methods allow focused teams to achieve a level of quality that once belonged only to the industry's largest companies.",
+      "Not by working less.",
+      "By working smarter.",
+    ],
   },
   {
-    id: "04",
-    title: "NO FAKE CREDITS",
-    body: "We earn everything we put in a portfolio. No borrowed glory, no inflated scope, no 'we contributed to' language that doesn't mean anything.",
+    titles: ["INDIE SCOPE.", "AAA STANDARDS."],
+    body: [
+      "We believe excellence has never depended on size.",
+      "It depends on clarity.",
+      "Direction.",
+      "Talent.",
+      "Discipline.",
+      "The ability to make every decision count.",
+      "Every asset.",
+      "Every mechanic.",
+      "Every sprint.",
+      "Every pixel.",
+      "Every line of code.",
+      "Nothing exists without purpose.",
+      "That is how ambitious games are built.",
+    ],
   },
   {
-    id: "05",
-    title: "THE GAME IS THE DEADLINE",
-    body: "Not the invoice. Not the meeting. The game. We align our entire operation around shipping something worth playing.",
+    titles: ["WE BUILD ALLIES."],
+    body: [
+      "Great partnerships are built on trust, transparency and shared ownership.",
+      "When we join a project, we don't become another external supplier.",
+      "We become part of the team.",
+      "Your milestones become ours.",
+      "Your challenges become ours.",
+      "Your victories become ours.",
+    ],
   },
   {
-    id: "06",
-    title: "PERMANENT STUDENTS",
-    body: "Unreal updates. Pipelines evolve. The best studios never stop learning. We dedicate time every week to skills that don't exist yet.",
+    titles: ["THE NEXT GENERATION."],
+    body: [
+      "During The Game Awards, Swen Vincke shared a thought that resonated throughout the industry:",
+      '"The game of the year will be made by a developer that simply wanted to make a game they wanted to play themselves."',
+      "That belief isn't nostalgia.",
+      "It's the direction the industry is taking.",
+      "Studios like Kojima Productions.",
+      "Teams like Sandfall Interactive with Clair Obscur: Expedition 33.",
+      "Countless independent studios founded by veterans from the world's biggest companies.",
+      "Different sizes.",
+      "One common belief.",
+      "Extraordinary games are built by extraordinary people.",
+      "Not extraordinary bureaucracy.",
+    ],
+  },
+  {
+    titles: ["THIS IS THE GOBLIN WAY."],
+    body: [
+      "Question conventions.",
+      "Respect the craft.",
+      "Never stop learning.",
+      "Stay humble.",
+      "Stay curious.",
+      "Protect quality.",
+      "Share knowledge.",
+      "Build worlds worth remembering.",
+      "Because great studios are not measured by the number of people inside them.",
+      "They are measured by the legacy they leave in the players who experience their games.",
+    ],
+    quote: {
+      text: "Find something to believe in, and find it for yourself. When you do, pass it on to the future.",
+      author: "Hideo Kojima",
+    },
+  },
+  {
+    titles: ["THE GOBLIN CODE"],
+    body: [
+      "We believe craft outlives trends.",
+      "We believe discipline enables creativity.",
+      "We believe great teams stay small until they must grow.",
+      "We believe every artist should understand production.",
+      "We believe every programmer should respect design.",
+      "We believe quality is built one decision at a time.",
+      "We believe trust is the foundation of every partnership.",
+      "We believe knowledge exists to be shared.",
+      "We believe games are made by people, for people.",
+      "We believe every project deserves to become someone's favorite game.",
+    ],
   },
 ];
 
@@ -64,27 +182,46 @@ function GoblinWayPage() {
         </div>
       </section>
 
-      {/* Tenets */}
+      {/* Creed */}
       <section className="border-t border-border/60 py-32">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
-          <SectionLabel index="//CODE">THE TENETS</SectionLabel>
-          <div className="mt-12 space-y-0">
-            {TENETS.map((t, i) => (
+          <SectionLabel index="//CODE">THE MANIFESTO</SectionLabel>
+          <div className="mt-12 space-y-24">
+            {CREED_SECTIONS.map((section, i) => (
               <div
-                key={t.id}
-                className="group flex items-start gap-6 border-t border-border/60 p-6 transition-colors hover:bg-surface md:p-8"
+                key={i}
+                className="border-t border-border/60 pt-12 first:border-t-0 first:pt-0"
               >
-                <span className="shrink-0 font-mono text-[11px] tracking-[0.3em] text-plasma">
-                  //{t.id}
-                </span>
-                <div>
-                  <h3 className="font-display text-2xl tracking-wide text-foreground md:text-3xl">
-                    {t.title}
-                  </h3>
-                  <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-                    {t.body}
-                  </p>
+                <div className="mb-8">
+                  {section.titles.map((title, j) => (
+                    <h3
+                      key={j}
+                      className="font-display text-3xl tracking-wide text-foreground md:text-5xl"
+                    >
+                      {title}
+                    </h3>
+                  ))}
                 </div>
+                <div className="max-w-3xl space-y-2">
+                  {section.body.map((line, k) => (
+                    <p
+                      key={k}
+                      className="text-sm leading-relaxed text-muted-foreground md:text-base"
+                    >
+                      {line}
+                    </p>
+                  ))}
+                </div>
+                {section.quote && (
+                  <blockquote className="mt-8 max-w-2xl border-l-2 border-plasma pl-6">
+                    <p className="text-lg italic text-foreground md:text-xl">
+                      "{section.quote.text}"
+                    </p>
+                    <footer className="mt-2 font-mono text-xs tracking-[0.2em] text-plasma">
+                      — {section.quote.author.toUpperCase()}
+                    </footer>
+                  </blockquote>
+                )}
               </div>
             ))}
           </div>

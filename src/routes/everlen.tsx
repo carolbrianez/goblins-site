@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { SectionLabel } from "@/components/site/SectionLabel";
-import { Shield, Globe, Bot, Radio, Crosshair, HardHat, RefreshCw, Sprout } from "lucide-react";
 import everlen from "@/assets/everlenSLogo.png";
 import icon1 from "@/assets/icon1.png";
 import icon2 from "@/assets/icon2.png";
@@ -59,7 +58,13 @@ function EverlenPage() {
     <PageLayout>
       {/* Hero com play button */}
       <section className="relative h-[100svh] min-h-[700px] w-full overflow-hidden">
-        <img src={everlen} alt="Everlen key art" className="h-full w-full scale-105 object-cover" width={1920} height={1080} />
+        <img
+          src={everlen}
+          alt="Everlen key art"
+          className="h-full w-full scale-105 object-cover object-[70%_center] md:object-center"
+          width={1920}
+          height={1080}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background" />
         <div className="absolute inset-0 vignette" />
 
