@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Trans, useTranslation } from "react-i18next";
 import { PageLayout } from "@/components/site/PageLayout";
 import { SectionLabel } from "@/components/site/SectionLabel";
 
@@ -13,86 +14,6 @@ export const Route = createFileRoute("/services")({
   }),
   component: ServicesPage,
 });
-
-const SERVICES = [
-  {
-    id: "01",
-    title: "CONCEPT",
-    sub: "Where worlds begin.",
-    body: "Worldbuilding, character creation, turnarounds, environmental design and key visuals. We define the visual language before a single polygon is created.",
-    media: { type: "video", src: "/videos/concept-video.mp4" },
-  },
-  {
-    id: "02",
-    title: "3D ART",
-    sub: "AAA assets. Game-ready.",
-    body: "Human characters, likeness, creatures, props, optimized assets built for high-performance real-time experiences.",
-    media: {
-      type: "video",
-      src: "https://cdn.prod.website-files.com/66859b13105707a6b4417a25%2F6a0ee8821526e1694d523151_Modelos%203D%20%281%29compree_mp4.mp4",
-      flip: true,
-      mobileAnchor: "right",
-    },
-  },
-  {
-    id: "03",
-    title: "RIGGING & ANIMATION",
-    sub: "Motion that feels alive.",
-    body: "Rigging, VFX, asset integration, in-engine cinematics and technical solutions for artistic challenges. Combat, locomotion, cinematic, all disciplines covered.",
-    media: { 
-      type: "video",
-      src: "https://cdn.prod.website-files.com/66859b13105707a6b4417a25%2F6a0ee89cb084f8e1144828ee_ANIMA%C3%87%C3%83OFINAL%20%281%29compress_mp4.mp4",
-      mobileAnchor: "right",
-    },
-  },
-  {
-    id: "04",
-    title: "UNREAL DEVELOPMENT",
-    sub: "Engine-level. No shortcuts.",
-    body: "Technical programming, Blueprint systems, performance optimization and gameplay mechanics development, multiplayer development.",
-    media: {
-       type: "video", 
-       src: "/videos/unreal-video.mp4",
-       position: "right",
-       mobileAnchor: "left",
-      },
-  },
-  {
-    id: "05",
-    title: "CINEMATIC",
-    sub: "Trailers that sell your game.",
-    body: "In-engine cinematics, trailers, reveal sequences and cutscenes. We make people feel the game before they play it.",
-    media: { 
-      type: "video", 
-      src: "https://cdn.prod.website-files.com/66859b13105707a6b4417a25%2F6a0ee73f3ab8b3ab12cbada5_EVERLEN%20OK2%20compress_mp4.mp4",
-      mobileAnchor: "right",
-     },
-  },
-  {
-    id: "06",
-    title: "UI & UX",
-    sub: "Next level interface.",
-    body: "Interface design focused on usability and immersion. HUDs, menus, UX flows and interactive elements that serve the experience without breaking it.",
-    media: { 
-      type: "video", 
-      src: "/videos/ui-ux-video.mp4",
-      position: "right",
-      mobileAnchor: "left",
-     },
-  },
-  {
-    id: "07",
-    title: "SOUND DESIGN",
-    sub: "The layer players feel.",
-    body: "SFX, ambient design, music direction and audio implementation. Sound that makes every action land harder and every world feel real.",
-    media: { 
-      type: "video", 
-      src: "/videos/sfx-video.mp4", 
-      position: "right",
-      mobileAnchor: "right",
-     },
-  },
-];
 
 const ANCHOR_CLASS: Record<string, string> = {
   top: "object-top",
@@ -109,46 +30,28 @@ function getMediaPositionClasses(media: { position?: string; mobileAnchor?: stri
   return `${mobile} md:${desktop}`;
 }
 
-const WAYS = [
-  {
-    id: "01",
-    title: "FULL DEVELOPMENT",
-    sub: "End-to-end. We own it.",
-    body: "We assemble the team, run production, ship the game. From original IP to publisher-funded titles, you get a single accountable studio with senior leads at every discipline.",
-    bullets: [
-      "Vision lock & creative direction",
-      "Agile vertical slice",
-      "Full production team (art, code, design, audio)",
-      "Console & PC ship support",
-    ],
-  },
-  {
-    id: "02",
-    title: "CO-DEVELOPMENT",
-    sub: "Strike force. Embedded.",
-    body: "Plug a senior crew directly into your studio. We respect your culture, ship inside your pipelines, and behave like full-time team members, because for the duration of the project, that's exactly what we are.",
-    bullets: [
-      "Embedded leads & specialists",
-      "Pipeline integration (Perforce, Jira, etc.)",
-      "Sprint-by-sprint accountability",
-      "Scale up or down without friction",
-    ],
-  },
-  {
-    id: "03",
-    title: "OUTSOURCE",
-    sub: "Per-task. AAA fidelity.",
-    body: "Isolated deliverables: Concept art, characters, environments, animation, VFX, cinematics, gameplay systems. Senior reviews, clear milestones, no surprises.",
-    bullets: [
-      "Per-asset or per-vertical scoping",
-      "Art tests on the house (within reason)",
-      "Daily / weekly review cadence",
-      "Source files always delivered",
-    ],
-  },
-];
-
 function ServicesPage() {
+  const { t } = useTranslation();
+
+  const SERVICE_MEDIA = [
+    { type: "video", src: "/videos/concept-video.mp4" },
+    { type: "video", src: "https://cdn.prod.website-files.com/66859b13105707a6b4417a25%2F6a0ee8821526e1694d523151_Modelos%203D%20%281%29compree_mp4.mp4", flip: true, mobileAnchor: "right" },
+    { type: "video", src: "https://cdn.prod.website-files.com/66859b13105707a6b4417a25%2F6a0ee89cb084f8e1144828ee_ANIMA%C3%87%C3%83OFINAL%20%281%29compress_mp4.mp4", mobileAnchor: "right" },
+    { type: "video", src: "/videos/unreal-video.mp4", position: "right", mobileAnchor: "left" },
+    { type: "video", src: "https://cdn.prod.website-files.com/66859b13105707a6b4417a25%2F6a0ee73f3ab8b3ab12cbada5_EVERLEN%20OK2%20compress_mp4.mp4", mobileAnchor: "right" },
+    { type: "video", src: "/videos/ui-ux-video.mp4", position: "right", mobileAnchor: "left" },
+    { type: "video", src: "/videos/sfx-video.mp4", position: "right", mobileAnchor: "right" },
+  ];
+
+  const servicesText = t("servicesPage.banners", { returnObjects: true }) as {
+    id: string; title: string; sub: string; body: string;
+  }[];
+  const SERVICES = servicesText.map((s, i) => ({ ...s, media: SERVICE_MEDIA[i] }));
+
+  const WAYS = t("servicesPage.ways", { returnObjects: true }) as {
+    id: string; title: string; sub: string; body: string; bullets: string[];
+  }[];
+
   return (
     <PageLayout>
       {/* Hero */}
@@ -157,13 +60,13 @@ function ServicesPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background" />
         </div>
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
-          <SectionLabel index="//SERVICES">CAPABILITIES MATRIX</SectionLabel>
+          <SectionLabel index="//SERVICES">{t("servicesPage.hero.sectionLabel")}</SectionLabel>
           <h1 className="max-w-5xl font-display text-6xl leading-[0.9] tracking-wide md:text-[9rem]">
-            CHOOSE <br />
-            <span className="text-plasma glow-text">YOUR DESTINY.</span>
+            {t("servicesPage.hero.titleLine1")} <br />
+            <span className="text-plasma glow-text">{t("servicesPage.hero.titleLine2")}</span>
           </h1>
           <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground">
-            Three work models. One objective: AAA quality delivered in indie scope.
+            {t("servicesPage.hero.subtitle")}
           </p>
         </div>
       </section>
@@ -204,7 +107,10 @@ function ServicesPage() {
 
       <section className="border-y border-border/60 bg-surface/40 py-24 text-center">
         <p className="font-display text-4xl leading-tight tracking-wide md:text-6xl lg:text-7xl">
-          YOUR VISION. <span className="text-plasma glow-text">OUR EXPERTISE.</span> YOUR SUCCESS.
+          <Trans
+            i18nKey="servicesPage.midBanner"
+            components={{ accent: <span className="text-plasma glow-text" /> }}
+          />
         </p>
       </section>
 
@@ -237,10 +143,10 @@ function ServicesPage() {
       {/* CTA */}
       <section className="border-t border-border/60 py-24 text-center">
         <h3 className="font-display text-4xl tracking-wide md:text-6xl">
-          CHOOSE YOUR <span className="text-plasma glow-text">DESTINY.</span>
+          {t("servicesPage.finalCta.titleLine1")} <span className="text-plasma glow-text">{t("servicesPage.finalCta.titleLine2")}</span>
         </h3>
         <div className="mt-8">
-          <Link to="/contact" className="btn-plasma">START A PROJECT →</Link>
+          <Link to="/contact" className="btn-plasma">{t("servicesPage.finalCta.button")} →</Link>
         </div>
       </section>
     </PageLayout>

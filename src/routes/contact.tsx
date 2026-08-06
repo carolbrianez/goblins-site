@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { PageLayout } from "@/components/site/PageLayout";
 import { SectionLabel } from "@/components/site/SectionLabel";
@@ -19,6 +20,8 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const { t } = useTranslation();
+
   return (
     <PageLayout>
       <section className="relative pt-40 pb-16">
@@ -28,9 +31,9 @@ function ContactPage() {
         </div>
 
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
-          <SectionLabel index="//TRANSMIT">SIGNAL OPEN · 24/7</SectionLabel>
+          <SectionLabel index="//TRANSMIT">{t("contactPage.hero.sectionLabel")}</SectionLabel>
           <h1 className="max-w-5xl font-display text-5xl leading-[0.9] tracking-wide md:text-[8rem]">
-            TELL US WHAT <br /><span className="text-plasma glow-text">YOU'RE BUILDING.</span>
+            {t("contactPage.hero.titleLine1")} <br /><span className="text-plasma glow-text">{t("contactPage.hero.titleLine2")}</span>
           </h1>
         </div>
       </section>
@@ -39,39 +42,38 @@ function ContactPage() {
         <div className="mx-auto grid max-w-[1500px] gap-16 px-6 lg:grid-cols-[1fr_1.2fr] lg:px-10">
           <div className="space-y-10">
             <div>
-              <h3 className="mb-3 font-mono text-[11px] tracking-[0.3em] text-plasma">◢ DIRECT CHANNELS</h3>
+              <h3 className="mb-3 font-mono text-[11px] tracking-[0.3em] text-plasma">◢ {t("contactPage.channels.label")}</h3>
               <ul className="space-y-2 font-display text-2xl tracking-wide">
                 <li>contact@goblinstudios.com.br</li>
               </ul>
             </div>
 
             <div>
-              <h3 className="mb-3 font-mono text-[11px] tracking-[0.3em] text-plasma">◢ ETA</h3>
+              <h3 className="mb-3 font-mono text-[11px] tracking-[0.3em] text-plasma">◢ {t("contactPage.eta.label")}</h3>
               <p className="text-muted-foreground">
-                Personal response within <span className="text-foreground">48 hours</span>.
-                Founder reviews every inbound.
+                {t("contactPage.eta.prefix")} <span className="text-foreground">{t("contactPage.eta.highlight")}</span>{t("contactPage.eta.suffix")}
               </p>
             </div>
 
             <div>
-              <h3 className="mb-3 font-mono text-[11px] tracking-[0.3em] text-plasma">◢ STATUS</h3>
+              <h3 className="mb-3 font-mono text-[11px] tracking-[0.3em] text-plasma">◢ {t("contactPage.status.label")}</h3>
               <div className="flex items-center gap-3">
                 <span className="relative flex h-3 w-3">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-plasma opacity-70" />
                   <span className="relative inline-flex h-3 w-3 rounded-full bg-plasma" />
                 </span>
                 <span className="font-mono text-sm tracking-wider text-foreground">
-                  ACCEPTING NEW PROJECTS · Q1 2026
+                  {t("contactPage.status.text")}
                 </span>
               </div>
             </div>
 
             <div className="hud-frame p-6">
               <p className="font-display text-2xl leading-tight tracking-wide">
-                "We don't pitch. <br /><span className="text-plasma">We listen, then we build.</span>"
+                {t("contactPage.quote.line1")} <br /><span className="text-plasma">{t("contactPage.quote.line2")}</span>
               </p>
               <p className="mt-3 font-mono text-[10px] tracking-[0.3em] text-muted-foreground">
-                — RAFA ONGARO, OPERATIONS DIRECTOR
+                — {t("contactPage.quote.author")}
               </p>
             </div>
           </div>
@@ -84,37 +86,41 @@ function ContactPage() {
 }
 
 function ContactForm() {
+  const { t } = useTranslation();
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const typeOptions = t("contactPage.form.typeOptions", { returnObjects: true }) as string[];
+  const budgetOptions = t("contactPage.form.budgetOptions", { returnObjects: true }) as string[];
 
   function validateField(name: string, value: string): string | undefined {
     const trimmed = value.trim();
 
     switch (name) {
       case "name":
-        if (!trimmed) return "Tell us your name.";
-        if (trimmed.length < 2) return "That name looks too short.";
+        if (!trimmed) return t("contactPage.form.validation.nameRequired");
+        if (trimmed.length < 2) return t("contactPage.form.validation.nameShort");
         return undefined;
 
       case "email": {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!trimmed) return "Email is required.";
-        if (!emailRegex.test(trimmed)) return "That email doesn't look valid.";
+        if (!trimmed) return t("contactPage.form.validation.emailRequired");
+        if (!emailRegex.test(trimmed)) return t("contactPage.form.validation.emailInvalid");
         return undefined;
       }
 
       case "type":
-        if (!trimmed) return "Pick a project type.";
+        if (!trimmed) return t("contactPage.form.validation.typeRequired");
         return undefined;
 
       case "budget":
-        if (!trimmed) return "Pick a budget range.";
+        if (!trimmed) return t("contactPage.form.validation.budgetRequired");
         return undefined;
 
       case "message":
-        if (!trimmed) return "Tell us a bit about the project.";
-        if (trimmed.length < 10) return "A little more detail helps us respond well.";
+        if (!trimmed) return t("contactPage.form.validation.messageRequired");
+        if (trimmed.length < 10) return t("contactPage.form.validation.messageShort");
         return undefined;
 
       default:
@@ -136,7 +142,6 @@ function ContactForm() {
     const message = validateField(name, value);
     setErrors((prev) => {
       if (!message) {
-        // valid now — drop any existing error for this field
         const { [name]: _dropped, ...rest } = prev;
         return rest;
       }
@@ -196,66 +201,71 @@ function ContactForm() {
   }
 
   return (
-    <form className="hud-frame relative space-y-5 p-8 clip-cut" onSubmit={handleSubmit}>
-      <div className="absolute -top-3 left-6 bg-background px-2 font-mono text-[10px] tracking-[0.3em] text-plasma">
-        TRANSMISSION.FORM
+    <div className="relative">
+      <div className="absolute -top-3 left-6 z-10 bg-background px-2 font-mono text-[10px] tracking-[0.3em] text-plasma">
+        {t("contactPage.form.badge")}
       </div>
 
-      <Field label="NAME" name="name" placeholder="Your name" error={errors.name} onBlur={handleBlur} onChange={handleChange} />
-      <Field label="COMPANY" name="company" placeholder="Studio / company" />
-      <Field label="EMAIL" name="email" placeholder="your@email.com" error={errors.email} onBlur={handleBlur} onChange={handleChange} />
-      <Field
-        label="PROJECT TYPE"
-        name="type"
-        as="select"
-        options={["Full Development", "Co-Development", "Outsourcing", "Just exploring"]}
-        error={errors.type}
-        onBlur={handleBlur}
-        onChange={handleChange}
-      />
-      <Field
-        label="BUDGET RANGE"
-        name="budget"
-        as="select"
-        options={["< $50K", "$50K – $250K", "$250K – $1M", "$1M+"]}
-        error={errors.budget}
-        onBlur={handleBlur}
-        onChange={handleChange}
-      />
-      <Field label="MESSAGE" name="message" as="textarea" placeholder="What are you building?" error={errors.message} onBlur={handleBlur} onChange={handleChange} />
+      <form className="hud-frame space-y-5 p-8 clip-cut" onSubmit={handleSubmit}>
+        <Field label={t("contactPage.form.fields.name")} name="name" placeholder={t("contactPage.form.fields.namePlaceholder")} error={errors.name} onBlur={handleBlur} onChange={handleChange} />
+        <Field label={t("contactPage.form.fields.company")} name="company" placeholder={t("contactPage.form.fields.companyPlaceholder")} />
+        <Field label={t("contactPage.form.fields.email")} name="email" placeholder={t("contactPage.form.fields.emailPlaceholder")} error={errors.email} onBlur={handleBlur} onChange={handleChange} />
+        <Field
+          label={t("contactPage.form.fields.type")}
+          name="type"
+          as="select"
+          options={typeOptions}
+          selectPlaceholder={t("contactPage.form.fields.selectPlaceholder")}
+          error={errors.type}
+          onBlur={handleBlur}
+          onChange={handleChange}
+        />
+        <Field
+          label={t("contactPage.form.fields.budget")}
+          name="budget"
+          as="select"
+          options={budgetOptions}
+          selectPlaceholder={t("contactPage.form.fields.selectPlaceholder")}
+          error={errors.budget}
+          onBlur={handleBlur}
+          onChange={handleChange}
+        />
+        <Field label={t("contactPage.form.fields.message")} name="message" as="textarea" placeholder={t("contactPage.form.fields.messagePlaceholder")} error={errors.message} onBlur={handleBlur} onChange={handleChange} />
 
-      <Turnstile
-        siteKey="0x4AAAAAADyGxsChS1fPW0dk"
-        onSuccess={(token) => setTurnstileToken(token)}
-        onExpire={() => setTurnstileToken(null)}
-      />
+        <Turnstile
+          siteKey="0x4AAAAAADyGxsChS1fPW0dk"
+          onSuccess={(token) => setTurnstileToken(token)}
+          onExpire={() => setTurnstileToken(null)}
+        />
 
-      <button type="submit" disabled={status === "loading" || !turnstileToken} className="btn-plasma w-full justify-center disabled:opacity-50">
-        {status === "loading" ? "TRANSMITTING…" : "TRANSMIT SIGNAL"} <span>↗</span>
-      </button>
+        <button type="submit" disabled={status === "loading" || !turnstileToken} className="btn-plasma w-full justify-center disabled:opacity-50">
+          {status === "loading" ? t("contactPage.form.submitLoading") : t("contactPage.form.submitIdle")} <span>↗</span>
+        </button>
 
-      {status === "success" && (
-        <p className="text-center font-mono text-xs tracking-widest text-plasma">
-          ◢ SIGNAL RECEIVED. WE'LL BE IN TOUCH.
-        </p>
-      )}
-      {status === "error" && (
-        <p className="text-center font-mono text-xs tracking-widest text-red-400">
-          ◢ TRANSMISSION FAILED. TRY AGAIN OR EMAIL US DIRECTLY.
-        </p>
-      )}
-    </form>
+        {status === "success" && (
+          <p className="text-center font-mono text-xs tracking-widest text-plasma">
+            {t("contactPage.form.success")}
+          </p>
+        )}
+        {status === "error" && (
+          <p className="text-center font-mono text-xs tracking-widest text-red-400">
+            {t("contactPage.form.error")}
+          </p>
+        )}
+      </form>
+    </div>
   );
 }
 
 function Field({
-  label, name, placeholder, as = "input", options, error, onBlur, onChange,
+  label, name, placeholder, as = "input", options, selectPlaceholder, error, onBlur, onChange,
 }: {
   label: string;
   name: string;
   placeholder?: string;
   as?: "input" | "textarea" | "select";
   options?: string[];
+  selectPlaceholder?: string;
   error?: string;
   onBlur?: React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>;
   onChange?: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>;
@@ -278,7 +288,7 @@ function Field({
       )}
       {as === "select" && (
         <select name={name} className={cls} defaultValue="" onBlur={onBlur} onChange={onChange}>
-          <option value="" disabled>— select —</option>
+          <option value="" disabled>— {selectPlaceholder} —</option>
           {options?.map((o) => <option key={o} value={o}>{o}</option>)}
         </select>
       )}

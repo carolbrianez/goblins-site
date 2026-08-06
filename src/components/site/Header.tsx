@@ -23,6 +23,31 @@ const navUnderline = (active: boolean) =>
     active ? "w-full" : "w-0 group-hover:w-full"
   }`;
 
+function FlagUS() {
+  return (
+    <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true">
+      <rect width="16" height="12" fill="#B22234" />
+      <rect y="0.92" width="16" height="0.92" fill="#fff" />
+      <rect y="2.77" width="16" height="0.92" fill="#fff" />
+      <rect y="4.62" width="16" height="0.92" fill="#fff" />
+      <rect y="6.46" width="16" height="0.92" fill="#fff" />
+      <rect y="8.31" width="16" height="0.92" fill="#fff" />
+      <rect y="10.15" width="16" height="0.92" fill="#fff" />
+      <rect width="6.4" height="6.46" fill="#3C3B6E" />
+    </svg>
+  );
+}
+
+function FlagDE() {
+  return (
+    <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true">
+      <rect width="16" height="4" fill="#000" />
+      <rect y="4" width="16" height="4" fill="#DD0000" />
+      <rect y="8" width="16" height="4" fill="#FFCE00" />
+    </svg>
+  );
+}
+
 export function Header() {
   const { location } = useRouterState();
   const { t, i18n } = useTranslation();
@@ -89,9 +114,10 @@ export function Header() {
 
         <button
           onClick={() => i18n.changeLanguage(i18n.language === "en" ? "de" : "en")}
-          className="font-mono text-[11px] tracking-[0.28em] text-muted-foreground hover:text-plasma"
+          className="flex items-center gap-2 font-mono text-[11px] tracking-[0.28em] text-muted-foreground hover:text-plasma"
         >
-          {i18n.language === "en" ? "DE" : "EN"}
+          {i18n.language === "en" ? <FlagUS /> : <FlagDE />}
+          <span>{i18n.language === "en" ? "EN" : "DE"}</span>
         </button>
 
         <button

@@ -7,6 +7,7 @@ import icon2 from "@/assets/icon2.png";
 import icon3 from "@/assets/icon3.png";
 import steamIcon from "@/assets/steam.svg";
 import { useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 
 export const Route = createFileRoute("/everlen")({
   head: () => ({
@@ -22,6 +23,7 @@ export const Route = createFileRoute("/everlen")({
 });
 
 function VideoModal({ onClose }: { onClose: () => void }) {
+  const { t } = useTranslation();
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-background/90 backdrop-blur-sm"
@@ -35,7 +37,7 @@ function VideoModal({ onClose }: { onClose: () => void }) {
           onClick={onClose}
           className="absolute -top-10 right-4 font-mono text-[11px] tracking-[0.3em] text-plasma hover:text-foreground"
         >
-          ✕ CLOSE
+          ✕ {t("everlenPage.modalClose")}
         </button>
         <div className="relative aspect-video w-full overflow-hidden border border-border/60">
           <iframe
@@ -53,6 +55,10 @@ function VideoModal({ onClose }: { onClose: () => void }) {
 
 function EverlenPage() {
   const [modalOpen, setModalOpen] = useState(false);
+  const { t } = useTranslation();
+  const PILLAR_ICONS = [icon1, icon2, icon3];
+  const pillarsText = t("everlenPage.pillars.items", { returnObjects: true }) as { title: string; text: string }[];
+  const pillars = pillarsText.map((p, i) => ({ ...p, icon: PILLAR_ICONS[i] }));
 
   return (
     <PageLayout>
@@ -79,12 +85,12 @@ function EverlenPage() {
         </button>
 
         <div className="absolute inset-x-0 bottom-24 z-10 mx-auto max-w-[1500px] px-6 lg:px-10">
-          <SectionLabel index="//IP_001">DARK SCI-FI · UNREAL ENGINE 5</SectionLabel>
+          <SectionLabel index="//IP_001">{t("everlenPage.hero.sectionLabel")}</SectionLabel>
           <h1 className="font-display text-[clamp(5rem,18vw,18rem)] leading-[0.78] tracking-wider text-foreground glow-text select-none">
             EVERLEN
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            Hunt a sentient world and save the last seed of humanity.
+            {t("everlenPage.hero.subtitle")}
           </p>
         </div>
       </section>
@@ -93,13 +99,11 @@ function EverlenPage() {
       <section className="border-t border-border/60 py-32">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
           <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
-            <SectionLabel index="//LORE">THE WORLD</SectionLabel>
+            <SectionLabel index="//LORE">{t("everlenPage.lore.sectionLabel")}</SectionLabel>
             <div className="space-y-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
+              <p>{t("everlenPage.lore.p1")}</p>
               <p>
-                Build, adapt, fail, rise again - where survival meets roguelike.
-              </p>
-              <p>
-                In <em>Everlen</em> players are thrown into an apocalyptic space-opera universe where morality lives in the grey areas. Gameplay is focused on intense encounters with hostile creatures in the bullet hell combat style, inspired by Returnal, Dune and Helldivers 2.
+                <Trans i18nKey="everlenPage.lore.p2" components={{ em: <em /> }} />
               </p>
             </div>
           </div>
@@ -109,13 +113,9 @@ function EverlenPage() {
       {/* pillars */}
       <section className="border-t border-border/60 bg-surface/40 py-24">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
-          <SectionLabel index="//PILLARS">DESIGN</SectionLabel>
+          <SectionLabel index="//PILLARS">{t("everlenPage.pillars.sectionLabel")}</SectionLabel>
           <div className="grid gap-6 lg:grid-cols-3">
-            {[
-              { icon: icon1, title: "BUILD YOUR STRATEGY", text: "Mastering a hostile world through system, strategy and precise combat." },
-              { icon: icon2, title: "SURVIVE A LIVING PLANET", text: "A roguelite survival TPS" },
-              { icon: icon3, title: "CHOOSE EVERY DECISION CAREFULLY", text: "Where survival is driven by a greater mission" },
-            ].map(({ icon, title, text }) => (
+            {pillars.map(({ icon, title, text }) => (
               <div key={title} className="flex items-center gap-6 border border-border/60 bg-background p-6 transition-colors hover:border-plasma/40">
                 <img src={icon} alt={title} className="h-16 w-16 shrink-0" />
                 <div>
@@ -127,11 +127,11 @@ function EverlenPage() {
           </div>
         </div>
       </section>
-
+      
       {/* media gallery */}
       <section className="py-32">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
-          <SectionLabel index="//MEDIA">SCREENSHOTS · CONCEPT</SectionLabel>
+          <SectionLabel index="//MEDIA">{t("everlenPage.media.sectionLabel")}</SectionLabel>
           <div className="mt-10 grid auto-rows-[200px] grid-cols-2 gap-3 md:grid-cols-4 md:auto-rows-[260px]">
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <div key={i} className={`relative overflow-hidden border border-border/60 clip-cut ${i === 1 || i === 4 ? "row-span-2" : ""}`}>
@@ -146,7 +146,7 @@ function EverlenPage() {
 
       <section className="border-t border-border/60 py-24 text-center">
         <h3 className="font-display text-4xl tracking-wide md:text-6xl">
-          SURVIVE THE HUNT. <span className="text-plasma">BECOME THE THREAT.</span>
+          {t("everlenPage.finalCta.titlePlain")} <span className="text-plasma">{t("everlenPage.finalCta.titleAccent")}</span>
         </h3>
 
         <div className="mt-8">
@@ -157,7 +157,7 @@ function EverlenPage() {
           className="btn-plasma inline-flex items-center gap-3 px-10 py-4 text-base"
           >
             <img src={steamIcon} alt="Steam" className="h-5 w-5 shrink-0" />
-            ADD TO WISHLIST ON STEAM
+            {t("everlenPage.finalCta.wishlistButton")}
           </a>
         </div>
       </section>

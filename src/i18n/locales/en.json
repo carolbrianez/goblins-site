@@ -122,6 +122,237 @@
       { "label": ["SFX, AMBIENT DESIGN,", "MUSIC DIRECTION, AUDIO IMPLEMENTATION"], "tag": "SOUND DESIGN" },
       { "label": ["NIAGARA"], "tag": "IN GAME VFX" }
     ]
+  },
+    "servicesPage": {
+    "hero": {
+      "sectionLabel": "CAPABILITIES MATRIX",
+      "titleLine1": "CHOOSE",
+      "titleLine2": "YOUR DESTINY.",
+      "subtitle": "Three work models. One objective: AAA quality delivered in indie scope."
+    },
+    "banners": [
+      { "id": "01", "title": "CONCEPT", "sub": "Where worlds begin.", "body": "Worldbuilding, character creation, turnarounds, environmental design and key visuals. We define the visual language before a single polygon is created." },
+      { "id": "02", "title": "3D ART", "sub": "AAA assets. Game-ready.", "body": "Human characters, likeness, creatures, props, optimized assets built for high-performance real-time experiences." },
+      { "id": "03", "title": "RIGGING & ANIMATION", "sub": "Motion that feels alive.", "body": "Rigging, VFX, asset integration, in-engine cinematics and technical solutions for artistic challenges. Combat, locomotion, cinematic, all disciplines covered." },
+      { "id": "04", "title": "UNREAL DEVELOPMENT", "sub": "Engine-level. No shortcuts.", "body": "Technical programming, Blueprint systems, performance optimization and gameplay mechanics development, multiplayer development." },
+      { "id": "05", "title": "CINEMATIC", "sub": "Trailers that sell your game.", "body": "In-engine cinematics, trailers, reveal sequences and cutscenes. We make people feel the game before they play it." },
+      { "id": "06", "title": "UI & UX", "sub": "Next level interface.", "body": "Interface design focused on usability and immersion. HUDs, menus, UX flows and interactive elements that serve the experience without breaking it." },
+      { "id": "07", "title": "SOUND DESIGN", "sub": "The layer players feel.", "body": "SFX, ambient design, music direction and audio implementation. Sound that makes every action land harder and every world feel real." }
+    ],
+    "midBanner": "YOUR VISION. <accent>OUR EXPERTISE.</accent> YOUR SUCCESS.",
+    "ways": [
+      {
+        "id": "01",
+        "title": "FULL DEVELOPMENT",
+        "sub": "End-to-end. We own it.",
+        "body": "We assemble the team, run production, ship the game. From original IP to publisher-funded titles, you get a single accountable studio with senior leads at every discipline.",
+        "bullets": ["Vision lock & creative direction", "Agile vertical slice", "Full production team (art, code, design, audio)", "Console & PC ship support"]
+      },
+      {
+        "id": "02",
+        "title": "CO-DEVELOPMENT",
+        "sub": "Strike force. Embedded.",
+        "body": "Plug a senior crew directly into your studio. We respect your culture, ship inside your pipelines, and behave like full-time team members, because for the duration of the project, that's exactly what we are.",
+        "bullets": ["Embedded leads & specialists", "Pipeline integration (Perforce, Jira, etc.)", "Sprint-by-sprint accountability", "Scale up or down without friction"]
+      },
+      {
+        "id": "03",
+        "title": "OUTSOURCE",
+        "sub": "Per-task. AAA fidelity.",
+        "body": "Isolated deliverables: Concept art, characters, environments, animation, VFX, cinematics, gameplay systems. Senior reviews, clear milestones, no surprises.",
+        "bullets": ["Per-asset or per-vertical scoping", "Art tests on the house (within reason)", "Daily / weekly review cadence", "Source files always delivered"]
+      }
+    ],
+    "finalCta": {
+      "titleLine1": "CHOOSE YOUR",
+      "titleLine2": "DESTINY.",
+      "button": "START A PROJECT"
+    }
+  },
+    "everlenPage": {
+    "modalClose": "CLOSE",
+    "hero": {
+      "sectionLabel": "DARK SCI-FI · UNREAL ENGINE 5",
+      "subtitle": "Hunt a sentient world and save the last seed of humanity."
+    },
+    "lore": {
+      "sectionLabel": "THE WORLD",
+      "p1": "Build, adapt, fail, rise again - where survival meets roguelike.",
+      "p2": "In <em>Everlen</em> players are thrown into an apocalyptic space-opera universe where morality lives in the grey areas. Gameplay is focused on intense encounters with hostile creatures in the bullet hell combat style, inspired by Returnal, Dune and Helldivers 2."
+    },
+    "pillars": {
+      "sectionLabel": "DESIGN",
+      "items": [
+        { "title": "BUILD YOUR STRATEGY", "text": "Mastering a hostile world through system, strategy and precise combat." },
+        { "title": "SURVIVE A LIVING PLANET", "text": "A roguelite survival TPS" },
+        { "title": "CHOOSE EVERY DECISION CAREFULLY", "text": "Where survival is driven by a greater mission" }
+      ]
+    },
+    "media": {
+      "sectionLabel": "SCREENSHOTS · CONCEPT"
+    },
+    "finalCta": {
+      "titlePlain": "SURVIVE THE HUNT.",
+      "titleAccent": "BECOME THE THREAT.",
+      "wishlistButton": "ADD TO WISHLIST ON STEAM"
+    }
+  },
+    "bookatoonPage": {
+    "modalClose": "CLOSE",
+    "hero": {
+      "sectionLabel": "VR · HUMANITARIAN · UNREAL ENGINE",
+      "subtitle": "A VR adventure built to walk beside children fighting cancer turning treatment days into hero's journeys."
+    },
+    "mission": {
+      "sectionLabel": "WHY THIS GAME EXISTS",
+      "p1": "<holo>Bookatoon</holo> was born from the belief that no child should lose the ability to dream, imagine, and find hope while facing a health challenge, more than a game, Bookatoon is an original transmedia universe designed to inspire courage, resilience, and perseverance through memorable characters, music, stories, games, and immersive experience.",
+      "p2": "Its first chapter began with the humanization of pediatric oncology care, but its vision extends far beyond cancer-creating meaningful experiences that support children and families throughout their healthcare journey. The first Bookatoon experience is a therapeutic gamification platform developed by <plasma>Goblin Studios</plasma>, with scientific and institucional support from <holo>Hospital de Amor</holo>, one of Latin America's leading cancer treatment and research centers.",
+      "p3": "Together, they combine creativity, technology, and clinical expertise to build a global entertainment franchise that transforms storytelling into a source of hope, empowering children to discover that the light to overcome life's greatest challenges has always existed within themselves."
+    },
+    "pillars": {
+      "sectionLabel": "DESIGN PILLARS",
+      "items": [
+        { "title": "IMAGINE", "body": "Where fear gives way to music." },
+        { "title": "BELIEVE", "body": "Because courage grows from within." },
+        { "title": "OVERCOME", "body": "One story, one song and one step at a time." }
+      ]
+    },
+    "quote": {
+      "text": "\"A child asked the nurse if she could play<holo> one more level</holo> before chemo. That's the day we knew we'd built the right thing.\"",
+      "attribution": "GOBLIN STUDIOS · INTERNAL POSTMORTEM"
+    },
+    "finalCta": {
+      "titlePlain": "GAMES CAN",
+      "titleAccent": "HEAL.",
+      "button": "PARTNER WITH US"
+    }
+  },
+    "goblinWayPage": {
+    "hero": {
+      "sectionLabel": "HOW WE THINK · HOW WE WORK",
+      "titlePlain": "THE",
+      "titleAccent": "GOBLIN",
+      "titleSuffix": "WAY.",
+      "subtitle": "We're not a agency. We're not a vendor. We're a crew, with a code."
+    },
+    "creed": {
+      "sectionLabel": "THE MANIFESTO",
+      "sections": [
+        {
+          "titles": ["THE GOBLIN WAY"],
+          "body": ["OUR CREED.", "There is a belief that great games can only be built by giant studios.", "We don't believe that.", "Not because ambition became smaller.", "Because the people behind it became stronger.", "For decades, the industry's greatest talent gathered inside massive organizations.", "They built unforgettable worlds.", "Defined genres.", "Inspired generations.", "Today, something remarkable is happening.", "Those same developers are founding their own studios.", "Smaller.", "More agile.", "More specialized.", "The experience never disappeared.", "It simply found new homes.", "The future of game development isn't about replacing AAA.", "It's about redistributing it.", "Knowledge.", "Craftsmanship.", "Leadership.", "Production expertise.", "The walls became smaller.", "The standards never did."]
+        },
+        {
+          "titles": ["CRAFT ABOVE EVERYTHING."],
+          "body": ["Technology changes.", "Pipelines evolve.", "Tools improve.", "But one thing never changes:", "Great games are made by people.", "By artists who obsess over every silhouette.", "By designers who understand emotion.", "By programmers who care about every interaction.", "By producers who know that creativity only flourishes when execution is disciplined.", "Technology should amplify craftsmanship.", "Never replace it.", "We believe in better workflows.", "Not shortcuts."]
+        },
+        {
+          "titles": ["THE NEW REALITY."],
+          "body": ["Players no longer ask how many people built a game.", "They ask one question.", "\"Is it good?\"", "Studios face a different challenge than they did ten years ago.", "Budgets are tighter.", "Schedules are shorter.", "Expectations are higher.", "Yet the opportunity has never been greater.", "Modern production methods allow focused teams to achieve a level of quality that once belonged only to the industry's largest companies.", "Not by working less.", "By working smarter."]
+        },
+        {
+          "titles": ["INDIE SCOPE.", "AAA STANDARDS."],
+          "body": ["We believe excellence has never depended on size.", "It depends on clarity.", "Direction.", "Talent.", "Discipline.", "The ability to make every decision count.", "Every asset.", "Every mechanic.", "Every sprint.", "Every pixel.", "Every line of code.", "Nothing exists without purpose.", "That is how ambitious games are built."]
+        },
+        {
+          "titles": ["WE BUILD ALLIES."],
+          "body": ["Great partnerships are built on trust, transparency and shared ownership.", "When we join a project, we don't become another external supplier.", "We become part of the team.", "Your milestones become ours.", "Your challenges become ours.", "Your victories become ours."]
+        },
+        {
+          "titles": ["THE NEXT GENERATION."],
+          "body": ["During The Game Awards, Swen Vincke shared a thought that resonated throughout the industry:", "\"The game of the year will be made by a developer that simply wanted to make a game they wanted to play themselves.\"", "That belief isn't nostalgia.", "It's the direction the industry is taking.", "Studios like Kojima Productions.", "Teams like Sandfall Interactive with Clair Obscur: Expedition 33.", "Countless independent studios founded by veterans from the world's biggest companies.", "Different sizes.", "One common belief.", "Extraordinary games are built by extraordinary people.", "Not extraordinary bureaucracy."]
+        },
+        {
+          "titles": ["THIS IS THE GOBLIN WAY."],
+          "body": ["Question conventions.", "Respect the craft.", "Never stop learning.", "Stay humble.", "Stay curious.", "Protect quality.", "Share knowledge.", "Build worlds worth remembering.", "Because great studios are not measured by the number of people inside them.", "They are measured by the legacy they leave in the players who experience their games."],
+          "quote": { "text": "Find something to believe in, and find it for yourself. When you do, pass it on to the future.", "author": "Hideo Kojima" }
+        },
+        {
+          "titles": ["THE GOBLIN CODE"],
+          "body": ["We believe craft outlives trends.", "We believe discipline enables creativity.", "We believe great teams stay small until they must grow.", "We believe every artist should understand production.", "We believe every programmer should respect design.", "We believe quality is built one decision at a time.", "We believe trust is the foundation of every partnership.", "We believe knowledge exists to be shared.", "We believe games are made by people, for people.", "We believe every project deserves to become someone's favorite game."]
+        }
+      ]
+    },
+    "tribe": {
+      "sectionLabel": "FIND THE TRIBE",
+      "titlePlain": "YOU KNOW IF YOU'RE",
+      "titleAccent": "ONE OF US.",
+      "body": "If you read this far and felt something, come find us. We're always looking for people who care too much about the craft.",
+      "ctaWork": "WORK WITH US",
+      "ctaYoutube": "WATCH US ON YOUTUBE"
+    }
+  },
+    "contactPage": {
+    "hero": {
+      "sectionLabel": "SIGNAL OPEN · 24/7",
+      "titleLine1": "TELL US WHAT",
+      "titleLine2": "YOU'RE BUILDING."
+    },
+    "channels": {
+      "label": "DIRECT CHANNELS"
+    },
+    "eta": {
+      "label": "ETA",
+      "prefix": "Personal response within",
+      "highlight": "48 hours",
+      "suffix": ". Founder reviews every inbound."
+    },
+    "status": {
+      "label": "STATUS",
+      "text": "ACCEPTING NEW PROJECTS · Q1 2026"
+    },
+    "quote": {
+      "line1": "\"We don't pitch.",
+      "line2": "We listen, then we build.\"",
+      "author": "RAFA ONGARO, OPERATIONS DIRECTOR"
+    },
+    "form": {
+      "badge": "TRANSMISSION.FORM",
+      "fields": {
+        "name": "NAME",
+        "namePlaceholder": "Your name",
+        "company": "COMPANY",
+        "companyPlaceholder": "Studio / company",
+        "email": "EMAIL",
+        "emailPlaceholder": "your@email.com",
+        "type": "PROJECT TYPE",
+        "budget": "BUDGET RANGE",
+        "message": "MESSAGE",
+        "messagePlaceholder": "What are you building?",
+        "selectPlaceholder": "select"
+      },
+      "typeOptions": ["Full Development", "Co-Development", "Outsourcing", "Just exploring"],
+      "budgetOptions": ["< $50K", "$50K – $250K", "$250K – $1M", "$1M+"],
+      "submitIdle": "TRANSMIT SIGNAL",
+      "submitLoading": "TRANSMITTING…",
+      "success": "◢ SIGNAL RECEIVED. WE'LL BE IN TOUCH.",
+      "error": "◢ TRANSMISSION FAILED. TRY AGAIN OR EMAIL US DIRECTLY.",
+      "validation": {
+        "nameRequired": "Tell us your name.",
+        "nameShort": "That name looks too short.",
+        "emailRequired": "Email is required.",
+        "emailInvalid": "That email doesn't look valid.",
+        "typeRequired": "Pick a project type.",
+        "budgetRequired": "Pick a budget range.",
+        "messageRequired": "Tell us a bit about the project.",
+        "messageShort": "A little more detail helps us respond well."
+      }
+    }
+  },
+    "footer": {
+    "tagline": "AAA quality, indie budget. Full development, co-development, and outsourcing for ambitious Unreal Engine projects and studios shaping the new era of indie games.",
+    "availableStatus": "AVAILABLE FOR NEW PROJECTS",
+    "studioLabel": "STUDIO",
+    "studioLinks": {
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "contact": "Contact",
+      "goblinWay": "The Goblin Way"
+    },
+    "worldsLabel": "WORLDS",
+    "signalLabel": "SIGNAL",
+    "copyright": "©GOBLIN STUDIOS - since 2021 // ALL RIGHTS RESERVED",
+    "builtWith": "// BUILT WITH UNREAL ENGINE 5 + OBSESSION"
   }
 }
 

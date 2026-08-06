@@ -3,6 +3,7 @@ import { PageLayout } from "@/components/site/PageLayout";
 import { SectionLabel } from "@/components/site/SectionLabel";
 import chamado from "@/assets/chamado-key-art.jpg";
 import { useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 
 export const Route = createFileRoute("/bookatoon")({
   head: () => ({
@@ -18,6 +19,7 @@ export const Route = createFileRoute("/bookatoon")({
 });
 
 function VideoModal({ onClose }: { onClose: () => void }) {
+  const { t } = useTranslation();
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-background/90 backdrop-blur-sm"
@@ -31,7 +33,7 @@ function VideoModal({ onClose }: { onClose: () => void }) {
           onClick={onClose}
           className="absolute -top-10 right-4 font-mono text-[11px] tracking-[0.3em] text-plasma hover:text-foreground"
         >
-          ✕ CLOSE
+          ✕ {t("bookatoonPage.modalClose")}
         </button>
         <div className="relative aspect-video w-full overflow-hidden border border-border/60">
           <iframe
@@ -49,6 +51,8 @@ function VideoModal({ onClose }: { onClose: () => void }) {
 
 function ChamadoPage() {
   const [modalOpen, setModalOpen] = useState(false);
+  const { t } = useTranslation();
+  const pillars = t("bookatoonPage.pillars.items", { returnObjects: true }) as { title: string; body: string }[];
 
   return (
     <PageLayout>
@@ -67,12 +71,12 @@ function ChamadoPage() {
         </button>
 
         <div className="absolute inset-x-0 bottom-24 z-10 mx-auto max-w-[1500px] px-6 lg:px-10">
-          <SectionLabel index="//IP_002">VR · HUMANITARIAN · UNREAL ENGINE</SectionLabel>
+          <SectionLabel index="//IP_002">{t("bookatoonPage.hero.sectionLabel")}</SectionLabel>
           <h1 className="font-display text-[clamp(3rem,9vw,8rem)] leading-[0.85] tracking-wide text-foreground glow-holo select-none">
             BOOKATOON
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground select-none">
-            A VR adventure built to walk beside children fighting cancer turning treatment days into hero's journeys.
+            {t("bookatoonPage.hero.subtitle")}
           </p>
         </div>
       </section>
@@ -81,16 +85,16 @@ function ChamadoPage() {
       <section className="border-t border-border/60 py-32">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
-            <SectionLabel index="//MISSION">WHY THIS GAME EXISTS</SectionLabel>
+            <SectionLabel index="//MISSION">{t("bookatoonPage.mission.sectionLabel")}</SectionLabel>
             <div className="space-y-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
               <p>
-                <span className="text-holo">Bookatoon</span> was born from the belief that no child should lose the ability to dream, imagine, and find hope while facing a health challenge, more than a game, Bookatoon is an original transmedia universe designed to inspire courage, resilience, and perseverance through memorable characters, music, stories, games, and immersive experience.
+                <Trans i18nKey="bookatoonPage.mission.p1" components={{ holo: <span className="text-holo" /> }} />
               </p>
               <p>
-                Its first chapter began with the humanization of pediatric oncology care, but its vision extends far beyond cancer-creating meaningful experiences that support children and families throughout their healthcare journey. The first Bookatoon experience is a therapeutic gamification platform developed by <span className="text-plasma">Goblin Studios</span>, with scientific and institucional support from <span className="text-holo">Hospital de Amor</span>, one of Latin America's leading cancer treatment and research centers.
+                <Trans i18nKey="bookatoonPage.mission.p2" components={{ plasma: <span className="text-plasma" />, holo: <span className="text-holo" /> }} />
               </p>
               <p>
-                Together, they combine creativity, technology, and clinical expertise to build a global entertainment franchise that transforms storytelling into a source of hope, empowering children to discover that the light to overcome life's greatest challenges has always existed within themselves.
+                {t("bookatoonPage.mission.p3")}
               </p>
             </div>
           </div>
@@ -100,16 +104,12 @@ function ChamadoPage() {
       {/* Pillars */}
       <section className="border-t border-border/60 bg-surface/40 py-24">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
-          <SectionLabel index="//PILLARS">DESIGN PILLARS</SectionLabel>
+          <SectionLabel index="//PILLARS">{t("bookatoonPage.pillars.sectionLabel")}</SectionLabel>
           <div className="mt-10 grid gap-px border border-border/60 bg-border/60 md:grid-cols-3">
-            {[
-              ["IMAGINE", "Where fear gives way to music."],
-              ["BELIEVE", "Because courage grows from within."],
-              ["OVERCOME", "One story, one song and one step at a time."],
-            ].map(([t, b]) => (
-              <div key={t} className="bg-background p-8">
-                <h3 className="font-display text-2xl tracking-wide text-holo">{t}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{b}</p>
+            {pillars.map((p) => (
+              <div key={p.title} className="bg-background p-8">
+                <h3 className="font-display text-2xl tracking-wide text-holo">{p.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
               </div>
             ))}
           </div>
@@ -120,22 +120,20 @@ function ChamadoPage() {
       <section className="border-t border-border/60 py-32">
         <div className="mx-auto max-w-3xl px-6 text-center lg:px-10">
           <p className="font-display text-3xl leading-tight tracking-wide md:text-5xl">
-            "A child asked the nurse if she could play
-            <span className="text-holo glow-holo"> one more level</span> before chemo. <br />
-            That's the day we knew we'd built the right thing."
+            <Trans i18nKey="bookatoonPage.quote.text" components={{ holo: <span className="text-holo glow-holo" /> }} />
           </p>
           <p className="mt-6 font-mono text-xs tracking-[0.3em] text-muted-foreground">
-            — GOBLIN STUDIOS · INTERNAL POSTMORTEM
+            {t("bookatoonPage.quote.attribution")}
           </p>
         </div>
       </section>
 
       <section className="border-t border-border/60 py-24 text-center">
         <h3 className="font-display text-4xl tracking-wide md:text-6xl">
-          GAMES CAN <span className="text-holo glow-holo">HEAL.</span>
+          {t("bookatoonPage.finalCta.titlePlain")} <span className="text-holo glow-holo">{t("bookatoonPage.finalCta.titleAccent")}</span>
         </h3>
         <div className="mt-8">
-          <Link to="/contact" className="btn-ghost">PARTNER WITH US →</Link>
+          <Link to="/contact" className="btn-ghost">{t("bookatoonPage.finalCta.button")} →</Link>
         </div>
       </section>
 

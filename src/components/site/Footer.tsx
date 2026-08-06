@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
 import { Logo } from "./Logo";
 
 function XIcon({ size = 18 }: { size?: number }) {
@@ -43,6 +44,8 @@ const SOCIALS = [
 ];
 
 export function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="relative mt-32 border-t border-border/60 bg-surface/40">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-plasma to-transparent opacity-60" />
@@ -52,7 +55,7 @@ export function Footer() {
           <div>
             <Logo />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              AAA quality, indie budget. Full development, co-development, and outsourcing for ambitious Unreal Engine projects and studios shaping the new era of indie games.
+              {t("footer.tagline")}
             </p>
             <div className="mt-6 flex items-center gap-2">
               <span className="relative flex h-2 w-2">
@@ -60,23 +63,23 @@ export function Footer() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-plasma" />
               </span>
               <span className="font-mono text-[11px] tracking-[0.3em] text-plasma">
-                AVAILABLE FOR NEW PROJECTS
+                {t("footer.availableStatus")}
               </span>
             </div>
           </div>
 
           <div>
-            <h4 className="font-mono text-[11px] tracking-[0.3em] text-plasma">STUDIO</h4>
+            <h4 className="font-mono text-[11px] tracking-[0.3em] text-plasma">{t("footer.studioLabel")}</h4>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/services" className="hover:text-foreground">Services</Link></li>
-              <li><a href="https://www.artstation.com/goblin-studios" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">Portfolio</a></li>
-              <li><Link to="/contact" className="hover:text-foreground">Contact</Link></li>
-              <li><Link to="/goblin-way" className="hover:text-foreground">The Goblin Way</Link></li>
+              <li><Link to="/services" className="hover:text-foreground">{t("footer.studioLinks.services")}</Link></li>
+              <li><a href="https://www.artstation.com/goblin-studios" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">{t("footer.studioLinks.portfolio")}</a></li>
+              <li><Link to="/contact" className="hover:text-foreground">{t("footer.studioLinks.contact")}</Link></li>
+              <li><Link to="/goblin-way" className="hover:text-foreground">{t("footer.studioLinks.goblinWay")}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-mono text-[11px] tracking-[0.3em] text-plasma">WORLDS</h4>
+            <h4 className="font-mono text-[11px] tracking-[0.3em] text-plasma">{t("footer.worldsLabel")}</h4>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li><Link to="/everlen" className="hover:text-foreground">Everlen</Link></li>
               <li><Link to="/bookatoon" className="hover:text-foreground">Bookatoon</Link></li>
@@ -84,7 +87,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-mono text-[11px] tracking-[0.3em] text-plasma">SIGNAL</h4>
+            <h4 className="font-mono text-[11px] tracking-[0.3em] text-plasma">{t("footer.signalLabel")}</h4>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li>contact@goblinstudios.com.br</li>
             </ul>
@@ -106,8 +109,8 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col gap-4 border-t border-border/40 pt-6 text-[11px] font-mono tracking-[0.2em] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <span>©GOBLIN STUDIOS - since 2021 // ALL RIGTHS RESERVED</span>
-          <span className="text-plasma/80">// BUILT WITH UNREAL ENGINE 5 + OBSESSION</span>
+          <span>{t("footer.copyright")}</span>
+          <span className="text-plasma/80">{t("footer.builtWith")}</span>
         </div>
       </div>
     </footer>
