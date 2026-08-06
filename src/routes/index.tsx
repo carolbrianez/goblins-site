@@ -207,42 +207,24 @@ function AAAExperience() {
 }
 
 /* ============== SERVICES ============== */
-const SERVICE_DETAILS = [
-  "Concept Art", "Characters", "Environments", "Hard Surface",
-  "Animation", "VFX", "Gameplay Programming", "Technical Art",
-  "Cinematics", "Unreal Engine Dev",
-];
-
-const SERVICES = [
-  {
-    id: "01",
-    title: "FULL DEVELOPMENT",
-    tagline: "We build games from the ground up.",
-    body: "From a single line of pitch to a shipped title. We assemble the team, own the pipeline, and execute end to end.",
-  },
-  {
-    id: "02",
-    title: "CO-DEVELOPMENT",
-    tagline: "Your team. Reinforced.",
-    body: "We plug into your studio like a technical and strategic strike force. We have the synergy, communication, and technical expertise required to run in perfect alignment with your internal team toward the same goal, the game.",
-  },
-  {
-    id: "03",
-    title: "OUTSOURCE",
-    tagline: "AAA execution. Indie-aware production.",
-    body: "On-demand by specific tasks or major milestones. 3D modeling, concept art, animation, VFX, gameplay, and tech art delivered at pinnacle fidelity without the corporate bureaucracy.",
-  },
-] as const;
-
 function Services() {
+  const { t } = useTranslation();
+  const SERVICES = t("services.items", { returnObjects: true }) as {
+    id: string;
+    title: string;
+    tagline: string;
+    body: string;
+  }[];
+  const SERVICE_DETAILS = t("services.capabilities", { returnObjects: true }) as string[];
+
   return (
     <section className="relative py-32">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="flex flex-col gap-4">
-          <SectionLabel index="//05">WHAT WE DO</SectionLabel>
+          <SectionLabel index="//05">{t("services.sectionLabel")}</SectionLabel>
           <h2 className="max-w-4xl font-display text-5xl leading-[0.95] tracking-wide md:text-7xl">
-            THREE WEAPONS. <br />
-            <span className="text-plasma glow-text">ONE OBSESSION.</span>
+            {t("services.titleLine1")} <br />
+            <span className="text-plasma glow-text">{t("services.titleLine2")}</span>
           </h2>
         </div>
 
@@ -269,7 +251,7 @@ function Services() {
 
               <div className="mt-8 border-t border-border/40 pt-6">
                 <div className="mb-3 font-mono text-[10px] tracking-[0.3em] text-muted-foreground">
-                  CAPABILITIES
+                  {t("services.capabilitiesLabel")}
                 </div>
                 <ul className="flex flex-wrap gap-1.5">
                   {SERVICE_DETAILS.map((d) => (
@@ -287,7 +269,7 @@ function Services() {
         </div>
 
         <div className="mt-12 text-center">
-          <Link to="/services" className="btn-ghost">DEEP DIVE INTO SERVICES →</Link>
+          <Link to="/services" className="btn-ghost">{t("services.deepDiveCta")} →</Link>
         </div>
       </div>
     </section>
@@ -296,30 +278,31 @@ function Services() {
 
 /* ============== ORIGINAL IPs ============== */
 function OriginalIPs() {
+  const { t } = useTranslation();
   return (
     <section className="relative py-32">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="flex flex-col gap-4">
-          <SectionLabel index="//06">ORIGINAL IPs</SectionLabel>
+          <SectionLabel index="//06">{t("originalIPs.sectionLabel")}</SectionLabel>
           <h2 className="max-w-5xl font-display text-5xl leading-[0.95] tracking-wide md:text-7xl">
-            WE DON'T JUST SUPPORT GAMES. <br />
-            <span className="text-plasma glow-text">WE CREATE THEM.</span>
+            {t("originalIPs.titleLine1")} <br />
+            <span className="text-plasma glow-text">{t("originalIPs.titleLine2")}</span>
           </h2>
         </div>
 
         <div className="mt-20 grid gap-10 lg:grid-cols-2">
           <IPCard
-            tag="DARK FANTASY · AAA-LIKE"
-            title="EVERLEN"
-            body="Our realistic dark sci-fi art style game where hunt a sentient world and save the last seed of humanity it's your goal."
+            tag={t("originalIPs.everlen.tag")}
+            title={t("originalIPs.everlen.title")}
+            body={t("originalIPs.everlen.body")}
             img={everlenIP}
             href="/everlen"
             accent="text-plasma"
           />
           <IPCard
-            tag="VR · HUMANITARIAN"
-            title="BOOKATOON"
-            body="An emotionally crafted VR experience for children undergoing pediatric oncology treatment, in partnership with Hospital do Amor."
+            tag={t("originalIPs.bookatoon.tag")}
+            title={t("originalIPs.bookatoon.title")}
+            body={t("originalIPs.bookatoon.body")}
             img={bookatoonIP}
             href="/bookatoon"
             accent="text-holo"
@@ -333,6 +316,7 @@ function OriginalIPs() {
 function IPCard({
   tag, title, body, img, href, accent,
 }: { tag: string; title: string; body: string; img: string; href: string; accent: string }) {
+  const { t } = useTranslation();
   return (
     <Link to={href} className="group relative block overflow-hidden border border-border/60 clip-cut">
       <div className="relative aspect-[16/10] overflow-hidden">
@@ -360,7 +344,7 @@ function IPCard({
           {body}
         </p>
         <div className="mt-6 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.28em] text-foreground transition-all group-hover:text-plasma group-hover:gap-4">
-          ENTER WORLD <span>→</span>
+          {t("originalIPs.enterWorld")} <span>→</span>
         </div>
       </div>
     </Link>

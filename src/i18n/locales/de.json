@@ -35,5 +35,34 @@
     "body": "Unsere Teammitglieder haben an Projekten mitgewirkt, die mit den renommiertesten Studios der Welt verbunden sind, wie <ubisoft>Ubisoft</ubisoft>, <ea>Electronic Arts</ea> und <roblox>Roblox</roblox>. Wir haben die Erfahrung aus diesen großen Workflows aufgenommen und verfeinert und dabei unsere eigene Methodik entwickelt, indem wir AAA-Qualität an AA- und Indie-Umfänge angepasst haben.",
     "clientsLabel": "UNSERE KUNDEN",
     "disclaimer": "* Frühere Beiträge der Teammitglieder zu Projekten Dritter. Alle Markenzeichen sind Eigentum ihrer jeweiligen Inhaber. Wir täuschen keine Credits vor, wir verdienen sie uns."
+  },
+    "services": {
+    "sectionLabel": "WAS WIR TUN",
+    "titleLine1": "DREI WAFFEN.",
+    "titleLine2": "EINE BESESSENHEIT.",
+    "capabilitiesLabel": "FÄHIGKEITEN",
+    "deepDiveCta": "MEHR ZU UNSEREN LEISTUNGEN",
+    "items": [
+      { "id": "01", "title": "FULL DEVELOPMENT", "tagline": "Wir bauen Spiele von Grund auf.", "body": "Von einer einzigen Pitch-Zeile bis zum fertigen Titel. Wir stellen das Team zusammen, verantworten die Pipeline und führen alles von Anfang bis Ende aus." },
+      { "id": "02", "title": "CO-DEVELOPMENT", "tagline": "Dein Team. Verstärkt.", "body": "Wir docken an dein Studio an wie eine technische und strategische Eingreiftruppe. Wir bringen die Synergie, Kommunikation und technische Expertise mit, um perfekt im Einklang mit deinem internen Team auf dasselbe Ziel hinzuarbeiten: das Spiel." },
+      { "id": "03", "title": "OUTSOURCE", "tagline": "AAA-Ausführung. Indie-bewusste Produktion.", "body": "Bedarfsgerecht für spezifische Aufgaben oder große Meilensteine. 3D-Modeling, Concept Art, Animation, VFX, Gameplay und Tech Art auf höchstem Niveau geliefert, ohne die Konzernbürokratie." }
+    ],
+    "capabilities": ["Concept Art", "Charaktere", "Umgebungen", "Hard Surface", "Animation", "VFX", "Gameplay-Programmierung", "Technical Art", "Cinematics", "Unreal-Engine-Entwicklung"]
+  },
+    "originalIPs": {
+    "sectionLabel": "EIGENE IPS",
+    "titleLine1": "WIR UNTERSTÜTZEN NICHT NUR SPIELE.",
+    "titleLine2": "WIR ERSCHAFFEN SIE.",
+    "everlen": {
+      "tag": "DARK FANTASY · AAA-ARTIG",
+      "title": "EVERLEN",
+      "body": "Unser realistisches Dark-Sci-Fi-Spiel, in dem du eine bewusste Welt jagst, die letzte Saat der Menschheit zu retten ist dein Ziel."
+    },
+    "bookatoon": {
+      "tag": "VR · HUMANITÄR",
+      "title": "BOOKATOON",
+      "body": "Eine einfühlsam gestaltete VR-Erfahrung für Kinder in pädiatrisch-onkologischer Behandlung, in Partnerschaft mit dem Hospital do Amor."
+    },
+    "enterWorld": "WELT BETRETEN"
   }
 }

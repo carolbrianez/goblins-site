@@ -35,7 +35,38 @@
     "body": "Our team members have contributed to projects connected to the world's most renowned studios, such as <ubisoft>Ubisoft</ubisoft>, <ea>Electronic Arts</ea> and <roblox>Roblox</roblox>. We absorbed the experience from these large workflows and refined it, shaping our own methodology by adapting AAA quality to AA and indie scopes.",
     "clientsLabel": "OUR CLIENTS",
     "disclaimer": "* Team members' prior contributions on third-party projects. All trademarks property of their respective owners. We don't fake credits, we earn them."
+  },
+  "services": {
+    "sectionLabel": "WHAT WE DO",
+    "titleLine1": "THREE WEAPONS.",
+    "titleLine2": "ONE OBSESSION.",
+    "capabilitiesLabel": "CAPABILITIES",
+    "deepDiveCta": "DEEP DIVE INTO SERVICES",
+    "items": [
+      { "id": "01", "title": "FULL DEVELOPMENT", "tagline": "We build games from the ground up.", "body": "From a single line of pitch to a shipped title. We assemble the team, own the pipeline, and execute end to end." },
+      { "id": "02", "title": "CO-DEVELOPMENT", "tagline": "Your team. Reinforced.", "body": "We plug into your studio like a technical and strategic strike force. We have the synergy, communication, and technical expertise required to run in perfect alignment with your internal team toward the same goal, the game." },
+      { "id": "03", "title": "OUTSOURCE", "tagline": "AAA execution. Indie-aware production.", "body": "On-demand by specific tasks or major milestones. 3D modeling, concept art, animation, VFX, gameplay, and tech art delivered at pinnacle fidelity without the corporate bureaucracy." }
+    ],
+    "capabilities": ["Concept Art", "Characters", "Environments", "Hard Surface", "Animation", "VFX", "Gameplay Programming", "Technical Art", "Cinematics", "Unreal Engine Dev"]
+  },
+    "originalIPs": {
+    "sectionLabel": "ORIGINAL IPs",
+    "titleLine1": "WE DON'T JUST SUPPORT GAMES.",
+    "titleLine2": "WE CREATE THEM.",
+    "everlen": {
+      "tag": "DARK FANTASY · AAA-LIKE",
+      "title": "EVERLEN",
+      "body": "Our realistic dark sci-fi art style game where hunt a sentient world and save the last seed of humanity it's your goal."
+    },
+    "bookatoon": {
+      "tag": "VR · HUMANITARIAN",
+      "title": "BOOKATOON",
+      "body": "An emotionally crafted VR experience for children undergoing pediatric oncology treatment, in partnership with Hospital do Amor."
+    },
+    "enterWorld": "ENTER WORLD"
   }
+
+
 }
 
 
