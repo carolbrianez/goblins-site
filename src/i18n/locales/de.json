@@ -353,5 +353,21 @@
     "signalLabel": "SIGNAL",
     "copyright": "©GOBLIN STUDIOS - seit 2021 // ALLE RECHTE VORBEHALTEN",
     "builtWith": "// GEBAUT MIT UNREAL ENGINE 5 + BESESSENHEIT"
+  },
+    "errors": {
+    "notFound": {
+      "code": "// ERR_SIGNAL_LOST",
+      "title": "404",
+      "subtitle": "PORTAL NICHT GEFUNDEN",
+      "body": "Die Welt, die du suchst, wurde noch nicht gebaut oder hat nie existiert.",
+      "cta": "ZURÜCK ZUR BASIS"
+    },
+    "fatal": {
+      "code": "// FATAL_EXCEPTION",
+      "title": "DIESE SEITE KONNTE NICHT KOMPILIERT WERDEN",
+      "body": "In der Pipeline ist etwas schiefgelaufen. Lade die Seite neu oder gehe zurück zur Startseite.",
+      "retry": "ERNEUT VERSUCHEN",
+      "home": "STARTSEITE"
+    }
   }
 }

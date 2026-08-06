@@ -353,6 +353,22 @@
     "signalLabel": "SIGNAL",
     "copyright": "©GOBLIN STUDIOS - since 2021 // ALL RIGHTS RESERVED",
     "builtWith": "// BUILT WITH UNREAL ENGINE 5 + OBSESSION"
+  },
+  "errors": {
+    "notFound": {
+      "code": "// ERR_SIGNAL_LOST",
+      "title": "404",
+      "subtitle": "PORTAL NOT FOUND",
+      "body": "The world you are looking for hasn't been built yet - or it never was.",
+      "cta": "RETURN TO BASE"
+    },
+    "fatal": {
+      "code": "// FATAL_EXCEPTION",
+      "title": "THIS PAGE FAILED TO COMPILE",
+      "body": "Something glitched in the pipeline. Try reloading or go back home.",
+      "retry": "RETRY",
+      "home": "HOME"
+    }
   }
 }
 
