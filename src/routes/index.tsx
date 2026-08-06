@@ -352,71 +352,64 @@ function IPCard({
 }
 
 /* ============== WHY GOBLIN ============== */
-const WHY = [
-  ["AAA EXPERIENCE", "Experienced professionals who have worked on AAA projects, having previously worked at studios such as Ubisoft, Electronic Arts, and Roblox."],
-  ["INDIE-AWARE PRODUCTION", "We use agile production methodologies to guarantee consistent deliveries, optimizing development time so that every penny of your budget translates into real progress, using tools adapted to the new reality of game development."],
-  ["UNREAL ENGINE EXPERTISE", "Unreal Engine is at the core of everything we do. From low-level C++ development, custom gameplay frameworks, GAS, networking, and tools creation to cinematics, VFX, technical art, and real-time experiences."],
-  ["ARTISTIC OBSESSION", "Frame-by-frame quality control. Concept art and assets that maintain maximum visual fidelity from start to finish."],
-  ["FOUNDER-LED PRODUCTION", "You talk to the people doing the work. No account-manager telephone games."],
-  ["FLEXIBLE PIPELINES", "Hybrid, embedded, or full delivery. We mold the team around your project."],
-  ["GLOBAL AMBITION", "Time zones don't scare us. The game is the only deadline that matters."],
-  ["TRANSPARENCY & ALIGNED SCOPE", "We work with clear and precise processes. Honest scopes, realistic art tests, and transparent budgets, because we'd rather lose a deal than promise something that isn't viable."],
-];
-
 function WhyGoblin() {
+  const { t } = useTranslation();
+  const WHY = t("whyGoblin.items", { returnObjects: true }) as { title: string; body: string }[];
   return (
     <section className="relative border-y border-border/60 bg-surface/30 py-32">
       <div className="absolute inset-0 grid-bg opacity-30" />
       <div className="relative mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="mb-16 flex flex-col gap-4">
-          <SectionLabel index="//07">OUR SERVICES DETAILED</SectionLabel>
+          <SectionLabel index="//07">{t("whyGoblin.sectionLabel")}</SectionLabel>
           <h2 className="font-display text-6xl leading-[0.9] tracking-wide md:text-8xl">
-            BUILT <span className="text-plasma glow-text">DIFFERENT.</span>
+            {t("whyGoblin.titleLine1")} <span className="text-plasma glow-text">{t("whyGoblin.titleLine2")}</span>
           </h2>
         </div>
 
         <div className="grid gap-px overflow-hidden border border-border/60 bg-border/60 md:grid-cols-2 lg:grid-cols-4">
-          {WHY.map(([title, body], i) => (
-            <div key={title} className="group relative bg-background p-8 transition-colors hover:bg-surface">
-              <div className="mb-6 flex items-center justify-between">
-                <span className="font-mono text-[10px] tracking-[0.3em] text-plasma">
-                  //{String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="h-px w-8 bg-plasma transition-all group-hover:w-16" />
-              </div>
-              <h3 className="font-display text-xl leading-tight tracking-wide text-foreground">
-                {title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
-            </div>
-          ))}
+        {WHY.map((item, i) => (
+          <div key={item.title} className="group relative bg-background p-8 transition-colors hover:bg-surface">
+            ...
+            <h3 className="font-display text-xl leading-tight tracking-wide text-foreground">
+              {item.title}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+          </div>
+        ))}
         </div>
       </div>
     </section>
   );
 }
 
-const FOUNDERS = [
-  { name: "Tony Cruz", role: "10 years of professional experience developing and directing game projects using Unreal Engine", video: "/videos/team-tony.mp4" },
-  { name: "Chris Silva", role: "10 years of experience as an artist and 4 years in art direction", video: "/videos/team-chris.mp4" },
-  { name: "Matheus Sakaguti", role: "Marketing director, concept artist and graphic designer with 8 years of experience", video: "/videos/team-sakaguti.mp4" },
-  { name: "Vitor Tanaka", role: "8 years of experience in audiovisual and film production", video: "/videos/team-tanaka.mp4" },
-  { name: "Rafael Ongaro", role: "Responsible for Goblin's financial and legal operations for the last 4 years", video: "/videos/team-rafa.mp4" },
-];
+/* ============== FOUNDERS ============== */
 
 function Pipeline() {
+  const { t } = useTranslation();
+
+  const FOUNDER_VIDEOS = [
+    "/videos/team-tony.mp4",
+    "/videos/team-chris.mp4",
+    "/videos/team-sakaguti.mp4",
+    "/videos/team-tanaka.mp4",
+    "/videos/team-rafa.mp4",
+  ];
+
+  const foundersData = t("pipeline.founders", { returnObjects: true }) as { name: string; role: string }[];
+  const FOUNDERS = foundersData.map((f, i) => ({ ...f, video: FOUNDER_VIDEOS[i] }));
+
   return (
     <section className="relative py-32">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="mb-16 grid gap-6 lg:grid-cols-[2fr_1fr] lg:items-end">
           <div>
-            <SectionLabel index="//08">WE ARE</SectionLabel>
+            <SectionLabel index="//08">{t("pipeline.sectionLabel")}</SectionLabel>
             <h2 className="font-display text-5xl leading-[0.95] tracking-wide md:text-7xl">
-              THE <span className="text-plasma">FOUNDERS.</span>
+              {t("pipeline.titlePrefix")} <span className="text-plasma">{t("pipeline.titleAccent")}</span>
             </h2>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
-            The crew behind the craft. Senior leads across every discipline, forged in AAA pipelines, built for indie velocity.
+            {t("pipeline.body")}
           </p>
         </div>
 
@@ -454,56 +447,59 @@ function Pipeline() {
 
 /* ============== FEATURED WORK ============== */
 function FeaturedWork() {
+  const { t } = useTranslation();
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
-  const tiles = [
-    { img: everlenHome,    label: "EVERLEN",               tag: "FULL DEV",   h: "row-span-2", youtubeId: "w49B3_-jVoc" },
-    { img: bedroomHome,    label: "BEDROOM BRAWL",         tag: "CO-DEV",                      youtubeId: "-mJPxat0MVM" },
-    { img: goldenHome,     label: "GOLDEN TIDES",          tag: "CO-DEV",                      youtubeId: "OQzA8hFS0FI" },
-    { img: deathboundHome, label: "DEATHBOUND",            tag: "CO-DEV",     h: "row-span-2", youtubeId: "SbW3exPtr7k" },
-    { img: rioHome,        label: "RIO RAISED IN OBLIVION",tag: "OUTSOURCE",                   youtubeId: "l8ypmhlLtUE" },
-    { img: cassiodoraHome, label: "CASSIODORA",            tag: "CO-DEV",                      youtubeId: "flLl1N0bLKM" },
+  const TILE_DATA = [
+    { img: everlenHome,    h: "row-span-2", youtubeId: "w49B3_-jVoc" },
+    { img: bedroomHome,    h: undefined,    youtubeId: "-mJPxat0MVM" },
+    { img: goldenHome,     h: undefined,    youtubeId: "OQzA8hFS0FI" },
+    { img: deathboundHome, h: "row-span-2", youtubeId: "SbW3exPtr7k" },
+    { img: rioHome,        h: undefined,    youtubeId: "l8ypmhlLtUE" },
+    { img: cassiodoraHome, h: undefined,    youtubeId: "flLl1N0bLKM" },
   ];
+
+  const tilesText = t("featuredWork.tiles", { returnObjects: true }) as { label: string; tag: string }[];
+  const tiles = TILE_DATA.map((d, i) => ({ ...d, ...tilesText[i] }));
 
   return (
     <section className="relative py-32">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="mb-16 flex flex-col gap-4">
-          <SectionLabel index="//03">SHOWREEL</SectionLabel>
+          <SectionLabel index="//03">{t("featuredWork.sectionLabel")}</SectionLabel>
           <h2 className="font-display text-5xl leading-[0.95] tracking-wide md:text-7xl">
-            FEATURED <span className="text-plasma glow-text">WORK.</span>
+            {t("featuredWork.titleLine1")} <span className="text-plasma glow-text">{t("featuredWork.titleLine2")}</span>
           </h2>
         </div>
 
         <div className="grid auto-rows-[180px] grid-cols-2 gap-3 md:grid-cols-4 md:auto-rows-[220px]">
-          {tiles.map((t, i) => {
-            const isClickable = !!t.youtubeId;
+          {tiles.map((tile, i) => {
+            const isClickable = !!tile.youtubeId;
             const Tag = isClickable ? "button" : "figure";
 
             return (
               <Tag
                 key={i}
                 {...(isClickable
-                  ? { onClick: () => setActiveVideo(t.youtubeId!), type: "button" }
+                  ? { onClick: () => setActiveVideo(tile.youtubeId!), type: "button" }
                   : {})}
-                className={`group relative overflow-hidden border border-border/60 clip-cut ${t.h ?? ""} ${
+                className={`group relative overflow-hidden border border-border/60 clip-cut ${tile.h ?? ""} ${
                   isClickable ? "cursor-pointer w-full text-left" : ""
                 }`}
               >
                 <img
-                  src={t.img}
-                  alt={t.label}
+                  src={tile.img}
+                  alt={tile.label}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent" />
-                {/* overlay sutil no hover apenas para tiles clicáveis */}
                 {isClickable && (
                   <div className="absolute inset-0 bg-plasma/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 )}
                 <figcaption className="absolute inset-x-0 bottom-0 p-4">
-                  <div className="font-mono text-[10px] tracking-[0.3em] text-plasma">{t.tag}</div>
-                  <div className="font-display text-lg tracking-wide text-foreground">{t.label}</div>
+                  <div className="font-mono text-[10px] tracking-[0.3em] text-plasma">{tile.tag}</div>
+                  <div className="font-display text-lg tracking-wide text-foreground">{tile.label}</div>
                 </figcaption>
                 <div className="absolute right-3 top-3 h-2 w-2 bg-plasma animate-pulse" />
               </Tag>
@@ -527,7 +523,7 @@ function FeaturedWork() {
               className="absolute -top-10 right-4 font-mono text-xs tracking-[0.3em] text-muted-foreground transition-colors hover:text-plasma"
               type="button"
             >
-              [ ESC / CLOSE ]
+              [ {t("featuredWork.closeModal")} ]
             </button>
             <div className="relative aspect-video w-full border border-border/60">
               <iframe
@@ -546,24 +542,29 @@ function FeaturedWork() {
 
 /* ============== FEATURED SERVICES ============== */
 function FeaturedServices() {
-  const tiles = [
-    { icon: "/icons/icon1.png", label: ["CONCEPT ART, CHARACTERS,", "ASSETS, ENVIRONMENTS, UI/UX"], tag: "2D ART" },
-    { icon: "/icons/icon3.png", label: ["UNREAL DEVELOPMENT"],                                       tag: "GAME PROGRAMMING" },
-    { icon: "/icons/icon4.png", label: ["REALTIME AND CINEMATIC,", "RIGGING AND ANIMATION"],         tag: "ANIMATION" },
-    { icon: "/icons/icon5.png", label: ["RENDERS AND COMPOSITION"],                                   tag: "AUDIOVISUAL" },
-    { icon: "/icons/icon2.png", label: ["CHARACTERS, PROPS,", "ENVIRONMENTS"],                       tag: "3D ART" },
-    { icon: "/icons/icon6.png", label: ["KEY VISUAL"],                                                tag: "MARKETING ART" },
-    { icon: "/icons/icon7.png", label: ["SFX, AMBIENT DESIGN,", "MUSIC DIRECTION, AUDIO IMPLEMENTATION"], tag: "SOUND DESIGN" },
-    { icon: "/icons/icon8.png", label: ["NIAGARA"],                                                   tag: "IN GAME VFX" },
+  const { t } = useTranslation();
+
+  const ICONS = [
+    "/icons/icon1.png",
+    "/icons/icon3.png",
+    "/icons/icon4.png",
+    "/icons/icon5.png",
+    "/icons/icon2.png",
+    "/icons/icon6.png",
+    "/icons/icon7.png",
+    "/icons/icon8.png",
   ];
+
+  const tilesText = t("featuredServices.tiles", { returnObjects: true }) as { label: string[]; tag: string }[];
+  const tiles = tilesText.map((item, i) => ({ ...item, icon: ICONS[i] }));
 
   return (
     <section className="relative py-32">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="mb-16 flex flex-col gap-4">
-          <SectionLabel index="//04">CAPABILITIES</SectionLabel>
+          <SectionLabel index="//04">{t("featuredServices.sectionLabel")}</SectionLabel>
           <h2 className="font-display text-5xl leading-[0.95] tracking-wide md:text-7xl">
-            FEATURED <span className="text-plasma glow-text">SERVICES.</span>
+            {t("featuredServices.titleLine1")} <span className="text-plasma glow-text">{t("featuredServices.titleLine2")}</span>
           </h2>
         </div>
 
@@ -581,9 +582,7 @@ function FeaturedServices() {
               <figcaption className="text-center">
                 <div className="font-mono text-[13px] tracking-[0.3em] text-plasma mb-1">{t.tag}</div>
                 <div className="font-display text-lg tracking-wide text-foreground">
-                  {Array.isArray(t.label)
-                    ? t.label.map((line, i) => <span key={i} className="block">{line}</span>)
-                    : t.label}
+                  {t.label.map((line, i) => <span key={i} className="block">{line}</span>)}
                 </div>
               </figcaption>
               <div className="absolute right-3 top-3 h-2 w-2 bg-plasma animate-pulse" />
@@ -592,7 +591,7 @@ function FeaturedServices() {
         </div>
 
         <div className="mt-12 text-center">
-          <Link to="/services" className="btn-ghost">SEE ALL SERVICES →</Link>
+          <Link to="/services" className="btn-ghost">{t("featuredServices.seeAllCta")} →</Link>
         </div>
       </div>
     </section>

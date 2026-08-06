@@ -64,9 +64,65 @@
       "body": "An emotionally crafted VR experience for children undergoing pediatric oncology treatment, in partnership with Hospital do Amor."
     },
     "enterWorld": "ENTER WORLD"
+  },
+  "whyGoblin": {
+    "sectionLabel": "OUR SERVICES DETAILED",
+    "titleLine1": "BUILT",
+    "titleLine2": "DIFFERENT.",
+    "items": [
+      { "title": "AAA EXPERIENCE", "body": "Experienced professionals who have worked on AAA projects, having previously worked at studios such as Ubisoft, Electronic Arts, and Roblox." },
+      { "title": "INDIE-AWARE PRODUCTION", "body": "We use agile production methodologies to guarantee consistent deliveries, optimizing development time so that every penny of your budget translates into real progress, using tools adapted to the new reality of game development." },
+      { "title": "UNREAL ENGINE EXPERTISE", "body": "Unreal Engine is at the core of everything we do. From low-level C++ development, custom gameplay frameworks, GAS, networking, and tools creation to cinematics, VFX, technical art, and real-time experiences." },
+      { "title": "ARTISTIC OBSESSION", "body": "Frame-by-frame quality control. Concept art and assets that maintain maximum visual fidelity from start to finish." },
+      { "title": "FOUNDER-LED PRODUCTION", "body": "You talk to the people doing the work. No account-manager telephone games." },
+      { "title": "FLEXIBLE PIPELINES", "body": "Hybrid, embedded, or full delivery. We mold the team around your project." },
+      { "title": "GLOBAL AMBITION", "body": "Time zones don't scare us. The game is the only deadline that matters." },
+      { "title": "TRANSPARENCY & ALIGNED SCOPE", "body": "We work with clear and precise processes. Honest scopes, realistic art tests, and transparent budgets, because we'd rather lose a deal than promise something that isn't viable." }
+    ]
+  },
+    "pipeline": {
+    "sectionLabel": "WE ARE",
+    "titlePrefix": "THE",
+    "titleAccent": "FOUNDERS.",
+    "body": "The crew behind the craft. Senior leads across every discipline, forged in AAA pipelines, built for indie velocity.",
+    "founders": [
+      { "name": "Tony Cruz", "role": "10 years of professional experience developing and directing game projects using Unreal Engine" },
+      { "name": "Chris Silva", "role": "10 years of experience as an artist and 4 years in art direction" },
+      { "name": "Matheus Sakaguti", "role": "Marketing director, concept artist and graphic designer with 8 years of experience" },
+      { "name": "Vitor Tanaka", "role": "8 years of experience in audiovisual and film production" },
+      { "name": "Rafael Ongaro", "role": "Responsible for Goblin's financial and legal operations for the last 4 years" }
+    ]
+  },
+    "featuredWork": {
+    "sectionLabel": "SHOWREEL",
+    "titleLine1": "FEATURED",
+    "titleLine2": "WORK.",
+    "closeModal": "ESC / CLOSE",
+    "tiles": [
+      { "label": "EVERLEN", "tag": "FULL DEV" },
+      { "label": "BEDROOM BRAWL", "tag": "CO-DEV" },
+      { "label": "GOLDEN TIDES", "tag": "CO-DEV" },
+      { "label": "DEATHBOUND", "tag": "CO-DEV" },
+      { "label": "RIO RAISED IN OBLIVION", "tag": "OUTSOURCE" },
+      { "label": "CASSIODORA", "tag": "CO-DEV" }
+    ]
+  },
+  "featuredServices": {
+    "sectionLabel": "CAPABILITIES",
+    "titleLine1": "FEATURED",
+    "titleLine2": "SERVICES.",
+    "seeAllCta": "SEE ALL SERVICES",
+    "tiles": [
+      { "label": ["CONCEPT ART, CHARACTERS,", "ASSETS, ENVIRONMENTS, UI/UX"], "tag": "2D ART" },
+      { "label": ["UNREAL DEVELOPMENT"], "tag": "GAME PROGRAMMING" },
+      { "label": ["REALTIME AND CINEMATIC,", "RIGGING AND ANIMATION"], "tag": "ANIMATION" },
+      { "label": ["RENDERS AND COMPOSITION"], "tag": "AUDIOVISUAL" },
+      { "label": ["CHARACTERS, PROPS,", "ENVIRONMENTS"], "tag": "3D ART" },
+      { "label": ["KEY VISUAL"], "tag": "MARKETING ART" },
+      { "label": ["SFX, AMBIENT DESIGN,", "MUSIC DIRECTION, AUDIO IMPLEMENTATION"], "tag": "SOUND DESIGN" },
+      { "label": ["NIAGARA"], "tag": "IN GAME VFX" }
+    ]
   }
-
-
 }
 
 

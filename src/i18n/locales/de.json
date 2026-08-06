@@ -64,5 +64,63 @@
       "body": "Eine einfühlsam gestaltete VR-Erfahrung für Kinder in pädiatrisch-onkologischer Behandlung, in Partnerschaft mit dem Hospital do Amor."
     },
     "enterWorld": "WELT BETRETEN"
+  },
+    "whyGoblin": {
+    "sectionLabel": "UNSERE LEISTUNGEN IM DETAIL",
+    "titleLine1": "ANDERS",
+    "titleLine2": "GEBAUT.",
+    "items": [
+      { "title": "AAA-ERFAHRUNG", "body": "Erfahrene Profis, die an AAA-Projekten gearbeitet haben und zuvor bei Studios wie Ubisoft, Electronic Arts und Roblox tätig waren." },
+      { "title": "INDIE-BEWUSSTE PRODUKTION", "body": "Wir nutzen agile Produktionsmethoden, um konsistente Lieferungen zu garantieren, optimieren die Entwicklungszeit, damit jeder Cent deines Budgets in echten Fortschritt fließt, und setzen Tools ein, die auf die neue Realität der Spieleentwicklung zugeschnitten sind." },
+      { "title": "UNREAL-ENGINE-EXPERTISE", "body": "Unreal Engine steht im Zentrum von allem, was wir tun. Von Low-Level-C++-Entwicklung, individuellen Gameplay-Frameworks, GAS und Networking über Tool-Erstellung bis hin zu Cinematics, VFX, Technical Art und Echtzeit-Erfahrungen." },
+      { "title": "KÜNSTLERISCHE BESESSENHEIT", "body": "Bild-für-Bild-Qualitätskontrolle. Concept Art und Assets, die von Anfang bis Ende maximale visuelle Präzision beibehalten." },
+      { "title": "GRÜNDERGEFÜHRTE PRODUKTION", "body": "Du sprichst mit den Leuten, die die Arbeit machen. Keine Telefonspielchen mit Account-Managern." },
+      { "title": "FLEXIBLE PIPELINES", "body": "Hybrid, eingebettet oder Komplettlieferung. Wir formen das Team rund um dein Projekt." },
+      { "title": "GLOBALER EHRGEIZ", "body": "Zeitzonen schrecken uns nicht. Das Spiel ist die einzige Deadline, die zählt." },
+      { "title": "TRANSPARENZ & KLARER SCOPE", "body": "Wir arbeiten mit klaren und präzisen Prozessen. Ehrliche Scopes, realistische Art-Tests und transparente Budgets — denn wir verlieren lieber einen Deal, als etwas zu versprechen, das nicht machbar ist." }
+    ]
+  },
+    "pipeline": {
+    "sectionLabel": "WIR SIND",
+    "titlePrefix": "",
+    "titleAccent": "DIE GRÜNDER.",
+    "body": "Die Crew hinter dem Handwerk. Senior Leads in jeder Disziplin, geschmiedet in AAA-Pipelines, gebaut für Indie-Geschwindigkeit.",
+    "founders": [
+      { "name": "Tony Cruz", "role": "10 Jahre Berufserfahrung in der Entwicklung und Leitung von Spieleprojekten mit Unreal Engine" },
+      { "name": "Chris Silva", "role": "10 Jahre Erfahrung als Künstler und 4 Jahre in der Art Direction" },
+      { "name": "Matheus Sakaguti", "role": "Marketingdirektor, Concept Artist und Grafikdesigner mit 8 Jahren Erfahrung" },
+      { "name": "Vitor Tanaka", "role": "8 Jahre Erfahrung in Audiovisuell- und Filmproduktion" },
+      { "name": "Rafael Ongaro", "role": "Seit 4 Jahren verantwortlich für die Finanz- und Rechtsgeschäfte von Goblin" }
+    ]
+  },
+    "featuredWork": {
+    "sectionLabel": "SHOWREEL",
+    "titleLine1": "AUSGEWÄHLTE",
+    "titleLine2": "ARBEITEN.",
+    "closeModal": "ESC / SCHLIESSEN",
+    "tiles": [
+      { "label": "EVERLEN", "tag": "FULL DEV" },
+      { "label": "BEDROOM BRAWL", "tag": "CO-DEV" },
+      { "label": "GOLDEN TIDES", "tag": "CO-DEV" },
+      { "label": "DEATHBOUND", "tag": "CO-DEV" },
+      { "label": "RIO RAISED IN OBLIVION", "tag": "OUTSOURCE" },
+      { "label": "CASSIODORA", "tag": "CO-DEV" }
+    ]
+  },
+    "featuredServices": {
+    "sectionLabel": "FÄHIGKEITEN",
+    "titleLine1": "AUSGEWÄHLTE",
+    "titleLine2": "LEISTUNGEN.",
+    "seeAllCta": "ALLE LEISTUNGEN ANSEHEN",
+    "tiles": [
+      { "label": ["CONCEPT ART, CHARAKTERE,", "ASSETS, UMGEBUNGEN, UI/UX"], "tag": "2D ART" },
+      { "label": ["UNREAL-ENTWICKLUNG"], "tag": "GAME PROGRAMMING" },
+      { "label": ["ECHTZEIT UND CINEMATIC,", "RIGGING UND ANIMATION"], "tag": "ANIMATION" },
+      { "label": ["RENDERS UND KOMPOSITION"], "tag": "AUDIOVISUELL" },
+      { "label": ["CHARAKTERE, PROPS,", "UMGEBUNGEN"], "tag": "3D ART" },
+      { "label": ["KEY VISUAL"], "tag": "MARKETING ART" },
+      { "label": ["SFX, AMBIENT DESIGN,", "MUSIKREGIE, AUDIO-IMPLEMENTIERUNG"], "tag": "SOUND DESIGN" },
+      { "label": ["NIAGARA"], "tag": "IN-GAME-VFX" }
+    ]
   }
 }
