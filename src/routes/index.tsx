@@ -11,6 +11,7 @@ import deathboundHome from "@/assets/deathboundHome.jpg";
 import rioHome from "@/assets/rioHome.jpg";
 import cassiodoraHome from "@/assets/cassiodoraHome.jpg";
 import { useEffect, useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,6 +45,7 @@ function Home() {
 /* ============== HERO ============== */
 function Hero() {
   const [frame, setFrame] = useState(0);
+  const { t } = useTranslation();
   useEffect(() => {
     const t = setInterval(() => setFrame((f) => (f + 1) % 9999), 80);
     return () => clearInterval(t);
@@ -83,7 +85,7 @@ function Hero() {
       {/* content */}
       <div className="relative z-10 mx-auto flex h-full max-w-[1500px] flex-col justify-end px-6 pb-32 lg:px-10 lg:pb-40">
         <div className="max-w-5xl reveal">
-          <SectionLabel index="//01">BRAZILIAN GOBLINS · GLOBAL QUESTS</SectionLabel>
+          <SectionLabel index="//01">{t("hero.sectionLabel")}</SectionLabel>
 
           <h1 className="font-display text-[clamp(3.5rem,11vw,11rem)] leading-[0.85] tracking-[0.01em] text-foreground">
             <span
@@ -96,24 +98,24 @@ function Hero() {
                 textTransform: "uppercase",
               }}
             >
-              The new reality
+              {t("hero.eyebrow")}
             </span>
-            <span className="block glow-text">INDIE BUDGET</span>
-            <span className="glitch block text-stroke" data-text="AAA QUALITY">
-              AAA QUALITY
+            <span className="block glow-text">{t("hero.titleLine1")}</span>
+            <span className="glitch block text-stroke" data-text={t("hero.titleLine2")}>
+              {t("hero.titleLine2")}
             </span>
           </h1>
 
           <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Make your game be next level with us.
+            {t("hero.subtitle")}
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link to="/contact" className="btn-plasma">
-              CONTACT US <span aria-hidden>→</span>
+              {t("hero.ctaContact")} <span aria-hidden>→</span>
             </Link>
             <Link to="/everlen" className="btn-ghost">
-              EXPLORE OUR WORLDS
+              {t("hero.ctaExplore")}
             </Link>
           </div>
         </div>
@@ -130,26 +132,30 @@ function Hero() {
 
 /* ============== AAA EXPERIENCE ============== */
 function AAAExperience() {
+  const { t } = useTranslation();
   return (
     <section className="relative border-y border-border/60 bg-surface/40 py-24">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-[1fr_2fr] lg:items-end">
           <div>
-            <SectionLabel index="//02">PEDIGREE</SectionLabel>
+            <SectionLabel index="//02">{t("aaaExperience.sectionLabel")}</SectionLabel>
             <h2 className="font-display text-5xl leading-[0.95] tracking-wide text-foreground md:text-6xl">
-              EXPERIENCE FORGED <br />
-              IN <span className="text-plasma glow-text">AAA</span> PRODUCTION.
+              {t("aaaExperience.titleLine1")} <br />
+              {t("aaaExperience.titleLine2Pre")} <span className="text-plasma glow-text">{t("aaaExperience.titleLine2Accent")}</span> {t("aaaExperience.titleLine2Post")}
             </h2>
           </div>
-          <p className="max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            Our team members have contributed to projects connected to the world's most renowned studios, such as <b>Ubisoft</b>, <b>Electronic Arts</b> and <b>Roblox</b>. We absorbed the experience from these large workflows and refined it, shaping our own methodology by adapting AAA quality to AA and indie scopes.
-          </p>
+            <p className="max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+              <Trans
+                i18nKey="aaaExperience.body"
+                components={{ ubisoft: <b>Ubisoft</b>, ea: <b>Electronic Arts</b>, roblox: <b>Roblox</b> }}
+              />
+            </p>
         </div>
 
         <div className="mt-16 mb-2 flex items-center gap-4">
           <span className="h-px flex-1 bg-border/60" />
           <span className="font-mono text-[30px] tracking-[0.32em] text-muted-foreground">
-            OUR CLIENTS
+            {t("aaaExperience.clientsLabel")}
           </span>
           <span className="h-px flex-1 bg-border/60" />
         </div>
@@ -193,7 +199,7 @@ function AAAExperience() {
         </div>
 
         <p className="mt-6 max-w-2xl font-mono text-[11px] leading-relaxed tracking-wider text-muted-foreground/70">
-          * Team members' prior contributions on third-party projects. All trademarks property of their respective owners. We don't fake credits, we earn them.
+          {t("aaaExperience.disclaimer")}
         </p>
       </div>
     </section>
@@ -611,6 +617,7 @@ function FeaturedServices() {
 
 /* ============== FINAL CTA ============== */
 function FinalCTA() {
+  const { t } = useTranslation();
   return (
     <section className="relative overflow-hidden py-32">
       <div className="absolute inset-0">
@@ -620,19 +627,19 @@ function FinalCTA() {
       </div>
 
       <div className="relative mx-auto max-w-[1500px] px-6 lg:px-10 text-center">
-        <SectionLabel index="//09">SIGNAL OPEN</SectionLabel>
+        <SectionLabel index="//09">{t("finalCta.sectionLabel")}</SectionLabel>
         <h2 className="font-display text-5xl leading-[0.9] tracking-wide md:text-8xl">
-          LET'S BUILD <br />
-          SOMETHING <br />
-          <span className="text-plasma glow-text">UNFORGETTABLE.</span>
+          {t("finalCta.titleLine1")} <br />
+          {t("finalCta.titleLine2")} <br />
+          <span className="text-plasma glow-text">{t("finalCta.titleLine3")}</span>
         </h2>
         <p className="mt-8 mx-auto max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
-          Talk directly to the people who solve problems. We analyze your project and get back to you within 48 hours.
+          {t("finalCta.body")}
         </p>
         <div className="mt-10">
-          <Link to="/contact" className="btn-plasma">
-            START A PROJECT <span aria-hidden>→</span>
-          </Link>
+        <Link to="/contact" className="btn-plasma">
+          {t("finalCta.cta")} <span aria-hidden>→</span>
+        </Link>
         </div>
       </div>
     </section>

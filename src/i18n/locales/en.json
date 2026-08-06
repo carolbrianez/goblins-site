@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "home": "HOME",
+    "services": "SERVICES",
+    "portfolio": "PORTFOLIO",
+    "everlen": "EVERLEN",
+    "bookatoon": "BOOKATOON",
+    "goblinWay": "THE GOBLIN WAY",
+    "contact": "CONTACT",
+    "startProject": "START PROJECT"
+  },
+  "hero": {
+    "sectionLabel": "BRAZILIAN GOBLINS · GLOBAL QUESTS",
+    "eyebrow": "The new reality",
+    "titleLine1": "INDIE BUDGET",
+    "titleLine2": "AAA QUALITY",
+    "subtitle": "Make your game be next level with us.",
+    "ctaContact": "CONTACT US",
+    "ctaExplore": "EXPLORE OUR WORLDS"
+  },
+  "finalCta": {
+    "sectionLabel": "SIGNAL OPEN",
+    "titleLine1": "LET'S BUILD",
+    "titleLine2": "SOMETHING",
+    "titleLine3": "UNFORGETTABLE.",
+    "body": "Talk directly to the people who solve problems. We analyze your project and get back to you within 48 hours.",
+    "cta": "START A PROJECT"
+  },
+  "aaaExperience": {
+    "sectionLabel": "PEDIGREE",
+    "titleLine1": "EXPERIENCE FORGED",
+    "titleLine2Pre": "IN",
+    "titleLine2Accent": "AAA",
+    "titleLine2Post": "PRODUCTION.",
+    "body": "Our team members have contributed to projects connected to the world's most renowned studios, such as <ubisoft>Ubisoft</ubisoft>, <ea>Electronic Arts</ea> and <roblox>Roblox</roblox>. We absorbed the experience from these large workflows and refined it, shaping our own methodology by adapting AAA quality to AA and indie scopes.",
+    "clientsLabel": "OUR CLIENTS",
+    "disclaimer": "* Team members' prior contributions on third-party projects. All trademarks property of their respective owners. We don't fake credits, we earn them."
+  }
+}
+
+
+

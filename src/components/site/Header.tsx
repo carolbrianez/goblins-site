@@ -1,15 +1,16 @@
 import { Link, useRouterState } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
 import { Logo } from "./Logo";
 import { useEffect, useState } from "react";
 
 const NAV = [
-  { to: "/", label: "HOME", external: false },
-  { to: "/services", label: "SERVICES", external: false },
-  { to: "https://www.artstation.com/goblin-studios", label: "PORTFOLIO", external: true },
-  { to: "/everlen", label: "EVERLEN", external: false },
-  { to: "/bookatoon", label: "BOOKATOON", external: false },
-  { to: "/goblin-way", label: "THE GOBLIN WAY", external: false },
-  { to: "/contact", label: "CONTACT", external: false },
+  { to: "/", labelKey: "nav.home", external: false },
+  { to: "/services", labelKey: "nav.services", external: false },
+  { to: "https://www.artstation.com/goblin-studios", labelKey: "nav.portfolio", external: true },
+  { to: "/everlen", labelKey: "nav.everlen", external: false },
+  { to: "/bookatoon", labelKey: "nav.bookatoon", external: false },
+  { to: "/goblin-way", labelKey: "nav.goblinWay", external: false },
+  { to: "/contact", labelKey: "nav.contact", external: false },
 ];
 
 const navLinkClass = (active: boolean) =>
@@ -24,6 +25,7 @@ const navUnderline = (active: boolean) =>
 
 export function Header() {
   const { location } = useRouterState();
+  const { t, i18n } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -58,7 +60,7 @@ export function Header() {
                   className={navLinkClass(false)}
                 >
                   <span className="relative">
-                    {item.label}
+                    {t(item.labelKey)}
                     <span className={navUnderline(false)} />
                   </span>
                 </a>
@@ -71,7 +73,7 @@ export function Header() {
                 className={navLinkClass(active)}
               >
                 <span className="relative">
-                  {item.label}
+                  {t(item.labelKey)}
                   <span className={navUnderline(active)} />
                 </span>
               </Link>
@@ -81,9 +83,16 @@ export function Header() {
 
         <div className="hidden lg:block">
           <Link to="/contact" className="btn-plasma text-xs">
-            START PROJECT <span aria-hidden>→</span>
+            {t("nav.startProject")} <span aria-hidden>→</span>
           </Link>
         </div>
+
+        <button
+          onClick={() => i18n.changeLanguage(i18n.language === "en" ? "de" : "en")}
+          className="font-mono text-[11px] tracking-[0.28em] text-muted-foreground hover:text-plasma"
+        >
+          {i18n.language === "en" ? "DE" : "EN"}
+        </button>
 
         <button
           aria-label="Toggle menu"
@@ -111,7 +120,7 @@ export function Header() {
                   onClick={() => setOpen(false)}
                   className="border-b border-border/40 py-3 font-mono text-xs tracking-[0.28em] text-muted-foreground hover:text-plasma"
                 >
-                  {item.label}
+                  {t(item.labelKey)}
                 </a>
               ) : (
                 <Link
@@ -120,7 +129,7 @@ export function Header() {
                   onClick={() => setOpen(false)}
                   className="border-b border-border/40 py-3 font-mono text-xs tracking-[0.28em] text-muted-foreground hover:text-plasma"
                 >
-                  {item.label}
+                  {t(item.labelKey)}
                 </Link>
               )
             )}

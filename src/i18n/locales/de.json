@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "home": "STARTSEITE",
+    "services": "LEISTUNGEN",
+    "portfolio": "PORTFOLIO",
+    "everlen": "EVERLEN",
+    "bookatoon": "BOOKATOON",
+    "goblinWay": "THE GOBLIN WAY",
+    "contact": "KONTAKT",
+    "startProject": "PROJEKT STARTEN"
+  },
+  "hero": {
+    "sectionLabel": "BRASILIANISCHE GOBLINS · GLOBALE QUESTS",
+    "eyebrow": "Die neue Realität",
+    "titleLine1": "INDIE-BUDGET",
+    "titleLine2": "AAA-QUALITÄT",
+    "subtitle": "Bring dein Spiel mit uns auf das nächste Level.",
+    "ctaContact": "KONTAKT",
+    "ctaExplore": "UNSERE WELTEN ENTDECKEN"
+  },
+  "finalCta": {
+    "sectionLabel": "SIGNAL AKTIV",
+    "titleLine1": "LASS UNS ETWAS",
+    "titleLine2": "BAUEN, DAS",
+    "titleLine3": "UNVERGESSLICH IST.",
+    "body": "Sprich direkt mit den Leuten, die Probleme lösen. Wir analysieren dein Projekt und melden uns innerhalb von 48 Stunden.",
+    "cta": "PROJEKT STARTEN"
+  },
+  "aaaExperience": {
+    "sectionLabel": "ERFAHRUNG",
+    "titleLine1": "GESCHMIEDETE ERFAHRUNG",
+    "titleLine2Pre": "IN DER",
+    "titleLine2Accent": "AAA",
+    "titleLine2Post": "PRODUKTION.",
+    "body": "Unsere Teammitglieder haben an Projekten mitgewirkt, die mit den renommiertesten Studios der Welt verbunden sind, wie <ubisoft>Ubisoft</ubisoft>, <ea>Electronic Arts</ea> und <roblox>Roblox</roblox>. Wir haben die Erfahrung aus diesen großen Workflows aufgenommen und verfeinert und dabei unsere eigene Methodik entwickelt, indem wir AAA-Qualität an AA- und Indie-Umfänge angepasst haben.",
+    "clientsLabel": "UNSERE KUNDEN",
+    "disclaimer": "* Frühere Beiträge der Teammitglieder zu Projekten Dritter. Alle Markenzeichen sind Eigentum ihrer jeweiligen Inhaber. Wir täuschen keine Credits vor, wir verdienen sie uns."
+  }
+}
