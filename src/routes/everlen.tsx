@@ -80,22 +80,25 @@ function EverlenPage() {
   const [current, setCurrent] = useState(0);
   const [autoplayEnabled, setAutoplayEnabled] = useState(true);
 
+
   useEffect(() => {
     if (!autoplayEnabled) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % GALLERY.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [autoplayEnabled]);
+  }, [autoplayEnabled, current]);
 
   const goPrev = () => {
     setAutoplayEnabled(false);
     setCurrent((prev) => (prev - 1 + GALLERY.length) % GALLERY.length);
   };
+
   const goNext = () => {
     setAutoplayEnabled(true);
     setCurrent((prev) => (prev + 1) % GALLERY.length);
   };
+
   const goTo = (i: number) => setCurrent(i);
 
   return (
