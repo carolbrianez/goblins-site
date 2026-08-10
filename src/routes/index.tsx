@@ -388,11 +388,11 @@ function Pipeline() {
   const { t } = useTranslation();
 
   const FOUNDER_VIDEOS = [
-    "/videos/team-tony.mp4",
-    "/videos/team-chris.mp4",
-    "/videos/team-sakaguti.mp4",
-    "/videos/team-tanaka.mp4",
-    "/videos/team-rafa.mp4",
+    "/videos/team-tony.webm",
+    "/videos/team-chris.webm",
+    "/videos/team-sakaguti.webm",
+    "/videos/team-tanaka.webm",
+    "/videos/team-rafa.webm",
   ];
 
   const foundersData = t("pipeline.founders", { returnObjects: true }) as { name: string; role: string }[];
