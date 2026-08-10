@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { SectionLabel } from "@/components/site/SectionLabel";
-import chamado from "@/assets/chamado-key-art.jpg";
+import chamado from "@/assets/bookatoonIPsemLogo.jpg";
 import { useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/bookatoon")({
       { name: "description", content: "An emotionally crafted VR game for children undergoing pediatric oncology treatment. Built in partnership with Hospital do Amor." },
       { property: "og:title", content: "Bookatoon - Goblin Studios" },
       { property: "og:description", content: "VR game for pediatric oncology - in partnership with Hospital do Amor." },
-      { property: "og:image", content: "/assets/chamado-key-art.jpg" },
+      { property: "og:image", content: "/assets/bookatoonIPsemLogo.jpg" },
     ],
   }),
   component: ChamadoPage,
@@ -49,6 +49,38 @@ function VideoModal({ onClose }: { onClose: () => void }) {
   );
 }
 
+function BookatoonFloatingButton() {
+  const { t } = useTranslation();
+  return (
+    <a
+      href="https://bookatoon.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group fixed bottom-4 right-4 z-40 flex items-center gap-3 sm:bottom-10 sm:right-10 lg:bottom-30 lg:right-30"
+    >
+      <div className="pointer-events-none max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-300 group-hover:max-w-[260px] group-hover:opacity-100">
+        <p className="font-mono text-[11px] tracking-[0.25em] text-foreground">
+          {t("bookatoonPage.floatingCta.label")}
+        </p>
+        <p className="mt-1 text-[10px] tracking-wide text-muted-foreground">
+          {t("bookatoonPage.floatingCta.caption")}
+        </p>
+      </div>
+      <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-foreground/30 bg-background/40 backdrop-blur-sm transition-all duration-300 group-hover:border-plasma group-hover:shadow-[0_0_24px_color-mix(in_oklab,var(--plasma)_30%,transparent)] sm:h-16 sm:w-16">
+        <svg viewBox="0 0 100 100" className="spin-slow h-full w-full fill-foreground">
+          <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
+          <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.35" />
+          <circle cx="50" cy="50" r="28" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.25" />
+          <circle cx="50" cy="50" r="15" fill="var(--background)" />
+          <ellipse cx="45" cy="56" rx="5.5" ry="4.2" fill="currentColor" transform="rotate(-15 45 56)" />
+          <rect x="48.7" y="39" width="3" height="18" fill="currentColor" />
+          <path d="M51.7 39 C61 41 61.5 49 55 53.5 C58 48 57.5 43 51.7 41 Z" fill="currentColor" />
+        </svg>
+      </div>
+    </a>
+  );
+}
+
 function ChamadoPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const { t } = useTranslation();
@@ -57,7 +89,7 @@ function ChamadoPage() {
   return (
     <PageLayout>
       <section className="relative h-[100svh] min-h-[700px] w-full overflow-hidden">
-        <img src={chamado} alt="O Chamado do Herói key art" className="h-full w-full object-cover" width={1920} height={1080} />
+        <img src={chamado} alt="O Chamado do Herói key art" className="h-full w-full object-cover" style={{ objectPosition: `center var(--bookatoon-hero-y, 15%)` }} width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/30 to-background" />
 
         {/* Play button */}
@@ -138,6 +170,7 @@ function ChamadoPage() {
       </section>
 
       {modalOpen && <VideoModal onClose={() => setModalOpen(false)} />}
+      <BookatoonFloatingButton />
     </PageLayout>
   );
 }

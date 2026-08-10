@@ -53,9 +53,13 @@ export const Route = createRootRoute({
 });
 
 function RootComponent() {
+  const router = useRouter();
+  const pathname = router.state.location.pathname;
+  const hideAtmosphere = pathname === "/everlen";
+
   return (
     <>
-      <Atmosphere />
+      {!hideAtmosphere && <Atmosphere />}
       <Outlet />
     </>
   );

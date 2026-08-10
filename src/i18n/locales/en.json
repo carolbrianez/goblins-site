@@ -198,6 +198,10 @@
     }
   },
     "bookatoonPage": {
+    "floatingCta": {
+      "label": "Discover Bookatoon",
+      "caption": "Explore the project on its dedicated website"
+    },
     "modalClose": "CLOSE",
     "hero": {
       "sectionLabel": "VR · HUMANITARIAN · UNREAL ENGINE",

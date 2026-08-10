@@ -6,7 +6,19 @@ import icon1 from "@/assets/icon1.png";
 import icon2 from "@/assets/icon2.png";
 import icon3 from "@/assets/icon3.png";
 import steamIcon from "@/assets/steam.svg";
-import { useState } from "react";
+import everlenGameplay1 from "@/assets/EverlenGameplay1.png";
+import everlenGameplay2 from "@/assets/EverlenGameplay2.png";
+import everlenGameplay3 from "@/assets/EverlenGameplay3.png";
+import everlenGameplay4 from "@/assets/EverlenGameplay4.png";
+import everlenGameplay5 from "@/assets/EverlenGameplay5.png";
+import everlenGameplay6 from "@/assets/EverlenGameplay6.png";
+import everlenGameplay7 from "@/assets/EverlenGameplay7.png";
+import everlenGameplay8 from "@/assets/EverlenGameplay8.png";
+import everlenGameplay9 from "@/assets/EverlenGameplay9.png";
+import everlenGameplay10 from "@/assets/EverlenGameplay10.png";
+import everlenGameplay11 from "@/assets/EverlenGameplay11.png";
+import everlenGameplay12 from "@/assets/EverlenGameplay12.png";
+import { useEffect, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 
 export const Route = createFileRoute("/everlen")({
@@ -60,6 +72,32 @@ function EverlenPage() {
   const pillarsText = t("everlenPage.pillars.items", { returnObjects: true }) as { title: string; text: string }[];
   const pillars = pillarsText.map((p, i) => ({ ...p, icon: PILLAR_ICONS[i] }));
 
+  const GALLERY = [
+    everlenGameplay1, everlenGameplay2, everlenGameplay3, everlenGameplay4,
+    everlenGameplay5, everlenGameplay6, everlenGameplay7, everlenGameplay8,
+    everlenGameplay9, everlenGameplay10, everlenGameplay11, everlenGameplay12,
+  ];
+  const [current, setCurrent] = useState(0);
+  const [autoplayEnabled, setAutoplayEnabled] = useState(true);
+
+  useEffect(() => {
+    if (!autoplayEnabled) return;
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % GALLERY.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [autoplayEnabled]);
+
+  const goPrev = () => {
+    setAutoplayEnabled(false);
+    setCurrent((prev) => (prev - 1 + GALLERY.length) % GALLERY.length);
+  };
+  const goNext = () => {
+    setAutoplayEnabled(true);
+    setCurrent((prev) => (prev + 1) % GALLERY.length);
+  };
+  const goTo = (i: number) => setCurrent(i);
+
   return (
     <PageLayout>
       {/* Hero com play button */}
@@ -72,7 +110,6 @@ function EverlenPage() {
           height={1080}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background" />
-        <div className="absolute inset-0 vignette" />
 
         {/* Play button */}
         <button
@@ -127,18 +164,62 @@ function EverlenPage() {
           </div>
         </div>
       </section>
-      
+
       {/* media gallery */}
       <section className="py-32">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
           <SectionLabel index="//MEDIA">{t("everlenPage.media.sectionLabel")}</SectionLabel>
-          <div className="mt-10 grid auto-rows-[200px] grid-cols-2 gap-3 md:grid-cols-4 md:auto-rows-[260px]">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className={`relative overflow-hidden border border-border/60 clip-cut ${i === 1 || i === 4 ? "row-span-2" : ""}`}>
-                <img src={everlen} alt={`Everlen still ${i}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-1000 hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                <div className="absolute bottom-3 left-3 font-mono text-[10px] tracking-[0.3em] text-plasma">PLATE_{String(i).padStart(2, "0")}</div>
+
+          <div className="relative mt-10 overflow-hidden border border-border/60 clip-cut">
+            <div className="relative aspect-video w-full overflow-hidden">
+              <div
+                className="flex h-full transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)]"
+                style={{
+                  width: `${GALLERY.length * 100}%`,
+                  transform: `translateX(-${(100 / GALLERY.length) * current}%)`,
+                }}
+              >
+                {GALLERY.map((img, i) => (
+                  <div key={i} className="h-full shrink-0" style={{ width: `${100 / GALLERY.length}%` }}>
+                    <img
+                      src={img}
+                      alt={`Everlen gameplay still ${i + 1}`}
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                ))}
               </div>
+
+              <div className="pointer-events-none absolute bottom-3 left-3 font-mono text-[10px] tracking-[0.3em] text-plasma">
+                PLATE_{String(current + 1).padStart(2, "0")} / {String(GALLERY.length).padStart(2, "0")}
+              </div>
+            </div>
+
+            <button
+              onClick={goPrev}
+              aria-label="Previous slide"
+              className="absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center border border-plasma/60 bg-background/50 backdrop-blur-sm transition-all hover:border-plasma hover:bg-plasma/20"
+            >
+              <span className="text-xl text-plasma">‹</span>
+            </button>
+            <button
+              onClick={goNext}
+              aria-label="Next slide"
+              className="absolute right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center border border-plasma/60 bg-background/50 backdrop-blur-sm transition-all hover:border-plasma hover:bg-plasma/20"
+            >
+              <span className="text-xl text-plasma">›</span>
+            </button>
+          </div>
+
+          <div className="mt-4 flex justify-center gap-2">
+            {GALLERY.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`h-1.5 transition-all ${i === current ? "w-8 bg-plasma" : "w-1.5 bg-border"}`}
+              />
             ))}
           </div>
         </div>

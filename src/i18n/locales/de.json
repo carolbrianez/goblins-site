@@ -198,6 +198,10 @@
     }
   },
     "bookatoonPage": {
+    "floatingCta": {
+      "label": "Bookatoon entdecken",
+      "caption": "Erkunde das Projekt auf der eigenen Website"
+    },
     "modalClose": "SCHLIESSEN",
     "hero": {
       "sectionLabel": "VR · HUMANITÄR · UNREAL ENGINE",

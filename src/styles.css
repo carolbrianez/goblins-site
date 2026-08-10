@@ -352,6 +352,14 @@
   }
   .drift { animation: drift 7s ease-in-out infinite; }
 
+  @keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.spin-slow {
+  animation: spin-slow 6s linear infinite;
+}
+
   .clip-cut {
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
   }
