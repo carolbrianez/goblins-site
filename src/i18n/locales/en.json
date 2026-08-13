@@ -244,36 +244,28 @@
       "sections": [
         {
           "titles": ["THE GOBLIN WAY"],
-          "body": ["OUR CREED.", "There is a belief that great games can only be built by giant studios.", "We don't believe that.", "Not because ambition became smaller.", "Because the people behind it became stronger.", "For decades, the industry's greatest talent gathered inside massive organizations.", "They built unforgettable worlds.", "Defined genres.", "Inspired generations.", "Today, something remarkable is happening.", "Those same developers are founding their own studios.", "Smaller.", "More agile.", "More specialized.", "The experience never disappeared.", "It simply found new homes.", "The future of game development isn't about replacing AAA.", "It's about redistributing it.", "Knowledge.", "Craftsmanship.", "Leadership.", "Production expertise.", "The walls became smaller.", "The standards never did."]
+          "body": ["OUR CREED.", "Great games don't need giant studios.", "AAA talent is finding new homes: smaller, sharper, more specialized.", "The walls got smaller.", "The standards never did."]
         },
         {
           "titles": ["CRAFT ABOVE EVERYTHING."],
-          "body": ["Technology changes.", "Pipelines evolve.", "Tools improve.", "But one thing never changes:", "Great games are made by people.", "By artists who obsess over every silhouette.", "By designers who understand emotion.", "By programmers who care about every interaction.", "By producers who know that creativity only flourishes when execution is disciplined.", "Technology should amplify craftsmanship.", "Never replace it.", "We believe in better workflows.", "Not shortcuts."]
+          "body": ["Tools change. Craft doesn't.", "Great games are made by people who care deeply about every detail.", "Technology should amplify their talent, never replace it.", "Better workflows. Never shortcuts."]
         },
         {
           "titles": ["THE NEW REALITY."],
-          "body": ["Players no longer ask how many people built a game.", "They ask one question.", "\"Is it good?\"", "Studios face a different challenge than they did ten years ago.", "Budgets are tighter.", "Schedules are shorter.", "Expectations are higher.", "Yet the opportunity has never been greater.", "Modern production methods allow focused teams to achieve a level of quality that once belonged only to the industry's largest companies.", "Not by working less.", "By working smarter."]
-        },
-        {
-          "titles": ["INDIE SCOPE.", "AAA STANDARDS."],
-          "body": ["We believe excellence has never depended on size.", "It depends on clarity.", "Direction.", "Talent.", "Discipline.", "The ability to make every decision count.", "Every asset.", "Every mechanic.", "Every sprint.", "Every pixel.", "Every line of code.", "Nothing exists without purpose.", "That is how ambitious games are built."]
+          "body": ["Players don't care how big the team was. They care if the game is good.", "Budgets are tighter, timelines shorter, expectations higher.", "Focused teams can now reach world-class quality.", "Not by working less. By working smarter."]
         },
         {
           "titles": ["WE BUILD ALLIES."],
-          "body": ["Great partnerships are built on trust, transparency and shared ownership.", "When we join a project, we don't become another external supplier.", "We become part of the team.", "Your milestones become ours.", "Your challenges become ours.", "Your victories become ours."]
-        },
-        {
-          "titles": ["THE NEXT GENERATION."],
-          "body": ["During The Game Awards, Swen Vincke shared a thought that resonated throughout the industry:", "\"The game of the year will be made by a developer that simply wanted to make a game they wanted to play themselves.\"", "That belief isn't nostalgia.", "It's the direction the industry is taking.", "Studios like Kojima Productions.", "Teams like Sandfall Interactive with Clair Obscur: Expedition 33.", "Countless independent studios founded by veterans from the world's biggest companies.", "Different sizes.", "One common belief.", "Extraordinary games are built by extraordinary people.", "Not extraordinary bureaucracy."]
+          "body": ["We don't join projects as suppliers. We join as part of the team.", "Built on trust, transparency, and shared ownership.", "Your challenges become ours.", "So do your victories."]
         },
         {
           "titles": ["THIS IS THE GOBLIN WAY."],
-          "body": ["Question conventions.", "Respect the craft.", "Never stop learning.", "Stay humble.", "Stay curious.", "Protect quality.", "Share knowledge.", "Build worlds worth remembering.", "Because great studios are not measured by the number of people inside them.", "They are measured by the legacy they leave in the players who experience their games."],
+          "body": ["Question conventions. Respect the craft. Stay curious. Protect quality.", "Share knowledge and build worlds worth remembering.", "Because great studios aren't measured by their size.", "They're measured by the legacy they leave behind."],
           "quote": { "text": "Find something to believe in, and find it for yourself. When you do, pass it on to the future.", "author": "Hideo Kojima" }
         },
         {
           "titles": ["THE GOBLIN CODE"],
-          "body": ["We believe craft outlives trends.", "We believe discipline enables creativity.", "We believe great teams stay small until they must grow.", "We believe every artist should understand production.", "We believe every programmer should respect design.", "We believe quality is built one decision at a time.", "We believe trust is the foundation of every partnership.", "We believe knowledge exists to be shared.", "We believe games are made by people, for people.", "We believe every project deserves to become someone's favorite game."]
+          "body": ["We believe craft outlives trends.", "We believe discipline fuels creativity.", "We believe small teams can build extraordinary things.", "We believe every discipline deserves respect.", "We believe knowledge exists to be shared.", "We believe trust builds great partnerships.", "We believe quality lives in every decision.", "We believe every game deserves to become someone's favorite."]
         }
       ]
     },

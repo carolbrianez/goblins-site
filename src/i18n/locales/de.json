@@ -244,36 +244,66 @@
       "sections": [
         {
           "titles": ["DER GOBLIN WEG"],
-          "body": ["UNSER GLAUBENSBEKENNTNIS.", "Es gibt den Glauben, dass großartige Spiele nur von riesigen Studios gebaut werden können.", "Wir glauben das nicht.", "Nicht weil der Ehrgeiz kleiner wurde.", "Weil die Menschen dahinter stärker wurden.", "Jahrzehntelang versammelten sich die größten Talente der Branche in massiven Organisationen.", "Sie bauten unvergessliche Welten.", "Definierten Genres.", "Inspirierten Generationen.", "Heute geschieht etwas Bemerkenswertes.", "Dieselben Entwickler gründen ihre eigenen Studios.", "Kleiner.", "Agiler.", "Spezialisierter.", "Die Erfahrung ist nie verschwunden.", "Sie fand einfach neue Heimaten.", "Bei der Zukunft der Spieleentwicklung geht es nicht darum, AAA zu ersetzen.", "Es geht darum, es neu zu verteilen.", "Wissen.", "Handwerkskunst.", "Führung.", "Produktionsexpertise.", "Die Mauern wurden kleiner.", "Die Standards nie."]
+          "body": [
+            "UNSER GLAUBENSBEKENNTNIS.",
+            "Großartige Spiele brauchen keine riesigen Studios.",
+            "AAA-Talente finden neue Heimaten: kleiner, schärfer, spezialisierter.",
+            "Die Mauern wurden kleiner.",
+            "Die Standards nie."
+          ]
         },
         {
           "titles": ["HANDWERK ÜBER ALLEM."],
-          "body": ["Technologie verändert sich.", "Pipelines entwickeln sich weiter.", "Tools werden besser.", "Aber eines ändert sich nie:", "Großartige Spiele werden von Menschen gemacht.", "Von Künstlern, die über jede Silhouette wachen.", "Von Designern, die Emotion verstehen.", "Von Programmierern, denen jede Interaktion wichtig ist.", "Von Produzenten, die wissen, dass Kreativität nur gedeiht, wenn die Ausführung diszipliniert ist.", "Technologie sollte Handwerkskunst verstärken.", "Sie niemals ersetzen.", "Wir glauben an bessere Workflows.", "Nicht an Abkürzungen."]
+          "body": [
+            "Tools verändern sich. Handwerk nicht.",
+            "Großartige Spiele werden von Menschen gemacht, denen jedes Detail wichtig ist.",
+            "Technologie sollte ihr Talent verstärken, nie ersetzen.",
+            "Bessere Workflows. Nie Abkürzungen."
+          ]
         },
         {
           "titles": ["DIE NEUE REALITÄT."],
-          "body": ["Spieler fragen nicht mehr, wie viele Menschen ein Spiel gebaut haben.", "Sie stellen eine Frage.", "\"Ist es gut?\"", "Studios stehen vor einer anderen Herausforderung als vor zehn Jahren.", "Budgets sind knapper.", "Zeitpläne sind kürzer.", "Erwartungen sind höher.", "Doch die Chance war nie größer.", "Moderne Produktionsmethoden erlauben fokussierten Teams, ein Qualitätsniveau zu erreichen, das früher nur den größten Unternehmen der Branche vorbehalten war.", "Nicht durch weniger Arbeit.", "Durch klügere Arbeit."]
-        },
-        {
-          "titles": ["INDIE-UMFANG.", "AAA-STANDARDS."],
-          "body": ["Wir glauben, dass Exzellenz nie von der Größe abhing.", "Sie hängt von Klarheit ab.", "Richtung.", "Talent.", "Disziplin.", "Der Fähigkeit, jede Entscheidung zählen zu lassen.", "Jedes Asset.", "Jede Mechanik.", "Jeder Sprint.", "Jedes Pixel.", "Jede Zeile Code.", "Nichts existiert ohne Zweck.", "So werden ambitionierte Spiele gebaut."]
+          "body": [
+            "Spielern ist egal, wie groß das Team war. Ihnen ist wichtig, ob das Spiel gut ist.",
+            "Budgets sind knapper, Zeitpläne kürzer, Erwartungen höher.",
+            "Fokussierte Teams können heute Weltklasse-Qualität erreichen.",
+            "Nicht durch weniger Arbeit. Durch klügere Arbeit."
+          ]
         },
         {
           "titles": ["WIR BAUEN VERBÜNDETE."],
-          "body": ["Großartige Partnerschaften basieren auf Vertrauen, Transparenz und geteilter Verantwortung.", "Wenn wir einem Projekt beitreten, werden wir kein weiterer externer Lieferant.", "Wir werden Teil des Teams.", "Eure Meilensteine werden unsere.", "Eure Herausforderungen werden unsere.", "Eure Siege werden unsere."]
-        },
-        {
-          "titles": ["DIE NÄCHSTE GENERATION."],
-          "body": ["Bei The Game Awards teilte Swen Vincke einen Gedanken, der in der ganzen Branche widerhallte:", "\"Das Spiel des Jahres wird von einem Entwickler gemacht, der einfach ein Spiel machen wollte, das er selbst spielen wollte.\"", "Dieser Glaube ist keine Nostalgie.", "Es ist die Richtung, die die Branche einschlägt.", "Studios wie Kojima Productions.", "Teams wie Sandfall Interactive mit Clair Obscur: Expedition 33.", "Unzählige unabhängige Studios, gegründet von Veteranen der größten Unternehmen der Welt.", "Unterschiedliche Größen.", "Ein gemeinsamer Glaube.", "Außergewöhnliche Spiele werden von außergewöhnlichen Menschen gebaut.", "Nicht von außergewöhnlicher Bürokratie."]
+          "body": [
+            "Wir treten Projekten nicht als Lieferant bei. Wir werden Teil des Teams.",
+            "Aufgebaut auf Vertrauen, Transparenz und geteilter Verantwortung.",
+            "Eure Herausforderungen werden unsere.",
+            "Genau wie eure Siege."
+          ]
         },
         {
           "titles": ["DAS IST DER GOBLIN WEG."],
-          "body": ["Konventionen hinterfragen.", "Das Handwerk respektieren.", "Nie aufhören zu lernen.", "Bescheiden bleiben.", "Neugierig bleiben.", "Qualität schützen.", "Wissen teilen.", "Welten bauen, an die man sich erinnert.", "Denn großartige Studios werden nicht an der Anzahl ihrer Mitarbeiter gemessen.", "Sie werden am Vermächtnis gemessen, das sie in den Spielern hinterlassen, die ihre Spiele erleben."],
-          "quote": { "text": "Finde etwas, an das du glauben kannst, und finde es für dich selbst. Wenn du es gefunden hast, gib es an die Zukunft weiter.", "author": "Hideo Kojima" }
+          "body": [
+            "Konventionen hinterfragen. Das Handwerk respektieren. Neugierig bleiben. Qualität schützen.",
+            "Wissen teilen und Welten bauen, an die man sich erinnert.",
+            "Denn großartige Studios werden nicht an ihrer Größe gemessen.",
+            "Sie werden am Vermächtnis gemessen, das sie hinterlassen."
+          ],
+          "quote": {
+            "text": "Finde etwas, an das du glauben kannst, und finde es für dich selbst. Wenn du es gefunden hast, gib es an die Zukunft weiter.",
+            "author": "Hideo Kojima"
+          }
         },
         {
           "titles": ["DER GOBLIN-KODEX"],
-          "body": ["Wir glauben, dass Handwerk Trends überdauert.", "Wir glauben, dass Disziplin Kreativität ermöglicht.", "Wir glauben, dass großartige Teams klein bleiben, bis sie wachsen müssen.", "Wir glauben, dass jeder Künstler Produktion verstehen sollte.", "Wir glauben, dass jeder Programmierer Design respektieren sollte.", "Wir glauben, dass Qualität eine Entscheidung nach der anderen entsteht.", "Wir glauben, dass Vertrauen das Fundament jeder Partnerschaft ist.", "Wir glauben, dass Wissen dazu da ist, geteilt zu werden.", "Wir glauben, dass Spiele von Menschen für Menschen gemacht werden.", "Wir glauben, dass jedes Projekt es verdient, zu jemandes Lieblingsspiel zu werden."]
+          "body": [
+            "Wir glauben, dass Handwerk Trends überdauert.",
+            "Wir glauben, dass Disziplin Kreativität befeuert.",
+            "Wir glauben, dass kleine Teams Außergewöhnliches erschaffen können.",
+            "Wir glauben, dass jede Disziplin Respekt verdient.",
+            "Wir glauben, dass Wissen dazu da ist, geteilt zu werden.",
+            "Wir glauben, dass Vertrauen großartige Partnerschaften aufbaut.",
+            "Wir glauben, dass Qualität in jeder Entscheidung lebt.",
+            "Wir glauben, dass jedes Spiel es verdient, zu jemandes Lieblingsspiel zu werden."
+          ]
         }
       ]
     },

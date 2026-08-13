@@ -112,7 +112,6 @@ function EverlenPage() {
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background" />
 
         {/* Play button */}
         <button

@@ -48,6 +48,65 @@ function FlagDE() {
   );
 }
 
+function LanguageSwitchIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+      {/* Seta de cima, curva da direita pra esquerda */}
+      <path
+        d="M5 6 C5 3.8, 6.8 2, 9 2 L16 2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+      />
+      <path
+        d="M13.5 -0.2 L16.3 2 L13.5 4.2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      {/* Bandeira DE, canto superior direito */}
+      <g transform="translate(11, 4)">
+        <rect width="11" height="8.25" fill="#000" />
+        <rect y="2.75" width="11" height="2.75" fill="#DD0000" />
+        <rect y="5.5" width="11" height="2.75" fill="#FFCE00" />
+      </g>
+
+      {/* Bandeira US, canto inferior esquerdo */}
+      <g transform="translate(2, 11)">
+        <rect width="11" height="8.25" fill="#B22234" />
+        <rect y="0.63" width="11" height="0.63" fill="#fff" />
+        <rect y="1.9" width="11" height="0.63" fill="#fff" />
+        <rect y="3.16" width="11" height="0.63" fill="#fff" />
+        <rect y="4.42" width="11" height="0.63" fill="#fff" />
+        <rect y="5.68" width="11" height="0.63" fill="#fff" />
+        <rect y="6.94" width="11" height="0.63" fill="#fff" />
+        <rect width="4.4" height="4.4" fill="#3C3B6E" />
+      </g>
+
+      {/* Seta de baixo, curva da esquerda pra direita */}
+      <path
+        d="M19 18 C19 20.2, 17.2 22, 15 22 L8 22"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+      />
+      <path
+        d="M10.5 24.2 L7.7 22 L10.5 19.8"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function Header() {
   const { location } = useRouterState();
   const { t, i18n } = useTranslation();
@@ -116,7 +175,7 @@ export function Header() {
           onClick={() => i18n.changeLanguage(i18n.language === "en" ? "de" : "en")}
           className="flex items-center gap-2 font-mono text-[11px] tracking-[0.28em] text-muted-foreground hover:text-plasma"
         >
-          {i18n.language === "en" ? <FlagUS /> : <FlagDE />}
+          <LanguageSwitchIcon />
           <span>{i18n.language === "en" ? "EN" : "DE"}</span>
         </button>
 

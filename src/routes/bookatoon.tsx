@@ -67,14 +67,24 @@ function BookatoonFloatingButton() {
         </p>
       </div>
       <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-foreground/30 bg-background/40 backdrop-blur-sm transition-all duration-300 group-hover:border-plasma group-hover:shadow-[0_0_24px_color-mix(in_oklab,var(--plasma)_30%,transparent)] sm:h-16 sm:w-16">
-        <svg viewBox="0 0 100 100" className="spin-slow h-full w-full fill-foreground">
-          <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
-          <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.35" />
-          <circle cx="50" cy="50" r="28" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.25" />
-          <circle cx="50" cy="50" r="15" fill="var(--background)" />
-          <ellipse cx="45" cy="56" rx="5.5" ry="4.2" fill="currentColor" transform="rotate(-15 45 56)" />
-          <rect x="48.7" y="39" width="3" height="18" fill="currentColor" />
-          <path d="M51.7 39 C61 41 61.5 49 55 53.5 C58 48 57.5 43 51.7 41 Z" fill="currentColor" />
+        <svg viewBox="-10 -10 120 120" className="h-full w-full fill-foreground" style={{ overflow: "visible" }}>
+          <g
+            className="spin-slow"
+            style={{ transformBox: "view-box", transformOrigin: "50px 50px" }}
+          >
+            <circle cx="50" cy="50" r="47" fill="currentColor" />
+            <circle cx="50" cy="50" r="40" fill="none" stroke="var(--background)" strokeOpacity="0.12" strokeWidth="1.4" />
+            <circle cx="50" cy="50" r="33" fill="none" stroke="var(--background)" strokeOpacity="0.12" strokeWidth="1.4" />
+            <circle cx="50" cy="50" r="26" fill="none" stroke="var(--background)" strokeOpacity="0.12" strokeWidth="1.4" />
+            <circle cx="50" cy="50" r="17" fill="var(--background)" />
+            <path d="M53 42v13a3.6 3.6 0 1 1-2.6-3.4v-6.2l-6 1.4v7.6a3.6 3.6 0 1 1-2.6-3.4v-8.4l11.2-2.6z" fill="currentColor" />
+            <circle cx="50" cy="50" r="2" fill="currentColor" />
+          </g>
+          <g transform="translate(64 -6)">
+            <circle cx="12" cy="7" r="6" fill="var(--background)" stroke="currentColor" strokeWidth="2.5" />
+            <line x1="12" y1="12" x2="12" y2="38" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+            <rect x="8" y="34" width="8" height="9" rx="3" fill="var(--background)" stroke="currentColor" strokeWidth="2" />
+          </g>
         </svg>
       </div>
     </a>
