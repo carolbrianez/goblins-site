@@ -11,6 +11,7 @@ import deathboundHome from "@/assets/deathboundHome.jpg";
 import rioHome from "@/assets/rioHome.jpg";
 import cassiodoraHome from "@/assets/cassiodoraHome.jpg";
 import { useEffect, useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,6 +45,7 @@ function Home() {
 /* ============== HERO ============== */
 function Hero() {
   const [frame, setFrame] = useState(0);
+  const { t } = useTranslation();
   useEffect(() => {
     const t = setInterval(() => setFrame((f) => (f + 1) % 9999), 80);
     return () => clearInterval(t);
@@ -83,7 +85,7 @@ function Hero() {
       {/* content */}
       <div className="relative z-10 mx-auto flex h-full max-w-[1500px] flex-col justify-end px-6 pb-32 lg:px-10 lg:pb-40">
         <div className="max-w-5xl reveal">
-          <SectionLabel index="//01">BRAZILIAN GOBLINS · GLOBAL QUESTS</SectionLabel>
+          <SectionLabel index="//01">{t("hero.sectionLabel")}</SectionLabel>
 
           <h1 className="font-display text-[clamp(3.5rem,11vw,11rem)] leading-[0.85] tracking-[0.01em] text-foreground">
             <span
@@ -96,24 +98,24 @@ function Hero() {
                 textTransform: "uppercase",
               }}
             >
-              The new reality
+              {t("hero.eyebrow")}
             </span>
-            <span className="block glow-text">INDIE BUDGET</span>
-            <span className="glitch block text-stroke" data-text="AAA QUALITY">
-              AAA QUALITY
+            <span className="block glow-text">{t("hero.titleLine1")}</span>
+            <span className="glitch block text-stroke" data-text={t("hero.titleLine2")}>
+              {t("hero.titleLine2")}
             </span>
           </h1>
 
           <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Make your game be next level with us.
+            {t("hero.subtitle")}
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link to="/contact" className="btn-plasma">
-              CONTACT US <span aria-hidden>→</span>
+              {t("hero.ctaContact")} <span aria-hidden>→</span>
             </Link>
             <Link to="/everlen" className="btn-ghost">
-              EXPLORE OUR WORLDS
+              {t("hero.ctaExplore")}
             </Link>
           </div>
         </div>
@@ -130,26 +132,30 @@ function Hero() {
 
 /* ============== AAA EXPERIENCE ============== */
 function AAAExperience() {
+  const { t } = useTranslation();
   return (
     <section className="relative border-y border-border/60 bg-surface/40 py-24">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-[1fr_2fr] lg:items-end">
           <div>
-            <SectionLabel index="//02">PEDIGREE</SectionLabel>
+            <SectionLabel index="//02">{t("aaaExperience.sectionLabel")}</SectionLabel>
             <h2 className="font-display text-5xl leading-[0.95] tracking-wide text-foreground md:text-6xl">
-              EXPERIENCE FORGED <br />
-              IN <span className="text-plasma glow-text">AAA</span> PRODUCTION.
+              {t("aaaExperience.titleLine1")} <br />
+              {t("aaaExperience.titleLine2Pre")} <span className="text-plasma glow-text">{t("aaaExperience.titleLine2Accent")}</span> {t("aaaExperience.titleLine2Post")}
             </h2>
           </div>
-          <p className="max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            Our team members have contributed to projects connected to the world's most renowned studios, such as <b>Ubisoft</b>, <b>Electronic Arts</b> and <b>Roblox</b>. We absorbed the experience from these large workflows and refined it, shaping our own methodology by adapting AAA quality to AA and indie scopes.
-          </p>
+            <p className="max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+              <Trans
+                i18nKey="aaaExperience.body"
+                components={{ ubisoft: <b>Ubisoft</b>, ea: <b>Electronic Arts</b>, roblox: <b>Roblox</b> }}
+              />
+            </p>
         </div>
 
         <div className="mt-16 mb-2 flex items-center gap-4">
           <span className="h-px flex-1 bg-border/60" />
           <span className="font-mono text-[30px] tracking-[0.32em] text-muted-foreground">
-            OUR CLIENTS
+            {t("aaaExperience.clientsLabel")}
           </span>
           <span className="h-px flex-1 bg-border/60" />
         </div>
@@ -193,7 +199,7 @@ function AAAExperience() {
         </div>
 
         <p className="mt-6 max-w-2xl font-mono text-[11px] leading-relaxed tracking-wider text-muted-foreground/70">
-          * Team members' prior contributions on third-party projects. All trademarks property of their respective owners. We don't fake credits, we earn them.
+          {t("aaaExperience.disclaimer")}
         </p>
       </div>
     </section>
@@ -201,42 +207,24 @@ function AAAExperience() {
 }
 
 /* ============== SERVICES ============== */
-const SERVICE_DETAILS = [
-  "Concept Art", "Characters", "Environments", "Hard Surface",
-  "Animation", "VFX", "Gameplay Programming", "Technical Art",
-  "Cinematics", "Unreal Engine Dev",
-];
-
-const SERVICES = [
-  {
-    id: "01",
-    title: "FULL DEVELOPMENT",
-    tagline: "We build games from the ground up.",
-    body: "From a single line of pitch to a shipped title. We assemble the team, own the pipeline, and execute end to end.",
-  },
-  {
-    id: "02",
-    title: "CO-DEVELOPMENT",
-    tagline: "Your team. Reinforced.",
-    body: "We plug into your studio like a technical and strategic strike force. We have the synergy, communication, and technical expertise required to run in perfect alignment with your internal team toward the same goal, the game.",
-  },
-  {
-    id: "03",
-    title: "OUTSOURCE",
-    tagline: "AAA execution. Indie-aware production.",
-    body: "On-demand by specific tasks or major milestones. 3D modeling, concept art, animation, VFX, gameplay, and tech art delivered at pinnacle fidelity without the corporate bureaucracy.",
-  },
-] as const;
-
 function Services() {
+  const { t } = useTranslation();
+  const SERVICES = t("services.items", { returnObjects: true }) as {
+    id: string;
+    title: string;
+    tagline: string;
+    body: string;
+  }[];
+  const SERVICE_DETAILS = t("services.capabilities", { returnObjects: true }) as string[];
+
   return (
     <section className="relative py-32">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="flex flex-col gap-4">
-          <SectionLabel index="//05">WHAT WE DO</SectionLabel>
+          <SectionLabel index="//05">{t("services.sectionLabel")}</SectionLabel>
           <h2 className="max-w-4xl font-display text-5xl leading-[0.95] tracking-wide md:text-7xl">
-            THREE WEAPONS. <br />
-            <span className="text-plasma glow-text">ONE OBSESSION.</span>
+            {t("services.titleLine1")} <br />
+            <span className="text-plasma glow-text">{t("services.titleLine2")}</span>
           </h2>
         </div>
 
@@ -263,7 +251,7 @@ function Services() {
 
               <div className="mt-8 border-t border-border/40 pt-6">
                 <div className="mb-3 font-mono text-[10px] tracking-[0.3em] text-muted-foreground">
-                  CAPABILITIES
+                  {t("services.capabilitiesLabel")}
                 </div>
                 <ul className="flex flex-wrap gap-1.5">
                   {SERVICE_DETAILS.map((d) => (
@@ -281,7 +269,7 @@ function Services() {
         </div>
 
         <div className="mt-12 text-center">
-          <Link to="/services" className="btn-ghost">DEEP DIVE INTO SERVICES →</Link>
+          <Link to="/services" className="btn-ghost">{t("services.deepDiveCta")} →</Link>
         </div>
       </div>
     </section>
@@ -290,30 +278,31 @@ function Services() {
 
 /* ============== ORIGINAL IPs ============== */
 function OriginalIPs() {
+  const { t } = useTranslation();
   return (
     <section className="relative py-32">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="flex flex-col gap-4">
-          <SectionLabel index="//06">ORIGINAL IPs</SectionLabel>
+          <SectionLabel index="//06">{t("originalIPs.sectionLabel")}</SectionLabel>
           <h2 className="max-w-5xl font-display text-5xl leading-[0.95] tracking-wide md:text-7xl">
-            WE DON'T JUST SUPPORT GAMES. <br />
-            <span className="text-plasma glow-text">WE CREATE THEM.</span>
+            {t("originalIPs.titleLine1")} <br />
+            <span className="text-plasma glow-text">{t("originalIPs.titleLine2")}</span>
           </h2>
         </div>
 
         <div className="mt-20 grid gap-10 lg:grid-cols-2">
           <IPCard
-            tag="DARK FANTASY · AAA-LIKE"
-            title="EVERLEN"
-            body="Our realistic dark sci-fi art style game where hunt a sentient world and save the last seed of humanity it's your goal."
+            tag={t("originalIPs.everlen.tag")}
+            title={t("originalIPs.everlen.title")}
+            body={t("originalIPs.everlen.body")}
             img={everlenIP}
             href="/everlen"
             accent="text-plasma"
           />
           <IPCard
-            tag="VR · HUMANITARIAN"
-            title="BOOKATOON"
-            body="An emotionally crafted VR experience for children undergoing pediatric oncology treatment, in partnership with Hospital do Amor."
+            tag={t("originalIPs.bookatoon.tag")}
+            title={t("originalIPs.bookatoon.title")}
+            body={t("originalIPs.bookatoon.body")}
             img={bookatoonIP}
             href="/bookatoon"
             accent="text-holo"
@@ -327,6 +316,7 @@ function OriginalIPs() {
 function IPCard({
   tag, title, body, img, href, accent,
 }: { tag: string; title: string; body: string; img: string; href: string; accent: string }) {
+  const { t } = useTranslation();
   return (
     <Link to={href} className="group relative block overflow-hidden border border-border/60 clip-cut">
       <div className="relative aspect-[16/10] overflow-hidden">
@@ -354,7 +344,7 @@ function IPCard({
           {body}
         </p>
         <div className="mt-6 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.28em] text-foreground transition-all group-hover:text-plasma group-hover:gap-4">
-          ENTER WORLD <span>→</span>
+          {t("originalIPs.enterWorld")} <span>→</span>
         </div>
       </div>
     </Link>
@@ -362,71 +352,64 @@ function IPCard({
 }
 
 /* ============== WHY GOBLIN ============== */
-const WHY = [
-  ["AAA EXPERIENCE", "Experienced professionals who have worked on AAA projects, having previously worked at studios such as Ubisoft, Electronic Arts, and Roblox."],
-  ["INDIE-AWARE PRODUCTION", "We use agile production methodologies to guarantee consistent deliveries, optimizing development time so that every penny of your budget translates into real progress, using tools adapted to the new reality of game development."],
-  ["UNREAL ENGINE EXPERTISE", "Unreal Engine is at the core of everything we do. From low-level C++ development, custom gameplay frameworks, GAS, networking, and tools creation to cinematics, VFX, technical art, and real-time experiences."],
-  ["ARTISTIC OBSESSION", "Frame-by-frame quality control. Concept art and assets that maintain maximum visual fidelity from start to finish."],
-  ["FOUNDER-LED PRODUCTION", "You talk to the people doing the work. No account-manager telephone games."],
-  ["FLEXIBLE PIPELINES", "Hybrid, embedded, or full delivery. We mold the team around your project."],
-  ["GLOBAL AMBITION", "Time zones don't scare us. The game is the only deadline that matters."],
-  ["TRANSPARENCY & ALIGNED SCOPE", "We work with clear and precise processes. Honest scopes, realistic art tests, and transparent budgets, because we'd rather lose a deal than promise something that isn't viable."],
-];
-
 function WhyGoblin() {
+  const { t } = useTranslation();
+  const WHY = t("whyGoblin.items", { returnObjects: true }) as { title: string; body: string }[];
   return (
     <section className="relative border-y border-border/60 bg-surface/30 py-32">
       <div className="absolute inset-0 grid-bg opacity-30" />
       <div className="relative mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="mb-16 flex flex-col gap-4">
-          <SectionLabel index="//07">OUR SERVICES DETAILED</SectionLabel>
+          <SectionLabel index="//07">{t("whyGoblin.sectionLabel")}</SectionLabel>
           <h2 className="font-display text-6xl leading-[0.9] tracking-wide md:text-8xl">
-            BUILT <span className="text-plasma glow-text">DIFFERENT.</span>
+            {t("whyGoblin.titleLine1")} <span className="text-plasma glow-text">{t("whyGoblin.titleLine2")}</span>
           </h2>
         </div>
 
         <div className="grid gap-px overflow-hidden border border-border/60 bg-border/60 md:grid-cols-2 lg:grid-cols-4">
-          {WHY.map(([title, body], i) => (
-            <div key={title} className="group relative bg-background p-8 transition-colors hover:bg-surface">
-              <div className="mb-6 flex items-center justify-between">
-                <span className="font-mono text-[10px] tracking-[0.3em] text-plasma">
-                  //{String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="h-px w-8 bg-plasma transition-all group-hover:w-16" />
-              </div>
-              <h3 className="font-display text-xl leading-tight tracking-wide text-foreground">
-                {title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
-            </div>
-          ))}
+        {WHY.map((item, i) => (
+          <div key={item.title} className="group relative bg-background p-8 transition-colors hover:bg-surface">
+            ...
+            <h3 className="font-display text-xl leading-tight tracking-wide text-foreground">
+              {item.title}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+          </div>
+        ))}
         </div>
       </div>
     </section>
   );
 }
 
-const FOUNDERS = [
-  { name: "Tony Cruz", role: "10 years of professional experience developing and directing game projects using Unreal Engine", video: "/videos/team-tony.mp4" },
-  { name: "Chris Silva", role: "10 years of experience as an artist and 4 years in art direction", video: "/videos/team-chris.mp4" },
-  { name: "Matheus Sakaguti", role: "Marketing director, concept artist and graphic designer with 8 years of experience", video: "/videos/team-sakaguti.mp4" },
-  { name: "Vitor Tanaka", role: "8 years of experience in audiovisual and film production", video: "/videos/team-tanaka.mp4" },
-  { name: "Rafael Ongaro", role: "Responsible for Goblin's financial and legal operations for the last 4 years", video: "/videos/team-rafa.mp4" },
-];
+/* ============== FOUNDERS ============== */
 
 function Pipeline() {
+  const { t } = useTranslation();
+
+  const FOUNDER_VIDEOS = [
+    "/videos/team-tony.webm",
+    "/videos/team-chris.webm",
+    "/videos/team-sakaguti.webm",
+    "/videos/team-tanaka.webm",
+    "/videos/team-rafa.webm",
+  ];
+
+  const foundersData = t("pipeline.founders", { returnObjects: true }) as { name: string; role: string }[];
+  const FOUNDERS = foundersData.map((f, i) => ({ ...f, video: FOUNDER_VIDEOS[i] }));
+
   return (
     <section className="relative py-32">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="mb-16 grid gap-6 lg:grid-cols-[2fr_1fr] lg:items-end">
           <div>
-            <SectionLabel index="//08">WE ARE</SectionLabel>
+            <SectionLabel index="//08">{t("pipeline.sectionLabel")}</SectionLabel>
             <h2 className="font-display text-5xl leading-[0.95] tracking-wide md:text-7xl">
-              THE <span className="text-plasma">FOUNDERS.</span>
+              {t("pipeline.titlePrefix")} <span className="text-plasma">{t("pipeline.titleAccent")}</span>
             </h2>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
-            The crew behind the craft. Senior leads across every discipline, forged in AAA pipelines, built for indie velocity.
+            {t("pipeline.body")}
           </p>
         </div>
 
@@ -464,56 +447,59 @@ function Pipeline() {
 
 /* ============== FEATURED WORK ============== */
 function FeaturedWork() {
+  const { t } = useTranslation();
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
-  const tiles = [
-    { img: everlenHome,    label: "EVERLEN",               tag: "FULL DEV",   h: "row-span-2", youtubeId: "w49B3_-jVoc" },
-    { img: bedroomHome,    label: "BEDROOM BRAWL",         tag: "CO-DEV",                      youtubeId: "-mJPxat0MVM" },
-    { img: goldenHome,     label: "GOLDEN TIDES",          tag: "CO-DEV",                      youtubeId: "OQzA8hFS0FI" },
-    { img: deathboundHome, label: "DEATHBOUND",            tag: "CO-DEV",     h: "row-span-2", youtubeId: "SbW3exPtr7k" },
-    { img: rioHome,        label: "RIO RAISED IN OBLIVION",tag: "OUTSOURCE",                   youtubeId: "l8ypmhlLtUE" },
-    { img: cassiodoraHome, label: "CASSIODORA",            tag: "CO-DEV",                      youtubeId: "flLl1N0bLKM" },
+  const TILE_DATA = [
+    { img: everlenHome,    h: "row-span-2", youtubeId: "w49B3_-jVoc" },
+    { img: bedroomHome,    h: undefined,    youtubeId: "-mJPxat0MVM" },
+    { img: goldenHome,     h: undefined,    youtubeId: "OQzA8hFS0FI" },
+    { img: deathboundHome, h: "row-span-2", youtubeId: "SbW3exPtr7k" },
+    { img: rioHome,        h: undefined,    youtubeId: "l8ypmhlLtUE" },
+    { img: cassiodoraHome, h: undefined,    youtubeId: "flLl1N0bLKM" },
   ];
+
+  const tilesText = t("featuredWork.tiles", { returnObjects: true }) as { label: string; tag: string }[];
+  const tiles = TILE_DATA.map((d, i) => ({ ...d, ...tilesText[i] }));
 
   return (
     <section className="relative py-32">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="mb-16 flex flex-col gap-4">
-          <SectionLabel index="//03">SHOWREEL</SectionLabel>
+          <SectionLabel index="//03">{t("featuredWork.sectionLabel")}</SectionLabel>
           <h2 className="font-display text-5xl leading-[0.95] tracking-wide md:text-7xl">
-            FEATURED <span className="text-plasma glow-text">WORK.</span>
+            {t("featuredWork.titleLine1")} <span className="text-plasma glow-text">{t("featuredWork.titleLine2")}</span>
           </h2>
         </div>
 
         <div className="grid auto-rows-[180px] grid-cols-2 gap-3 md:grid-cols-4 md:auto-rows-[220px]">
-          {tiles.map((t, i) => {
-            const isClickable = !!t.youtubeId;
+          {tiles.map((tile, i) => {
+            const isClickable = !!tile.youtubeId;
             const Tag = isClickable ? "button" : "figure";
 
             return (
               <Tag
                 key={i}
                 {...(isClickable
-                  ? { onClick: () => setActiveVideo(t.youtubeId!), type: "button" }
+                  ? { onClick: () => setActiveVideo(tile.youtubeId!), type: "button" }
                   : {})}
-                className={`group relative overflow-hidden border border-border/60 clip-cut ${t.h ?? ""} ${
+                className={`group relative overflow-hidden border border-border/60 clip-cut ${tile.h ?? ""} ${
                   isClickable ? "cursor-pointer w-full text-left" : ""
                 }`}
               >
                 <img
-                  src={t.img}
-                  alt={t.label}
+                  src={tile.img}
+                  alt={tile.label}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent" />
-                {/* overlay sutil no hover apenas para tiles clicáveis */}
                 {isClickable && (
                   <div className="absolute inset-0 bg-plasma/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 )}
                 <figcaption className="absolute inset-x-0 bottom-0 p-4">
-                  <div className="font-mono text-[10px] tracking-[0.3em] text-plasma">{t.tag}</div>
-                  <div className="font-display text-lg tracking-wide text-foreground">{t.label}</div>
+                  <div className="font-mono text-[10px] tracking-[0.3em] text-plasma">{tile.tag}</div>
+                  <div className="font-display text-lg tracking-wide text-foreground">{tile.label}</div>
                 </figcaption>
                 <div className="absolute right-3 top-3 h-2 w-2 bg-plasma animate-pulse" />
               </Tag>
@@ -537,7 +523,7 @@ function FeaturedWork() {
               className="absolute -top-10 right-4 font-mono text-xs tracking-[0.3em] text-muted-foreground transition-colors hover:text-plasma"
               type="button"
             >
-              [ ESC / CLOSE ]
+              [ {t("featuredWork.closeModal")} ]
             </button>
             <div className="relative aspect-video w-full border border-border/60">
               <iframe
@@ -556,24 +542,29 @@ function FeaturedWork() {
 
 /* ============== FEATURED SERVICES ============== */
 function FeaturedServices() {
-  const tiles = [
-    { icon: "/icons/icon1.png", label: ["CONCEPT ART, CHARACTERS,", "ASSETS, ENVIRONMENTS, UI/UX"], tag: "2D ART" },
-    { icon: "/icons/icon3.png", label: ["UNREAL DEVELOPMENT"],                                       tag: "GAME PROGRAMMING" },
-    { icon: "/icons/icon4.png", label: ["REALTIME AND CINEMATIC,", "RIGGING AND ANIMATION"],         tag: "ANIMATION" },
-    { icon: "/icons/icon5.png", label: ["RENDERS AND COMPOSITION"],                                   tag: "AUDIOVISUAL" },
-    { icon: "/icons/icon2.png", label: ["CHARACTERS, PROPS,", "ENVIRONMENTS"],                       tag: "3D ART" },
-    { icon: "/icons/icon6.png", label: ["KEY VISUAL"],                                                tag: "MARKETING ART" },
-    { icon: "/icons/icon7.png", label: ["SFX, AMBIENT DESIGN,", "MUSIC DIRECTION, AUDIO IMPLEMENTATION"], tag: "SOUND DESIGN" },
-    { icon: "/icons/icon8.png", label: ["NIAGARA"],                                                   tag: "IN GAME VFX" },
+  const { t } = useTranslation();
+
+  const ICONS = [
+    "/icons/icon1.png",
+    "/icons/icon3.png",
+    "/icons/icon4.png",
+    "/icons/icon5.png",
+    "/icons/icon2.png",
+    "/icons/icon6.png",
+    "/icons/icon7.png",
+    "/icons/icon8.png",
   ];
+
+  const tilesText = t("featuredServices.tiles", { returnObjects: true }) as { label: string[]; tag: string }[];
+  const tiles = tilesText.map((item, i) => ({ ...item, icon: ICONS[i] }));
 
   return (
     <section className="relative py-32">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
         <div className="mb-16 flex flex-col gap-4">
-          <SectionLabel index="//04">CAPABILITIES</SectionLabel>
+          <SectionLabel index="//04">{t("featuredServices.sectionLabel")}</SectionLabel>
           <h2 className="font-display text-5xl leading-[0.95] tracking-wide md:text-7xl">
-            FEATURED <span className="text-plasma glow-text">SERVICES.</span>
+            {t("featuredServices.titleLine1")} <span className="text-plasma glow-text">{t("featuredServices.titleLine2")}</span>
           </h2>
         </div>
 
@@ -591,9 +582,7 @@ function FeaturedServices() {
               <figcaption className="text-center">
                 <div className="font-mono text-[13px] tracking-[0.3em] text-plasma mb-1">{t.tag}</div>
                 <div className="font-display text-lg tracking-wide text-foreground">
-                  {Array.isArray(t.label)
-                    ? t.label.map((line, i) => <span key={i} className="block">{line}</span>)
-                    : t.label}
+                  {t.label.map((line, i) => <span key={i} className="block">{line}</span>)}
                 </div>
               </figcaption>
               <div className="absolute right-3 top-3 h-2 w-2 bg-plasma animate-pulse" />
@@ -602,7 +591,7 @@ function FeaturedServices() {
         </div>
 
         <div className="mt-12 text-center">
-          <Link to="/services" className="btn-ghost">SEE ALL SERVICES →</Link>
+          <Link to="/services" className="btn-ghost">{t("featuredServices.seeAllCta")} →</Link>
         </div>
       </div>
     </section>
@@ -611,6 +600,7 @@ function FeaturedServices() {
 
 /* ============== FINAL CTA ============== */
 function FinalCTA() {
+  const { t } = useTranslation();
   return (
     <section className="relative overflow-hidden py-32">
       <div className="absolute inset-0">
@@ -620,19 +610,19 @@ function FinalCTA() {
       </div>
 
       <div className="relative mx-auto max-w-[1500px] px-6 lg:px-10 text-center">
-        <SectionLabel index="//09">SIGNAL OPEN</SectionLabel>
+        <SectionLabel index="//09">{t("finalCta.sectionLabel")}</SectionLabel>
         <h2 className="font-display text-5xl leading-[0.9] tracking-wide md:text-8xl">
-          LET'S BUILD <br />
-          SOMETHING <br />
-          <span className="text-plasma glow-text">UNFORGETTABLE.</span>
+          {t("finalCta.titleLine1")} <br />
+          {t("finalCta.titleLine2")} <br />
+          <span className="text-plasma glow-text">{t("finalCta.titleLine3")}</span>
         </h2>
         <p className="mt-8 mx-auto max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
-          Talk directly to the people who solve problems. We analyze your project and get back to you within 48 hours.
+          {t("finalCta.body")}
         </p>
         <div className="mt-10">
-          <Link to="/contact" className="btn-plasma">
-            START A PROJECT <span aria-hidden>→</span>
-          </Link>
+        <Link to="/contact" className="btn-plasma">
+          {t("finalCta.cta")} <span aria-hidden>→</span>
+        </Link>
         </div>
       </div>
     </section>

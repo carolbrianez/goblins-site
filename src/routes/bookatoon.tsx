@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageLayout } from "@/components/site/PageLayout";
 import { SectionLabel } from "@/components/site/SectionLabel";
-import chamado from "@/assets/chamado-key-art.jpg";
+import chamado from "@/assets/bookatoonIPsemLogo.jpg";
 import { useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 
 export const Route = createFileRoute("/bookatoon")({
   head: () => ({
@@ -11,13 +12,14 @@ export const Route = createFileRoute("/bookatoon")({
       { name: "description", content: "An emotionally crafted VR game for children undergoing pediatric oncology treatment. Built in partnership with Hospital do Amor." },
       { property: "og:title", content: "Bookatoon - Goblin Studios" },
       { property: "og:description", content: "VR game for pediatric oncology - in partnership with Hospital do Amor." },
-      { property: "og:image", content: "/assets/chamado-key-art.jpg" },
+      { property: "og:image", content: "/assets/bookatoonIPsemLogo.jpg" },
     ],
   }),
   component: ChamadoPage,
 });
 
 function VideoModal({ onClose }: { onClose: () => void }) {
+  const { t } = useTranslation();
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-background/90 backdrop-blur-sm"
@@ -31,7 +33,7 @@ function VideoModal({ onClose }: { onClose: () => void }) {
           onClick={onClose}
           className="absolute -top-10 right-4 font-mono text-[11px] tracking-[0.3em] text-plasma hover:text-foreground"
         >
-          ✕ CLOSE
+          ✕ {t("bookatoonPage.modalClose")}
         </button>
         <div className="relative aspect-video w-full overflow-hidden border border-border/60">
           <iframe
@@ -47,13 +49,57 @@ function VideoModal({ onClose }: { onClose: () => void }) {
   );
 }
 
+function BookatoonFloatingButton() {
+  const { t } = useTranslation();
+  return (
+    <a
+      href="https://bookatoon.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group fixed bottom-4 right-4 z-40 flex items-center gap-3 sm:bottom-10 sm:right-10 lg:bottom-30 lg:right-30"
+    >
+      <div className="pointer-events-none max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-300 group-hover:max-w-[260px] group-hover:opacity-100">
+        <p className="font-mono text-[11px] tracking-[0.25em] text-foreground">
+          {t("bookatoonPage.floatingCta.label")}
+        </p>
+        <p className="mt-1 text-[10px] tracking-wide text-muted-foreground">
+          {t("bookatoonPage.floatingCta.caption")}
+        </p>
+      </div>
+      <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-foreground/30 bg-background/40 backdrop-blur-sm transition-all duration-300 group-hover:border-plasma group-hover:shadow-[0_0_24px_color-mix(in_oklab,var(--plasma)_30%,transparent)] sm:h-16 sm:w-16">
+        <svg viewBox="-10 -10 120 120" className="h-full w-full fill-foreground" style={{ overflow: "visible" }}>
+          <g
+            className="spin-slow"
+            style={{ transformBox: "view-box", transformOrigin: "50px 50px" }}
+          >
+            <circle cx="50" cy="50" r="47" fill="currentColor" />
+            <circle cx="50" cy="50" r="40" fill="none" stroke="var(--background)" strokeOpacity="0.12" strokeWidth="1.4" />
+            <circle cx="50" cy="50" r="33" fill="none" stroke="var(--background)" strokeOpacity="0.12" strokeWidth="1.4" />
+            <circle cx="50" cy="50" r="26" fill="none" stroke="var(--background)" strokeOpacity="0.12" strokeWidth="1.4" />
+            <circle cx="50" cy="50" r="17" fill="var(--background)" />
+            <path d="M53 42v13a3.6 3.6 0 1 1-2.6-3.4v-6.2l-6 1.4v7.6a3.6 3.6 0 1 1-2.6-3.4v-8.4l11.2-2.6z" fill="currentColor" />
+            <circle cx="50" cy="50" r="2" fill="currentColor" />
+          </g>
+          <g transform="translate(64 -6)">
+            <circle cx="12" cy="7" r="6" fill="var(--background)" stroke="currentColor" strokeWidth="2.5" />
+            <line x1="12" y1="12" x2="12" y2="38" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+            <rect x="8" y="34" width="8" height="9" rx="3" fill="var(--background)" stroke="currentColor" strokeWidth="2" />
+          </g>
+        </svg>
+      </div>
+    </a>
+  );
+}
+
 function ChamadoPage() {
   const [modalOpen, setModalOpen] = useState(false);
+  const { t } = useTranslation();
+  const pillars = t("bookatoonPage.pillars.items", { returnObjects: true }) as { title: string; body: string }[];
 
   return (
     <PageLayout>
       <section className="relative h-[100svh] min-h-[700px] w-full overflow-hidden">
-        <img src={chamado} alt="O Chamado do Herói key art" className="h-full w-full object-cover" width={1920} height={1080} />
+        <img src={chamado} alt="O Chamado do Herói key art" className="h-full w-full object-cover" style={{ objectPosition: `center var(--bookatoon-hero-y, 15%)` }} width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/30 to-background" />
 
         {/* Play button */}
@@ -67,12 +113,12 @@ function ChamadoPage() {
         </button>
 
         <div className="absolute inset-x-0 bottom-24 z-10 mx-auto max-w-[1500px] px-6 lg:px-10">
-          <SectionLabel index="//IP_002">VR · HUMANITARIAN · UNREAL ENGINE</SectionLabel>
+          <SectionLabel index="//IP_002">{t("bookatoonPage.hero.sectionLabel")}</SectionLabel>
           <h1 className="font-display text-[clamp(3rem,9vw,8rem)] leading-[0.85] tracking-wide text-foreground glow-holo select-none">
             BOOKATOON
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground select-none">
-            A VR adventure built to walk beside children fighting cancer turning treatment days into hero's journeys.
+            {t("bookatoonPage.hero.subtitle")}
           </p>
         </div>
       </section>
@@ -81,16 +127,16 @@ function ChamadoPage() {
       <section className="border-t border-border/60 py-32">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
-            <SectionLabel index="//MISSION">WHY THIS GAME EXISTS</SectionLabel>
+            <SectionLabel index="//MISSION">{t("bookatoonPage.mission.sectionLabel")}</SectionLabel>
             <div className="space-y-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
               <p>
-                <span className="text-holo">Bookatoon</span> was born from the belief that no child should lose the ability to dream, imagine, and find hope while facing a health challenge, more than a game, Bookatoon is an original transmedia universe designed to inspire courage, resilience, and perseverance through memorable characters, music, stories, games, and immersive experience.
+                <Trans i18nKey="bookatoonPage.mission.p1" components={{ holo: <span className="text-holo" /> }} />
               </p>
               <p>
-                Its first chapter began with the humanization of pediatric oncology care, but its vision extends far beyond cancer-creating meaningful experiences that support children and families throughout their healthcare journey. The first Bookatoon experience is a therapeutic gamification platform developed by <span className="text-plasma">Goblin Studios</span>, with scientific and institucional support from <span className="text-holo">Hospital de Amor</span>, one of Latin America's leading cancer treatment and research centers.
+                <Trans i18nKey="bookatoonPage.mission.p2" components={{ plasma: <span className="text-plasma" />, holo: <span className="text-holo" /> }} />
               </p>
               <p>
-                Together, they combine creativity, technology, and clinical expertise to build a global entertainment franchise that transforms storytelling into a source of hope, empowering children to discover that the light to overcome life's greatest challenges has always existed within themselves.
+                {t("bookatoonPage.mission.p3")}
               </p>
             </div>
           </div>
@@ -100,16 +146,12 @@ function ChamadoPage() {
       {/* Pillars */}
       <section className="border-t border-border/60 bg-surface/40 py-24">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
-          <SectionLabel index="//PILLARS">DESIGN PILLARS</SectionLabel>
+          <SectionLabel index="//PILLARS">{t("bookatoonPage.pillars.sectionLabel")}</SectionLabel>
           <div className="mt-10 grid gap-px border border-border/60 bg-border/60 md:grid-cols-3">
-            {[
-              ["IMAGINE", "Where fear gives way to music."],
-              ["BELIEVE", "Because courage grows from within."],
-              ["OVERCOME", "One story, one song and one step at a time."],
-            ].map(([t, b]) => (
-              <div key={t} className="bg-background p-8">
-                <h3 className="font-display text-2xl tracking-wide text-holo">{t}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{b}</p>
+            {pillars.map((p) => (
+              <div key={p.title} className="bg-background p-8">
+                <h3 className="font-display text-2xl tracking-wide text-holo">{p.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
               </div>
             ))}
           </div>
@@ -120,26 +162,25 @@ function ChamadoPage() {
       <section className="border-t border-border/60 py-32">
         <div className="mx-auto max-w-3xl px-6 text-center lg:px-10">
           <p className="font-display text-3xl leading-tight tracking-wide md:text-5xl">
-            "A child asked the nurse if she could play
-            <span className="text-holo glow-holo"> one more level</span> before chemo. <br />
-            That's the day we knew we'd built the right thing."
+            <Trans i18nKey="bookatoonPage.quote.text" components={{ holo: <span className="text-holo glow-holo" /> }} />
           </p>
           <p className="mt-6 font-mono text-xs tracking-[0.3em] text-muted-foreground">
-            — GOBLIN STUDIOS · INTERNAL POSTMORTEM
+            {t("bookatoonPage.quote.attribution")}
           </p>
         </div>
       </section>
 
       <section className="border-t border-border/60 py-24 text-center">
         <h3 className="font-display text-4xl tracking-wide md:text-6xl">
-          GAMES CAN <span className="text-holo glow-holo">HEAL.</span>
+          {t("bookatoonPage.finalCta.titlePlain")} <span className="text-holo glow-holo">{t("bookatoonPage.finalCta.titleAccent")}</span>
         </h3>
         <div className="mt-8">
-          <Link to="/contact" className="btn-ghost">PARTNER WITH US →</Link>
+          <Link to="/contact" className="btn-ghost">{t("bookatoonPage.finalCta.button")} →</Link>
         </div>
       </section>
 
       {modalOpen && <VideoModal onClose={() => setModalOpen(false)} />}
+      <BookatoonFloatingButton />
     </PageLayout>
   );
 }

@@ -6,7 +6,20 @@ import icon1 from "@/assets/icon1.png";
 import icon2 from "@/assets/icon2.png";
 import icon3 from "@/assets/icon3.png";
 import steamIcon from "@/assets/steam.svg";
-import { useState } from "react";
+import everlenGameplay1 from "@/assets/EverlenGameplay1.png";
+import everlenGameplay2 from "@/assets/EverlenGameplay2.png";
+import everlenGameplay3 from "@/assets/EverlenGameplay3.png";
+import everlenGameplay4 from "@/assets/EverlenGameplay4.png";
+import everlenGameplay5 from "@/assets/EverlenGameplay5.png";
+import everlenGameplay6 from "@/assets/EverlenGameplay6.png";
+import everlenGameplay7 from "@/assets/EverlenGameplay7.png";
+import everlenGameplay8 from "@/assets/EverlenGameplay8.png";
+import everlenGameplay9 from "@/assets/EverlenGameplay9.png";
+import everlenGameplay10 from "@/assets/EverlenGameplay10.png";
+import everlenGameplay11 from "@/assets/EverlenGameplay11.png";
+import everlenGameplay12 from "@/assets/EverlenGameplay12.png";
+import { useEffect, useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 
 export const Route = createFileRoute("/everlen")({
   head: () => ({
@@ -22,6 +35,7 @@ export const Route = createFileRoute("/everlen")({
 });
 
 function VideoModal({ onClose }: { onClose: () => void }) {
+  const { t } = useTranslation();
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-background/90 backdrop-blur-sm"
@@ -35,7 +49,7 @@ function VideoModal({ onClose }: { onClose: () => void }) {
           onClick={onClose}
           className="absolute -top-10 right-4 font-mono text-[11px] tracking-[0.3em] text-plasma hover:text-foreground"
         >
-          ✕ CLOSE
+          ✕ {t("everlenPage.modalClose")}
         </button>
         <div className="relative aspect-video w-full overflow-hidden border border-border/60">
           <iframe
@@ -53,6 +67,39 @@ function VideoModal({ onClose }: { onClose: () => void }) {
 
 function EverlenPage() {
   const [modalOpen, setModalOpen] = useState(false);
+  const { t } = useTranslation();
+  const PILLAR_ICONS = [icon1, icon2, icon3];
+  const pillarsText = t("everlenPage.pillars.items", { returnObjects: true }) as { title: string; text: string }[];
+  const pillars = pillarsText.map((p, i) => ({ ...p, icon: PILLAR_ICONS[i] }));
+
+  const GALLERY = [
+    everlenGameplay1, everlenGameplay2, everlenGameplay3, everlenGameplay4,
+    everlenGameplay5, everlenGameplay6, everlenGameplay7, everlenGameplay8,
+    everlenGameplay9, everlenGameplay10, everlenGameplay11, everlenGameplay12,
+  ];
+  const [current, setCurrent] = useState(0);
+  const [autoplayEnabled, setAutoplayEnabled] = useState(true);
+
+
+  useEffect(() => {
+    if (!autoplayEnabled) return;
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % GALLERY.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [autoplayEnabled, current]);
+
+  const goPrev = () => {
+    setAutoplayEnabled(false);
+    setCurrent((prev) => (prev - 1 + GALLERY.length) % GALLERY.length);
+  };
+
+  const goNext = () => {
+    setAutoplayEnabled(true);
+    setCurrent((prev) => (prev + 1) % GALLERY.length);
+  };
+
+  const goTo = (i: number) => setCurrent(i);
 
   return (
     <PageLayout>
@@ -65,8 +112,6 @@ function EverlenPage() {
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background" />
-        <div className="absolute inset-0 vignette" />
 
         {/* Play button */}
         <button
@@ -79,12 +124,12 @@ function EverlenPage() {
         </button>
 
         <div className="absolute inset-x-0 bottom-24 z-10 mx-auto max-w-[1500px] px-6 lg:px-10">
-          <SectionLabel index="//IP_001">DARK SCI-FI · UNREAL ENGINE 5</SectionLabel>
+          <SectionLabel index="//IP_001">{t("everlenPage.hero.sectionLabel")}</SectionLabel>
           <h1 className="font-display text-[clamp(5rem,18vw,18rem)] leading-[0.78] tracking-wider text-foreground glow-text select-none">
             EVERLEN
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            Hunt a sentient world and save the last seed of humanity.
+            {t("everlenPage.hero.subtitle")}
           </p>
         </div>
       </section>
@@ -93,13 +138,11 @@ function EverlenPage() {
       <section className="border-t border-border/60 py-32">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
           <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
-            <SectionLabel index="//LORE">THE WORLD</SectionLabel>
+            <SectionLabel index="//LORE">{t("everlenPage.lore.sectionLabel")}</SectionLabel>
             <div className="space-y-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
+              <p>{t("everlenPage.lore.p1")}</p>
               <p>
-                Build, adapt, fail, rise again - where survival meets roguelike.
-              </p>
-              <p>
-                In <em>Everlen</em> players are thrown into an apocalyptic space-opera universe where morality lives in the grey areas. Gameplay is focused on intense encounters with hostile creatures in the bullet hell combat style, inspired by Returnal, Dune and Helldivers 2.
+                <Trans i18nKey="everlenPage.lore.p2" components={{ em: <em /> }} />
               </p>
             </div>
           </div>
@@ -109,13 +152,9 @@ function EverlenPage() {
       {/* pillars */}
       <section className="border-t border-border/60 bg-surface/40 py-24">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
-          <SectionLabel index="//PILLARS">DESIGN</SectionLabel>
+          <SectionLabel index="//PILLARS">{t("everlenPage.pillars.sectionLabel")}</SectionLabel>
           <div className="grid gap-6 lg:grid-cols-3">
-            {[
-              { icon: icon1, title: "BUILD YOUR STRATEGY", text: "Mastering a hostile world through system, strategy and precise combat." },
-              { icon: icon2, title: "SURVIVE A LIVING PLANET", text: "A roguelite survival TPS" },
-              { icon: icon3, title: "CHOOSE EVERY DECISION CAREFULLY", text: "Where survival is driven by a greater mission" },
-            ].map(({ icon, title, text }) => (
+            {pillars.map(({ icon, title, text }) => (
               <div key={title} className="flex items-center gap-6 border border-border/60 bg-background p-6 transition-colors hover:border-plasma/40">
                 <img src={icon} alt={title} className="h-16 w-16 shrink-0" />
                 <div>
@@ -131,14 +170,58 @@ function EverlenPage() {
       {/* media gallery */}
       <section className="py-32">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
-          <SectionLabel index="//MEDIA">SCREENSHOTS · CONCEPT</SectionLabel>
-          <div className="mt-10 grid auto-rows-[200px] grid-cols-2 gap-3 md:grid-cols-4 md:auto-rows-[260px]">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className={`relative overflow-hidden border border-border/60 clip-cut ${i === 1 || i === 4 ? "row-span-2" : ""}`}>
-                <img src={everlen} alt={`Everlen still ${i}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-1000 hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                <div className="absolute bottom-3 left-3 font-mono text-[10px] tracking-[0.3em] text-plasma">PLATE_{String(i).padStart(2, "0")}</div>
+          <SectionLabel index="//MEDIA">{t("everlenPage.media.sectionLabel")}</SectionLabel>
+
+          <div className="relative mt-10 overflow-hidden border border-border/60 clip-cut">
+            <div className="relative aspect-video w-full overflow-hidden">
+              <div
+                className="flex h-full transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)]"
+                style={{
+                  width: `${GALLERY.length * 100}%`,
+                  transform: `translateX(-${(100 / GALLERY.length) * current}%)`,
+                }}
+              >
+                {GALLERY.map((img, i) => (
+                  <div key={i} className="h-full shrink-0" style={{ width: `${100 / GALLERY.length}%` }}>
+                    <img
+                      src={img}
+                      alt={`Everlen gameplay still ${i + 1}`}
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                ))}
               </div>
+
+              <div className="pointer-events-none absolute bottom-3 left-3 font-mono text-[10px] tracking-[0.3em] text-plasma">
+                PLATE_{String(current + 1).padStart(2, "0")} / {String(GALLERY.length).padStart(2, "0")}
+              </div>
+            </div>
+
+            <button
+              onClick={goPrev}
+              aria-label="Previous slide"
+              className="absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center border border-plasma/60 bg-background/50 backdrop-blur-sm transition-all hover:border-plasma hover:bg-plasma/20"
+            >
+              <span className="text-xl text-plasma">‹</span>
+            </button>
+            <button
+              onClick={goNext}
+              aria-label="Next slide"
+              className="absolute right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center border border-plasma/60 bg-background/50 backdrop-blur-sm transition-all hover:border-plasma hover:bg-plasma/20"
+            >
+              <span className="text-xl text-plasma">›</span>
+            </button>
+          </div>
+
+          <div className="mt-4 flex justify-center gap-2">
+            {GALLERY.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`h-1.5 transition-all ${i === current ? "w-8 bg-plasma" : "w-1.5 bg-border"}`}
+              />
             ))}
           </div>
         </div>
@@ -146,7 +229,7 @@ function EverlenPage() {
 
       <section className="border-t border-border/60 py-24 text-center">
         <h3 className="font-display text-4xl tracking-wide md:text-6xl">
-          SURVIVE THE HUNT. <span className="text-plasma">BECOME THE THREAT.</span>
+          {t("everlenPage.finalCta.titlePlain")} <span className="text-plasma">{t("everlenPage.finalCta.titleAccent")}</span>
         </h3>
 
         <div className="mt-8">
@@ -157,7 +240,7 @@ function EverlenPage() {
           className="btn-plasma inline-flex items-center gap-3 px-10 py-4 text-base"
           >
             <img src={steamIcon} alt="Steam" className="h-5 w-5 shrink-0" />
-            ADD TO WISHLIST ON STEAM
+            {t("everlenPage.finalCta.wishlistButton")}
           </a>
         </div>
       </section>
