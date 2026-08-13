@@ -116,7 +116,7 @@ function EverlenPage() {
         {/* Play button */}
         <button
           onClick={() => setModalOpen(true)}
-          className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 group flex flex-col items-center gap-4"
+          className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 group flex flex-col items-center gap-4"
         >
           <div className="flex h-20 w-20 items-center justify-center border-2 border-plasma bg-background/40 backdrop-blur-sm transition-all group-hover:bg-plasma/20 group-hover:scale-110">
             <span className="ml-1 text-3xl text-plasma">▶</span>
@@ -125,7 +125,7 @@ function EverlenPage() {
 
         <div className="absolute inset-x-0 bottom-24 z-10 mx-auto max-w-[1500px] px-6 lg:px-10">
           <SectionLabel index="//IP_001">{t("everlenPage.hero.sectionLabel")}</SectionLabel>
-          <h1 className="font-display text-[clamp(5rem,18vw,18rem)] leading-[0.78] tracking-wider text-foreground glow-text select-none">
+          <h1 className="font-display text-[clamp(5rem,14vw,13rem)] leading-[0.78] tracking-wider text-foreground glow-text select-none">
             EVERLEN
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
