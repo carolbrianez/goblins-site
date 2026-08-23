@@ -180,6 +180,16 @@
       "p1": "Bauen, anpassen, scheitern, wieder aufstehen: hier trifft Survival auf Roguelike.",
       "p2": "In <em>Everlen</em> werden Spieler in ein apokalyptisches Weltraumoper-Universum geworfen, in dem Moral in Grauzonen lebt. Das Gameplay konzentriert sich auf intensive Begegnungen mit feindlichen Kreaturen im Bullet-Hell-Kampfstil, inspiriert von Returnal, Dune und Helldivers 2."
     },
+    "playtestSignup": {
+      "title": "MELDE DICH FÜR DEN PLAYTEST AN",
+      "namePlaceholder": "Dein Name",
+      "emailPlaceholder": "Deine E-Mail-Adresse",
+      "submitButton": "ANMELDEN",
+      "submitting": "WIRD GESENDET...",
+      "successMessage": "Danke! Du bist jetzt auf der Playtest-Liste.",
+      "alreadyRegisteredMessage": "Du bist bereits auf der Liste angemeldet.",
+      "errorMessage": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+    },
     "pillars": {
       "sectionLabel": "DESIGN",
       "items": [

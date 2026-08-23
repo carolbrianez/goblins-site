@@ -180,6 +180,16 @@
       "p1": "Build, adapt, fail, rise again - where survival meets roguelike.",
       "p2": "In <em>Everlen</em> players are thrown into an apocalyptic space-opera universe where morality lives in the grey areas. Gameplay is focused on intense encounters with hostile creatures in the bullet hell combat style, inspired by Returnal, Dune and Helldivers 2."
     },
+    "playtestSignup": {
+      "title": "SIGN UP FOR PLAYTEST SESSIONS",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "Your email address",
+      "submitButton": "SIGN UP",
+      "submitting": "SENDING...",
+      "successMessage": "Thanks! You're on the playtest list.",
+      "alreadyRegisteredMessage": "You're already signed up.",
+      "errorMessage": "Something went wrong. Please try again."
+    },
     "pillars": {
       "sectionLabel": "DESIGN",
       "items": [

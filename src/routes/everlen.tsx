@@ -20,6 +20,7 @@ import everlenGameplay11 from "@/assets/EverlenGameplay11.png";
 import everlenGameplay12 from "@/assets/EverlenGameplay12.png";
 import { useEffect, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 export const Route = createFileRoute("/everlen")({
   head: () => ({
@@ -62,6 +63,88 @@ function VideoModal({ onClose }: { onClose: () => void }) {
         </div>
       </div>
     </div>
+  );
+}
+
+function PlaytestSignupForm() {
+  const { t } = useTranslation();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "alreadyRegistered" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/playtest-signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, turnstileToken }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setStatus("error");
+        return;
+      }
+      setStatus(data.alreadyRegistered ? "alreadyRegistered" : "success");
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  if (status === "success" || status === "alreadyRegistered") {
+    return (
+      <div className="border border-plasma/40 bg-background/60 p-6">
+        <p className="font-mono text-sm text-plasma">
+          {status === "success"
+            ? t("everlenPage.playtestSignup.successMessage")
+            : t("everlenPage.playtestSignup.alreadyRegisteredMessage")}
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4 border border-border/60 bg-background/60 p-6">
+      <h3 className="font-display text-2xl tracking-wide text-plasma md:text-3xl">
+        {t("everlenPage.playtestSignup.title")}
+      </h3>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <input
+          type="text"
+          required
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder={t("everlenPage.playtestSignup.namePlaceholder")}
+          className="w-full border border-border/80 bg-background/60 px-4 py-3 font-mono text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:border-plasma focus:ring-plasma/40"
+        />
+        <input
+          type="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder={t("everlenPage.playtestSignup.emailPlaceholder")}
+          className="w-full border border-border/80 bg-background/60 px-4 py-3 font-mono text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:border-plasma focus:ring-plasma/40"
+        />
+      </div>
+      <Turnstile
+        siteKey="0x4AAAAAADyGxsChS1fPW0dk"
+        onSuccess={setTurnstileToken}
+      />
+      <button
+        type="submit"
+        disabled={status === "loading" || !turnstileToken}
+        className="btn-plasma px-8 py-3 text-sm disabled:opacity-50"
+      >
+        {status === "loading" ? t("everlenPage.playtestSignup.submitting") : t("everlenPage.playtestSignup.submitButton")}
+      </button>
+      {status === "error" && (
+        <p className="font-mono text-[10px] tracking-wider text-red-400">
+          ◢ {t("everlenPage.playtestSignup.errorMessage")}
+        </p>
+      )}
+    </form>
   );
 }
 
@@ -137,7 +220,9 @@ function EverlenPage() {
       {/* lore */}
       <section className="border-t border-border/60 py-32">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
-          <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
+          <PlaytestSignupForm />
+
+          <div className="mt-16 grid gap-16 lg:grid-cols-[1fr_2fr]">
             <SectionLabel index="//LORE">{t("everlenPage.lore.sectionLabel")}</SectionLabel>
             <div className="space-y-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
               <p>{t("everlenPage.lore.p1")}</p>
