@@ -77,7 +77,7 @@ function PlaytestSignupForm() {
     e.preventDefault();
     setStatus("loading");
     try {
-      const res = await fetch("/api/playtest-signup", {
+      const res = await fetch("https://goblins-site.vercel.app/api/playtest-signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, turnstileToken }),
